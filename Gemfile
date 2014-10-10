@@ -16,6 +16,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'minitest'
 end
 
 ruby '1.9.3'
