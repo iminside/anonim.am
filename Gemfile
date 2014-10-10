@@ -5,8 +5,6 @@ gem 'nali'
 
 gem 'susy', '~> 2.1.3'
 gem 'compass'
-
-
 gem 'mail'
 
 group :development, :test do
