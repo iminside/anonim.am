@@ -12,10 +12,11 @@ test:
 
 production:
   adapter:  postgresql
-  host:     localhost
+  host:     ec2-54-204-27-119.compute-1.amazonaws.com
   username: lqgggltukaalib
   database: dnuh943rkad7q
   encoding: unicode
-  password:
+  port:     5432
+  password: ZaTYtLQyUcRH_aOW-bZ7licf6x
   pool:     5
   timeout:  5000  
