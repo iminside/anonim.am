@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby   '1.9.3'
 
 gem 'nali'
-
 gem 'compass'
 gem 'mail'
 
@@ -14,5 +13,5 @@ end
 group :production do
   gem 'pg'
   gem 'yui-compressor'
-  gem 'uglifier'
+  gem 'uglifier', require: 'uglifier'
 end
