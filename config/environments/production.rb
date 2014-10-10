@@ -1,3 +1,6 @@
+require 'uglifier'
+require 'yui/compressor'
+
 Nali::Application.configure :production do |config|
   
   config.assets_digest = true
