@@ -111,8 +111,6 @@ GEM
       sprockets (~> 2.0)
       tilt (~> 1.1)
     sqlite3 (1.3.9)
-    susy (2.1.3)
-      sass (>= 3.3.0, < 3.5)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -136,6 +134,5 @@ DEPENDENCIES
   nali
   pg
   sqlite3
-  susy (~> 2.1.3)
   uglifier
   yui-compressor
