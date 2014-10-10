@@ -18,4 +18,4 @@ group :production do
   gem 'pg'
 end
 
-ruby '1.9.3p429'
+ruby '1.9.3'
