@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
+ruby   '1.9.3'
 
 gem 'nali'
 
 
-#gem 'susy', '~> 2.1.3'
 gem 'compass'
 gem 'mail'
 
@@ -16,7 +16,4 @@ end
 
 group :production do
   gem 'pg'
-  gem 'minitest'
 end
-
-ruby '1.9.3'

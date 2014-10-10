@@ -131,7 +131,6 @@ DEPENDENCIES
   compass
   debugger
   mail
-  minitest
   nali
   pg
   sqlite3
