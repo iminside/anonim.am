@@ -12,6 +12,10 @@ test:
 
 production:
   adapter:  postgresql
-  database: production_db
+  host:     localhost
+  username: lqgggltukaalib
+  database: dnuh943rkad7q
+  encoding: unicode
+  password:
   pool:     5
   timeout:  5000  
