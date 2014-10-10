@@ -1,0 +1,19 @@
+<div class="logo">
+  <div>iSite.im</div>
+  <div>анонимность - свобода, настроение - цвет</div>
+</div>
+<div class="colors">
+  <% %w(red orange yellow green azure blue violet ).each do |color| %>
+    <a class="<%= color %>" href="@selectColor?color=<%= color %>"></a>
+  <% end %>
+</div>
+<div class="gender_buttons">
+  <a href="@selectGender?gender=man">
+    <span><i class="faceicon-man0_left"></i></span>
+    <span>я парень</span>
+  </a>
+  <a href="@selectGender?gender=woman">
+    <span><i class="faceicon-woman0_left"></i></span>
+    <span>я девушка</span>
+  </a>
+</div>

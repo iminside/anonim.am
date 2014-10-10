@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "faceicons";
+  src: url("/fonts/faceicons.eot");
+  src: url("/fonts/faceicons.eot?#iefix") format("embedded-opentype"),
+       url("/fonts/faceicons.woff") format("woff"),
+       url("/fonts/faceicons.ttf") format("truetype"),
+       url("/fonts/faceicons.svg#faceicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.faceicon-woman9_left:before,
+.faceicon-man8_right:before,
+.faceicon-woman12_left:before,
+.faceicon-man3_left:before,
+.faceicon-man3_right:before,
+.faceicon-woman7_right:before,
+.faceicon-man2_right:before,
+.faceicon-woman3_left:before,
+.faceicon-woman0_right:before,
+.faceicon-man12_right:before,
+.faceicon-man5_right:before,
+.faceicon-woman5_left:before,
+.faceicon-man2_left:before,
+.faceicon-man11_right:before,
+.faceicon-man0_right:before,
+.faceicon-man7_left:before,
+.faceicon-man10_left:before,
+.faceicon-woman12_right:before,
+.faceicon-woman11_left:before,
+.faceicon-woman4_right:before,
+.faceicon-man5_left:before,
+.faceicon-man7_right:before,
+.faceicon-woman4_left:before,
+.faceicon-man12_left:before,
+.faceicon-man9_left:before,
+.faceicon-man0_left:before,
+.faceicon-woman10_right:before,
+.faceicon-woman2_right:before,
+.faceicon-woman11_right:before,
+.faceicon-woman3_right:before,
+.faceicon-woman1_right:before,
+.faceicon-man11_left:before,
+.faceicon-woman9_right:before,
+.faceicon-woman5_right:before,
+.faceicon-man4_left:before,
+.faceicon-man8_left:before,
+.faceicon-woman1_left:before,
+.faceicon-man1_left:before,
+.faceicon-woman6_left:before,
+.faceicon-man9_right:before,
+.faceicon-woman6_right:before,
+.faceicon-woman10_left:before,
+.faceicon-woman7_left:before,
+.faceicon-man4_right:before,
+.faceicon-man6_right:before,
+.faceicon-man10_right:before,
+.faceicon-woman8_right:before,
+.faceicon-woman2_left:before,
+.faceicon-woman0_left:before,
+.faceicon-woman8_left:before,
+.faceicon-man6_left:before,
+.faceicon-man1_right:before {
+  font-family: "faceicons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.faceicon-woman9_left:before { content: "\f100"; }
+.faceicon-man8_right:before { content: "\f101"; }
+.faceicon-woman12_left:before { content: "\f102"; }
+.faceicon-man3_left:before { content: "\f103"; }
+.faceicon-man3_right:before { content: "\f104"; }
+.faceicon-woman7_right:before { content: "\f105"; }
+.faceicon-man2_right:before { content: "\f106"; }
+.faceicon-woman3_left:before { content: "\f107"; }
+.faceicon-woman0_right:before { content: "\f108"; }
+.faceicon-man12_right:before { content: "\f109"; }
+.faceicon-man5_right:before { content: "\f10a"; }
+.faceicon-woman5_left:before { content: "\f10b"; }
+.faceicon-man2_left:before { content: "\f10c"; }
+.faceicon-man11_right:before { content: "\f10d"; }
+.faceicon-man0_right:before { content: "\f10e"; }
+.faceicon-man7_left:before { content: "\f10f"; }
+.faceicon-man10_left:before { content: "\f110"; }
+.faceicon-woman12_right:before { content: "\f111"; }
+.faceicon-woman11_left:before { content: "\f112"; }
+.faceicon-woman4_right:before { content: "\f113"; }
+.faceicon-man5_left:before { content: "\f114"; }
+.faceicon-man7_right:before { content: "\f115"; }
+.faceicon-woman4_left:before { content: "\f116"; }
+.faceicon-man12_left:before { content: "\f117"; }
+.faceicon-man9_left:before { content: "\f118"; }
+.faceicon-man0_left:before { content: "\f119"; }
+.faceicon-woman10_right:before { content: "\f11a"; }
+.faceicon-woman2_right:before { content: "\f11b"; }
+.faceicon-woman11_right:before { content: "\f11c"; }
+.faceicon-woman3_right:before { content: "\f11d"; }
+.faceicon-woman1_right:before { content: "\f11e"; }
+.faceicon-man11_left:before { content: "\f11f"; }
+.faceicon-woman9_right:before { content: "\f120"; }
+.faceicon-woman5_right:before { content: "\f121"; }
+.faceicon-man4_left:before { content: "\f122"; }
+.faceicon-man8_left:before { content: "\f123"; }
+.faceicon-woman1_left:before { content: "\f124"; }
+.faceicon-man1_left:before { content: "\f125"; }
+.faceicon-woman6_left:before { content: "\f126"; }
+.faceicon-man9_right:before { content: "\f127"; }
+.faceicon-woman6_right:before { content: "\f128"; }
+.faceicon-woman10_left:before { content: "\f129"; }
+.faceicon-woman7_left:before { content: "\f12a"; }
+.faceicon-man4_right:before { content: "\f12b"; }
+.faceicon-man6_right:before { content: "\f12c"; }
+.faceicon-man10_right:before { content: "\f12d"; }
+.faceicon-woman8_right:before { content: "\f12e"; }
+.faceicon-woman2_left:before { content: "\f12f"; }
+.faceicon-woman0_left:before { content: "\f130"; }
+.faceicon-woman8_left:before { content: "\f131"; }
+.faceicon-man6_left:before { content: "\f132"; }
+.faceicon-man1_right:before { content: "\f133"; }

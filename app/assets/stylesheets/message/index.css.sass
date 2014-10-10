@@ -1,0 +1,47 @@
+@import colors
+
+.MessageIndex
+  height: 2rem
+  display: table-row
+
+  span
+    display: table-cell
+    padding: .5rem
+    border-bottom: 1px solid #e1e1e1
+
+  .name
+    text-align: right
+    width: 1%
+    color: $black-light
+
+  .text
+    font: 1rem GardensC Regular, Emoticons
+    word-wrap: break-word
+    word-break: break-all
+      
+    i
+      font-size: 1.7rem
+      line-height: 1rem
+      position: relative
+      top: .3rem
+      margin: -.2rem
+
+  =stylize( $light, $dark )
+    i
+      color:  $dark
+
+  .red
+    +stylize( $red-light, $red-dark )
+  .orange
+    +stylize( $orange-light, $orange-dark )
+  .yellow
+    +stylize( $yellow-light, $yellow-dark )
+  .green
+    +stylize( $green-light, $green-dark )
+  .azure
+    +stylize( $azure-light, $azure-dark )
+  .blue
+    +stylize( $blue-light, $blue-dark )
+  .violet
+    +stylize( $violet-light, $violet-dark )
+ 

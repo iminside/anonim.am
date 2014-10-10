@@ -1,0 +1,29 @@
+.DialogIndex
+  background: #e8e8e8
+  height: 100%
+  position: relative
+  padding-bottom: 4rem
+  box-sizing: border-box
+    
+  .MessagesIndexRelation
+    padding: 1rem
+    box-sizing: border-box
+    display: block
+    overflow: hidden
+    height: 100%
+    width: 100%
+    &:before, &:after
+      box-shadow: 0 0 10px 10px #e8e8e8
+      content: ' '
+      position: absolute
+      left: 0
+      width: 100%
+    &:before  
+      top: 0
+    &:after
+      bottom: 4rem
+    
+  .MessageBuildRelation
+    position: absolute
+    bottom: 0
+    width: 100%

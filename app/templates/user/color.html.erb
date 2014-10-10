@@ -1,0 +1,7 @@
+<p>
+  <b>Изменить оформление.</b><br>
+  Цветовая гамма чата будет обновлена в соответствии с Вашим выбором.
+</p>
+<% %w(red orange yellow green azure blue violet ).each do |color| %>
+  <a class="<%= color %>" href="@@changeColor?color=<%= color %>"></a>
+<% end %>
