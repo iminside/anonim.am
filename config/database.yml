@@ -12,11 +12,17 @@ test:
 
 production:
   adapter:  postgresql
-  host:     ec2-54-204-27-119.compute-1.amazonaws.com
-  username: lqgggltukaalib
-  database: dnuh943rkad7q
-  encoding: unicode
-  port:     5432
-  password: ZaTYtLQyUcRH_aOW-bZ7licf6x
+  database: pg_production
   pool:     5
-  timeout:  5000  
+  timeout:  5000
+  
+#production:
+#  adapter:  postgresql
+#  host:     ec2-54-204-27-119.compute-1.amazonaws.com
+#  username: lqgggltukaalib
+#  database: dnuh943rkad7q
+#  encoding: unicode
+#  port:     5432
+#  password: ZaTYtLQyUcRH_aOW-bZ7licf6x
+#  pool:     5
+#  timeout:  5000  
