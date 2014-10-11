@@ -20,8 +20,9 @@ Nali.Model.extend Contact:
   activeHistory: []
   
   onDestroy: ->
-    @redirect 'user' if @user is @Application.user and @active
-    unless @destroyInitiator
+    if @user is @Application.user 
+      @redirect 'user' if @active
+    else unless @destroyInitiator
       @Notice.info message: "#{ @user.name } больше не хочет общаться с Вами, диалог удален"
   
   fresh: ( params ) ->
