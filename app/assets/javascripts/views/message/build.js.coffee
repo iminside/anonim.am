@@ -1,11 +1,11 @@
 Nali.View.extend MessageBuild:
   
   events: [
-    'toggleEmoticons on click    at .emoticons'
-    'pasteEmoticon   on click    at .emoticons_list i'
-    'formSubmit      on submit   at form'
-    'sendByEnter     on keypress at textarea'
-    'addNewLine      on keydown  at textarea'
+    'toggleEmoticons            on click    at .emoticons'
+    'pasteEmoticon              on click    at .emoticons_list i'
+    'formSubmit                 on submit   at form'
+    'writesMessage, sendByEnter on keypress at textarea'
+    'addNewLine                 on keydown  at textarea'
   ]
   
   helpers:
@@ -35,6 +35,7 @@ Nali.View.extend MessageBuild:
     delete @form
   
   formSubmit: ( event ) ->
+    @lastWriteTime = 0
     @hideEmoticons() if @emoticons.hasClass 'emoticons_show'
     setTimeout ( => @textarea.val('').trigger( 'autosize.resize' ) ), 100
   
@@ -67,3 +68,8 @@ Nali.View.extend MessageBuild:
   addNewLine: ( event ) ->
     if event.keyCode is 13 and ( event.ctrlKey or event.metaKey ) 
       @textarea.insertAtCaret String.fromCharCode 10 
+      
+  writesMessage: ( event ) ->
+    if event.keyCode isnt 13 and ( newLastTime = new Date().getTime() ) - ( @lastWriteTime ?= 0 ) > 3000
+      @lastWriteTime = newLastTime
+      @query 'dialogs.writes'

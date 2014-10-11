@@ -17,4 +17,4 @@ Nali.View.extend MessageIndex:
       text + '</p>'
       
   onShow: ->
-    @my.dialog.view( 'index' ).scrollDown()
+    @my.dialog.view( 'index' ).hideWrites().scrollDown()

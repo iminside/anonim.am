@@ -9,3 +9,6 @@ Nali.Model.extend Dialog:
   
   contact: ->
     return contact for contact in @contacts when contact.user is @Application.user
+      
+  writes: ->
+    @view( 'index' ).showWrites()
