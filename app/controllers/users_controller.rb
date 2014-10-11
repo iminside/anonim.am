@@ -36,7 +36,7 @@ class UsersController
         content_type 'text/html; charset=UTF-8'
         body "<div style=\"margin:2rem;border-radius:5px;padding:2rem;font-size:1.5rem;background:whitesmoke\">
                 <b style=\"font-size:2rem\">Здравствуйте, #{ user.name }!</b>
-                <div style=\"display: table\">
+                <div style=\"display: table; margin-top: 1rem\">
                   <p style=\"margin:0;display: table-cell; padding-right:1rem; font-size: 1.1rem; vertical-align: middle;\">
                     Чтобы войти в свой аккаунт на сервисе анонимного общения - iSite.im, нажмите кнопку 
                   </p>
