@@ -30,17 +30,18 @@ class UsersController
     email = params[ :email ]
     Mail.deliver do
       to      email
-      from    'Сервис анонимного общения<robot@isite.im>'
+      from    'Сервис анонимного общения <robot@isite.im>'
       subject 'Кнопка автологина ( iSite.im )'
       html_part do
         content_type 'text/html; charset=UTF-8'
-        body "<div style=\"margin: 2rem; border-radius: 5px; padding: 2rem; font-size: 1.5rem; background: whitesmoke; box-shadow: 0 0 5px 0px #999;\">
-                <b style=\"font-size: 2rem;\">Здравствуйте, #{ user.name }!</b>
-                <br/>
-                <p style=\"margin: 0; display: inline-block; width: 70%; padding-right: 1rem; box-sizing: border-box;\">
-                  Чтобы войти в свой аккаунт на сервисе анонимного общения - iSite.im, нажмите кнопку 
-                </p>
-                <a href=\"http://isite.im/user/auth/#{ user.token }\" style=\"display: inline-block; background: #52BAD5; padding: .5rem 3rem; border-radius: .3rem; text-decoration: none; color: white; float: right; font-weight: bold; font-size: 2rem;\">Войти</a>
+        body "<div style=\"margin:2rem;border-radius:5px;padding:2rem;font-size:1.5rem;background:whitesmoke\">
+                <b style=\"font-size:2rem\">Здравствуйте, #{ user.name }!</b>
+                <div style=\"display: table\">
+                  <p style=\"margin:0;display: table-cell; padding-right:1rem; font-size: 1.1rem; vertical-align: middle;\">
+                    Чтобы войти в свой аккаунт на сервисе анонимного общения - iSite.im, нажмите кнопку 
+                  </p>
+                  <a href=\"http://isite.im/user/auth/#{ user.token }\" style=\"display: table-cell;background:#52bad5;padding:.5rem 3rem;border-radius:.3rem;text-decoration:none;color:white;float:right;font-weight:bold;font-size:2rem\" target=\"_blank\">Войти</a>
+                </div>
               </div>"
       end
     end
