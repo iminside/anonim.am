@@ -26,23 +26,25 @@ class UsersController
   end
   
   def to_email
-    p email = params[ :email ]
-    mail = Mail.deliver do
+    user  = client[ :user ]
+    email = params[ :email ]
+    Mail.deliver do
       to      email
-      from    'Test <user@example.com>'
-      subject 'Ссылка автологина'
-
-      text_part do
-        body 'This is plain text'
-      end
-
+      from    'Сервис анонимного общения<robot@isite.im>'
+      subject 'Кнопка автологина ( iSite.im )'
       html_part do
         content_type 'text/html; charset=UTF-8'
-        body '<h1>This is HTML</h1>'
+        body "<div style=\"margin: 2rem; border-radius: 5px; padding: 2rem; font-size: 1.5rem; background: whitesmoke; box-shadow: 0 0 5px 0px #999;\">
+                <b style=\"font-size: 2rem;\">Здравствуйте, #{ user.name }!</b>
+                <br/>
+                <p style=\"margin: 0; display: inline-block; width: 70%; padding-right: 1rem; box-sizing: border-box;\">
+                  Чтобы войти в свой аккаунт на сервисе анонимного общения - iSite.im, нажмите кнопку 
+                </p>
+                <a href=\"http://isite.im/user/auth/#{ user.token }\" style=\"display: inline-block; background: #52BAD5; padding: .5rem 3rem; border-radius: .3rem; text-decoration: none; color: white; float: right; font-weight: bold; font-size: 2rem;\">Войти</a>
+              </div>"
       end
-      
     end
-    p mail
+    trigger_success
   end
   
   def search

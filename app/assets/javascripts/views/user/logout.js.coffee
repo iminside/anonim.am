@@ -1,3 +1,3 @@
-Nali.View.extend UserEmail:
-  
+Nali.View.extend UserLogout: 
+
   insertTo: -> '.UserInterface' 

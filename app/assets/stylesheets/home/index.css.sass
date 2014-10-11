@@ -11,12 +11,12 @@
     div
       &:nth-child(1)
         color:         $white-light
-        font:          bold 10vmin Ubuntu
+        font:          bold 10vmin Times New Roman
         margin-bottom: 1vmin
         
       &:nth-child(2)
         color:  $white-dark
-        font:   4vmin GardensC Regular
+        font:   5vmin GardensC Regular
         
   .logo_animation
     padding-top: 20vh
@@ -24,54 +24,79 @@
   
   .colors
     padding-top:   1vmin
-    margin-bottom: 5vmin
+    margin-bottom: 3vmin
     text-align: center
     font-size: 0
     
     a
+      opacity: 0
       display: inline-block
-      height:  10vmin
-      width:   10vmin
+      height:  9vmin
+      width:   9vmin
       margin:  .7vmin
       border-radius: 6vmin
-      +transition( all .1s ease-in-out )
+      +transition( all .5s ease-in-out )
       
       &:hover
         cursor: pointer
         +transition( all .1s ease-in-out )
-     
+      
     =pick_color( $light, $dark )
       background:   $light
       &:hover
-        background: $dark     
+        background: $dark  
       
     .red
       +pick_color( $red-light, $red-dark )
-      
     .orange
       +pick_color( $orange-light, $orange-dark )
-      
     .yellow
       +pick_color( $yellow-light, $yellow-dark )
-
     .green
       +pick_color( $green-light, $green-dark )
-      
     .azure
       +pick_color( $azure-light, $azure-dark )
-      
     .blue
       +pick_color( $blue-light, $blue-dark )
-      
     .violet
       +pick_color( $violet-light, $violet-dark )
       
-    
+  .show
+    a
+      opacity: 1
+      &:nth-child(1)
+        +transition-delay(.5s)
+      &:nth-child(2)
+        +transition-delay(.4s)
+      &:nth-child(3)
+        +transition-delay(.3s)
+      &:nth-child(4)
+        +transition-delay(.2s)
+      &:nth-child(5)
+        +transition-delay(.3s)
+      &:nth-child(6)
+        +transition-delay(.4s)
+      &:nth-child(7)
+        +transition-delay(.5s)
+          
+  .shown
+    a
+      opacity: 1
+      +transition-delay(.0s)
+        
   .gender_buttons
     opacity:       0
     visibility:    hidden
     text-align:    center
     font-size:     0
+    +transition( opacity .3s ease-in-out )
+    
+    div
+      opacity: inherit
+      color:  $white-dark
+      font:   5vmin GardensC Regular
+      margin-bottom: 1vmin
+    
     a
       display:    inline-block
       margin:     1vmin

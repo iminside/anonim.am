@@ -66,14 +66,21 @@ Nali.Model.extend User:
     
   to_email_send: ( { email } ) ->
     if /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test email
-      @query 'users.to_email', email: email
+      @query 'users.to_email', email: email, => 
+        @hide 'email'
+        @Notice.info  message: 'Кнопка автологина отправлена на ' + email
     else @Notice.info message: 'Введите правильный e-mail'
       
   removeDialog: ->
     @show 'remove'
     
   removeDialogAccept: ->
-    @destroy => 
-      @Cookie.remove 'token'
-      @Application.user = null
-      @redirect 'home'
+    @destroy => @logoutDialogAccept()
+      
+  logoutDialog: ->
+    @show 'logout'
+    
+  logoutDialogAccept: ->
+    @Cookie.remove 'token'
+    @Application.user = null
+    @redirect 'home'
