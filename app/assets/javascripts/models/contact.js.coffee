@@ -20,10 +20,9 @@ Nali.Model.extend Contact:
   activeHistory: []
   
   onDestroy: ->
-    if @user is @Application.user 
-      unless @destroyInitiator
-        @Notice.info message: "#{ @user.name } больше не хочет общаться с Вами, диалог удален"
-      @redirect 'user' if @active
+    @redirect 'user' if @user is @Application.user and @active
+    unless @destroyInitiator
+      @Notice.info message: "#{ @user.name } больше не хочет общаться с Вами, диалог удален"
   
   fresh: ( params ) ->
     @Notice.info message: 'Вам подобран новый собеседник'
@@ -46,6 +45,7 @@ Nali.Model.extend Contact:
     @show 'remove'
     
   removeDialogAccept: ->
-    @destroyInitiator = true
+    @destroyInitiator         = true
+    @contact.destroyInitiator = true
     @dialog.destroy()
     @hide 'remove'
