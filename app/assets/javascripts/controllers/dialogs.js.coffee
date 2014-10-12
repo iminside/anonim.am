@@ -3,7 +3,5 @@ Nali.Controller.extend Dialogs:
   actions: 
     default: 'index'
     
-    'index/id': ( collection ) ->
+    'index/id': ->
       @redirect 'home' unless @Application.user
-  
-  
