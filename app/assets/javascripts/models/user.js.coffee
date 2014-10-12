@@ -81,6 +81,7 @@ Nali.Model.extend User:
     @show 'logout'
     
   logoutDialogAccept: ->
+    @query 'users.logout'
     @Cookie.remove 'token'
     @Application.user = null
     @redirect 'home'

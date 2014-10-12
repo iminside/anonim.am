@@ -31,6 +31,16 @@ class User < ActiveRecord::Base
     nil
   end
   
+  def logout
+    count = 0
+    clients.each { |client| count += 1 if client[ :user ] and client[ :user ].id == self.id }
+    if count == 0
+      self.contacts.where( active: true ).each { |contact| contact.update( active: false ) }
+      self.update online: false
+      self.sync
+    end
+  end
+  
   def access_level( client )
     if client[ :user ] == self
       :owner

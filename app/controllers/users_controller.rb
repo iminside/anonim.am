@@ -25,6 +25,13 @@ class UsersController
     end
   end
   
+  def logout
+    if user = client[ :user ]
+      client.reset
+      user.logout 
+    end
+  end
+  
   def to_email
     user  = client[ :user ]
     email = params[ :email ]

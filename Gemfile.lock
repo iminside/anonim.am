@@ -57,7 +57,7 @@ GEM
     mime-types (2.4.1)
     minitest (5.4.2)
     multi_json (1.10.1)
-    nali (0.1.9)
+    nali (0.2.0)
       coffee-script
       rake
       sass
