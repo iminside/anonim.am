@@ -5,38 +5,29 @@
   padding: 0.5rem 0rem 4.5rem 
   box-sizing: border-box
     
-  >.messages
+  .MessagesIndexRelation
+    padding: 1rem
     box-sizing: border-box
     display: block
     overflow: hidden
     height: 100%
     width: 100%
-    &:before
+    &:before, &:after
       box-shadow: 0 0 10px 10px #e8e8e8
-      content: " "
+      content: ' '
       position: absolute
       left: 0
       width: 100%
-      z-index: 1
+    &:before  
       top: 0
-      
-  .MessagesIndexRelation
-    padding: 1rem
-    box-sizing: border-box
+    &:after
+      bottom: 4rem
       
   .MessageBuildRelation
     position: absolute
     bottom: 0
     left: 0
     width: 100%
-    &:before
-      box-shadow: 0 0 10px 10px #e8e8e8
-      content: " "
-      position: absolute
-      left: 0
-      width: 100%
-      z-index: 1
-      top: -0.25rem
         
   .writes
     background: #FFFFFF

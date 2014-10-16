@@ -5,4 +5,4 @@ Nali.View.extend UserInterface:
       if @my.search then 'button_hover' else ''
   
   onShow: ->
-    @element.find( '.contacts .ContactsIndexRelation' ).addClass( 'scrollbar' ).scrollbar()
+    @element.find( '.ContactsIndexRelation' ).scrollator custom_class: 'scrollator_left'

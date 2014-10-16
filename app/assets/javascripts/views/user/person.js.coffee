@@ -6,7 +6,7 @@ Nali.View.extend UserPerson:
   onShow: ->
     @Application.setTitle 'Образ'
     @_( 'a.face' ).addClass 'button_hover'
-    @element.find( '.scrollbar' ).scrollbar()
+    @element.scrollator()
         
   onHide: ->
     @_( 'a.face' ).removeClass 'button_hover'

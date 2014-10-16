@@ -13,7 +13,7 @@ Nali.View.extend UserSettings:
     @activateRadio()
     @subscribeTo @my, 'update.how', @activateRadio
     @subscribeTo @my, 'update.who', @activateRadio
-    @element.find( '.scrollbar' ).scrollbar()
+    @element.scrollator()
         
   onHide: ->
     @_( 'a.settings' ).removeClass 'button_hover'

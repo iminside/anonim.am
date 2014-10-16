@@ -1,6 +1,6 @@
 #= require jquery.min
 #= require jquery.autosize.min
-#= require jquery.scrollbar.min
+#= require fm.scrollator.jquery
 #= require nali
 #= require_tree .
 

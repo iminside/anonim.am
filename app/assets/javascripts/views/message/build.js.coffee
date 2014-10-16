@@ -25,7 +25,7 @@ Nali.View.extend MessageBuild:
 
   onShow: ->
     @textarea  = @element.find '.message textarea' 
-    @emoticons = @element.find( '.emoticons_list' ).addClass( 'scrollbar' ).scrollbar().parent()
+    @emoticons = @element.find( '.emoticons_list' ).scrollator()
     @form      = @element.find 'form' 
     @textarea.autosize()
   
