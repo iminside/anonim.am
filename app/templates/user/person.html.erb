@@ -1,10 +1,14 @@
-<% ( 1..12 ).each do |i| %>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }<%= i %>_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=<%= i %>" class="accept">выбрать</a>
-    </div>
+<div class="scrollbar">
+  <div class="faceicons">
+    <% ( 1..12 ).each do |i| %>
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }<%= i %>_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=<%= i %>" class="accept">выбрать</a>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

@@ -1,35 +1,39 @@
-<p>Ваше имя</p>
-<input type="text" bind="name" />
-<p>Кого искать</p>
-<div class="input_radio">
-  <label><input type="radio" bind="who" value="man" />парней</label>
-  <label><input type="radio" bind="who" value="woman" />девушек</label>
-  <label><input type="radio" bind="who" value="all" />всех</label>
+<div class="scrollbar">
+  <div class="settings">
+    <p>Ваше имя</p>
+    <input type="text" bind="name" />
+    <p>Кого искать</p>
+    <div class="input_radio">
+      <label><input type="radio" bind="who" value="man" />парней</label>
+      <label><input type="radio" bind="who" value="woman" />девушек</label>
+      <label><input type="radio" bind="who" value="all" />всех</label>
+    </div>
+    <p>Скольких сразу</p>
+    <div class="input_radio">
+      <label><input type="radio" bind="how" value="1" />{ =one }</label>
+      <label><input type="radio" bind="how" value="2" />двух</label>
+      <label><input type="radio" bind="how" value="3" />трех</label>
+    </div>
+    <p>Выйти из аккаунта</p>
+    <small>Мы запоминаем Вас каждый раз когда Вы заходите с нового устройства, если Вы зашли с чужого компьютера,
+    перед уходом нажмите кнопку "выйти из аккаунта"</small>
+    <center>
+      <a class="accept" href="@@logoutDialog">выйти из аккаунта</a>
+    </center>
+    <p>Автологин</p>
+    <small>Наш сервис не использует пароли доступа, изначально Ваш аккаун привязан к браузеру, с которого вы 
+    регистрировались, эта привязка не надежна и пропадет сразу же как только вы очистите историю браузера и 
+    cookie. Более надежным будет доступ к сайту с помощью ссылки автологина, добавленной в закладки, её
+    также можно отправить себе на email ввиде кнопки и войти по ней с другого устройства.</small>
+    <center>
+      <a class="accept" href="@@to_bookmarks">в закладки</a>
+      <a class="accept" href="@@to_email">на email</a>
+    </center>
+    <p>Удалить аккаунт</p>
+    <small>В любое время вы можете прекратить использование сервиса и удалить свой аккаунт, эта операция необратима,
+    вместе с аккаунтом будет удалена вся связанная с ним информация</small>
+    <center>
+      <a class="accept" href="@@removeDialog">удалить аккаунт</a>
+    </center>
+  </div>
 </div>
-<p>Скольких сразу</p>
-<div class="input_radio">
-  <label><input type="radio" bind="how" value="1" />{ =one }</label>
-  <label><input type="radio" bind="how" value="2" />двух</label>
-  <label><input type="radio" bind="how" value="3" />трех</label>
-</div>
-<p>Выйти из аккаунта</p>
-<small>Мы запоминаем Вас каждый раз когда Вы заходите с нового устройства, если Вы зашли с чужого компьютера,
-перед уходом нажмите кнопку "выйти из аккаунта"</small>
-<center>
-  <a class="accept" href="@@logoutDialog">выйти из аккаунта</a>
-</center>
-<p>Автологин</p>
-<small>Наш сервис не использует пароли доступа, изначально Ваш аккаун привязан к браузеру, с которого вы 
-регистрировались, эта привязка не надежна и пропадет сразу же как только вы очистите историю браузера и 
-cookie. Более надежным будет доступ к сайту с помощью ссылки автологина, добавленной в закладки, её
-также можно отправить себе на email ввиде кнопки и войти по ней с другого устройства.</small>
-<center>
-  <a class="accept" href="@@to_bookmarks">в закладки</a>
-  <a class="accept" href="@@to_email">на email</a>
-</center>
-<p>Удалить аккаунт</p>
-<small>В любое время вы можете прекратить использование сервиса и удалить свой аккаунт, эта операция необратима,
-вместе с аккаунтом будет удалена вся связанная с ним информация</small>
-<center>
-  <a class="accept" href="@@removeDialog">удалить аккаунт</a>
-</center>

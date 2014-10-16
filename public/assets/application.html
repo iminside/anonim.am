@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/application-6a63055646a8c6a9a928130a5a3ce202.css">
+    <link rel="stylesheet" href="/assets/application-1f8a8b9bf3549c13acb9bb5532d49e51.css">
     
 <script type="text/template" id="user_color">
 <p>
@@ -78,140 +78,160 @@
 </div>
 </script>
 <script type="text/template" id="user_settings">
-<p>Ваше имя</p>
-<input type="text" bind="name" />
-<p>Кого искать</p>
-<div class="input_radio">
-  <label><input type="radio" bind="who" value="man" />парней</label>
-  <label><input type="radio" bind="who" value="woman" />девушек</label>
-  <label><input type="radio" bind="who" value="all" />всех</label>
+<div class="scrollbar">
+  <div class="settings">
+    <p>Ваше имя</p>
+    <input type="text" bind="name" />
+    <p>Кого искать</p>
+    <div class="input_radio">
+      <label><input type="radio" bind="who" value="man" />парней</label>
+      <label><input type="radio" bind="who" value="woman" />девушек</label>
+      <label><input type="radio" bind="who" value="all" />всех</label>
+    </div>
+    <p>Скольких сразу</p>
+    <div class="input_radio">
+      <label><input type="radio" bind="how" value="1" />{ =one }</label>
+      <label><input type="radio" bind="how" value="2" />двух</label>
+      <label><input type="radio" bind="how" value="3" />трех</label>
+    </div>
+    <p>Выйти из аккаунта</p>
+    <small>Мы запоминаем Вас каждый раз когда Вы заходите с нового устройства, если Вы зашли с чужого компьютера,
+    перед уходом нажмите кнопку "выйти из аккаунта"</small>
+    <center>
+      <a class="accept" href="@@logoutDialog">выйти из аккаунта</a>
+    </center>
+    <p>Автологин</p>
+    <small>Наш сервис не использует пароли доступа, изначально Ваш аккаун привязан к браузеру, с которого вы 
+    регистрировались, эта привязка не надежна и пропадет сразу же как только вы очистите историю браузера и 
+    cookie. Более надежным будет доступ к сайту с помощью ссылки автологина, добавленной в закладки, её
+    также можно отправить себе на email ввиде кнопки и войти по ней с другого устройства.</small>
+    <center>
+      <a class="accept" href="@@to_bookmarks">в закладки</a>
+      <a class="accept" href="@@to_email">на email</a>
+    </center>
+    <p>Удалить аккаунт</p>
+    <small>В любое время вы можете прекратить использование сервиса и удалить свой аккаунт, эта операция необратима,
+    вместе с аккаунтом будет удалена вся связанная с ним информация</small>
+    <center>
+      <a class="accept" href="@@removeDialog">удалить аккаунт</a>
+    </center>
+  </div>
 </div>
-<p>Скольких сразу</p>
-<div class="input_radio">
-  <label><input type="radio" bind="how" value="1" />{ =one }</label>
-  <label><input type="radio" bind="how" value="2" />двух</label>
-  <label><input type="radio" bind="how" value="3" />трех</label>
-</div>
-<p>Выйти из аккаунта</p>
-<small>Мы запоминаем Вас каждый раз когда Вы заходите с нового устройства, если Вы зашли с чужого компьютера,
-перед уходом нажмите кнопку "выйти из аккаунта"</small>
-<center>
-  <a class="accept" href="@@logoutDialog">выйти из аккаунта</a>
-</center>
-<p>Автологин</p>
-<small>Наш сервис не использует пароли доступа, изначально Ваш аккаун привязан к браузеру, с которого вы 
-регистрировались, эта привязка не надежна и пропадет сразу же как только вы очистите историю браузера и 
-cookie. Более надежным будет доступ к сайту с помощью ссылки автологина, добавленной в закладки, её
-также можно отправить себе на email ввиде кнопки и войти по ней с другого устройства.</small>
-<center>
-  <a class="accept" href="@@to_bookmarks">в закладки</a>
-  <a class="accept" href="@@to_email">на email</a>
-</center>
-<p>Удалить аккаунт</p>
-<small>В любое время вы можете прекратить использование сервиса и удалить свой аккаунт, эта операция необратима,
-вместе с аккаунтом будет удалена вся связанная с ним информация</small>
-<center>
-  <a class="accept" href="@@removeDialog">удалить аккаунт</a>
-</center>
 </script>
 <script type="text/template" id="user_person">
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }1_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=1" class="accept">выбрать</a>
-    </div>
+<div class="scrollbar">
+  <div class="faceicons">
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }1_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=1" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }2_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=2" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }3_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=3" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }4_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=4" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }5_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=5" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }6_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=6" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }7_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=7" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }8_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=8" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }9_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=9" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }10_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=10" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }11_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=11" class="accept">выбрать</a>
+        </div>
+      </div>
+    
+      <div class="faceicon">
+        <div class="icon">
+          <i class="faceicon-{ @gender }12_left"></i>
+        </div>
+        <div class="button">
+          <a href="@@changeImage?image=12" class="accept">выбрать</a>
+        </div>
+      </div>
+    
   </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }2_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=2" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }3_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=3" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }4_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=4" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }5_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=5" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }6_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=6" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }7_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=7" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }8_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=8" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }9_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=9" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }10_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=10" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }11_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=11" class="accept">выбрать</a>
-    </div>
-  </div>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }12_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=12" class="accept">выбрать</a>
-    </div>
-  </div>
-
+</div>
 </script>
 <script type="text/template" id="user_interface">
 <div class="UserInterface { @color }">
@@ -341,7 +361,7 @@ cookie. Более надежным будет доступ к сайту с п�
   <img src="/images/pencil.gif" alt="" />
 </div>
 </script>
-    <script src="/assets/application-0b655a7b7ab535c314069d81ffd4819d.js"></script>
+    <script src="/assets/application-d851e363abe804d887e9ec2597618763.js"></script>
   </head>
   <body>
   </body>

@@ -13,14 +13,10 @@ Nali.View.extend UserSettings:
     @activateRadio()
     @subscribeTo @my, 'update.how', @activateRadio
     @subscribeTo @my, 'update.who', @activateRadio
-    @element.niceScroll
-      cursoropacitymax: 0.5
-      cursorwidth: 5
-      zindex: 999
+    @element.find( '.scrollbar' ).scrollbar()
         
   onHide: ->
     @_( 'a.settings' ).removeClass 'button_hover'
-    @element.getNiceScroll().remove()
     
   activateRadio: ->
     @element.find( '.radio_active' ) .removeClass 'radio_active' 

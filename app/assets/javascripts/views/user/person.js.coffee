@@ -5,16 +5,9 @@ Nali.View.extend UserPerson:
         
   onShow: ->
     @Application.setTitle 'Образ'
-    @subscribeTo @my, 'update.name', @onNameUpdated
     @_( 'a.face' ).addClass 'button_hover'
-    @element.niceScroll
-      cursoropacitymax: 0.5
-      cursorwidth: 5
-      zindex: 999
+    @element.find( '.scrollbar' ).scrollbar()
         
   onHide: ->
+    console.log @
     @_( 'a.face' ).removeClass 'button_hover'
-    @element.getNiceScroll().remove()
-    
-  onNameUpdated: ->
-   ( form = @element.find( 'form' ) ).animate opacity: 0.1, => form.animate opacity: 1
