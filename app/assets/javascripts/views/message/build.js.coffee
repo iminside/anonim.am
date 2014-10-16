@@ -25,7 +25,7 @@ Nali.View.extend MessageBuild:
 
   onShow: ->
     @textarea  = @element.find '.message textarea' 
-    @emoticons = @element.find '.emoticons_list' 
+    @emoticons = @element.find( '.emoticons_list' ).addClass( 'scrollbar' ).scrollbar().parent()
     @form      = @element.find 'form' 
     @textarea.autosize()
   
@@ -44,16 +44,9 @@ Nali.View.extend MessageBuild:
 
   showEmoticons: ->
     @emoticons.addClass 'emoticons_show'
-    setTimeout => 
-      @emoticons.niceScroll
-        cursoropacitymax: 0.5
-        cursorwidth: 5
-        zindex: 999
-    , 500
     @
   
   hideEmoticons: ->
-    @emoticons.getNiceScroll().remove()
     @emoticons.removeClass 'emoticons_show'
     @
     

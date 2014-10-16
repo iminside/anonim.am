@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/application-9271b13c1eb2679ac445364d3399d2b5.css">
+    <link rel="stylesheet" href="/assets/application-6a63055646a8c6a9a928130a5a3ce202.css">
     
 <script type="text/template" id="user_color">
 <p>
@@ -79,18 +79,18 @@
 </script>
 <script type="text/template" id="user_settings">
 <p>Ваше имя</p>
-<input type="text" name="name" bind="name" />
+<input type="text" bind="name" />
 <p>Кого искать</p>
 <div class="input_radio">
-  <label><input type="radio" name="who" bind="who" value="man" />парней</label>
-  <label><input type="radio" name="who" bind="who" value="woman" />девушек</label>
-  <label><input type="radio" name="who" bind="who" value="all" />всех</label>
+  <label><input type="radio" bind="who" value="man" />парней</label>
+  <label><input type="radio" bind="who" value="woman" />девушек</label>
+  <label><input type="radio" bind="who" value="all" />всех</label>
 </div>
 <p>Скольких сразу</p>
 <div class="input_radio">
-  <label><input type="radio" name="how" bind="how" value="1" />{ =one }</label>
-  <label><input type="radio" name="how" bind="how" value="2" />двух</label>
-  <label><input type="radio" name="how" bind="how" value="3" />трех</label>
+  <label><input type="radio" bind="how" value="1" />{ =one }</label>
+  <label><input type="radio" bind="how" value="2" />двух</label>
+  <label><input type="radio" bind="how" value="3" />трех</label>
 </div>
 <p>Выйти из аккаунта</p>
 <small>Мы запоминаем Вас каждый раз когда Вы заходите с нового устройства, если Вы зашли с чужого компьютера,
@@ -247,7 +247,7 @@ cookie. Более надежным будет доступ к сайту с п�
 </script>
 <script type="text/template" id="message_index">
 <span class="name">{ =owner }:</span>
-<span class="text { @user.color }">{ +text }</span>
+{ +text }
 </script>
 <script type="text/template" id="message_build">
 <form class="form" action="@@createMessage">
@@ -333,11 +333,15 @@ cookie. Более надежным будет доступ к сайту с п�
 </div>
 </script>
 <script type="text/template" id="dialog_index">
-{ index of @messages }
-<div class="writes">Пишет<img src="/images/pencil.gif" alt="" /></div>
+<div class="messages">
+  { index of @messages }
+</div>
 { build of @message }
+<div class="writes">
+  <img src="/images/pencil.gif" alt="" />
+</div>
 </script>
-    <script src="/assets/application-538a92564ba482460bf73bb3730717f2.js"></script>
+    <script src="/assets/application-0b655a7b7ab535c314069d81ffd4819d.js"></script>
   </head>
   <body>
   </body>

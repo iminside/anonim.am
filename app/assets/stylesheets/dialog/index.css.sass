@@ -2,32 +2,42 @@
   background: #e8e8e8
   height: 100%
   position: relative
-  padding-bottom: 4rem
+  padding: 0.5rem 0rem 4.5rem 
   box-sizing: border-box
     
-  .MessagesIndexRelation
-    padding: 1rem
+  >.messages
     box-sizing: border-box
     display: block
     overflow: hidden
     height: 100%
     width: 100%
-    &:before, &:after
+    &:before
       box-shadow: 0 0 10px 10px #e8e8e8
-      content: ' '
+      content: " "
       position: absolute
       left: 0
       width: 100%
-    &:before  
+      z-index: 1
       top: 0
-    &:after
-      bottom: 4rem
-    
+      
+  .MessagesIndexRelation
+    padding: 1rem
+    box-sizing: border-box
+      
   .MessageBuildRelation
     position: absolute
     bottom: 0
+    left: 0
     width: 100%
-    
+    &:before
+      box-shadow: 0 0 10px 10px #e8e8e8
+      content: " "
+      position: absolute
+      left: 0
+      width: 100%
+      z-index: 1
+      top: -0.25rem
+        
   .writes
     background: #FFFFFF
     color: #2D3E50
@@ -35,12 +45,11 @@
     bottom: 4.5rem
     right: 0.3rem
     opacity: 0
-    padding: .3rem .7rem
+    padding: 0.3rem 0.7rem
     overflow: hidden
     border-radius: 0.3rem
-      
     img
-      margin: -.5rem -.5rem -.4rem 0
-      
+      margin: -0.5rem -0.5rem -0.4rem -0.2rem
+        
   .show_writes
     opacity: 1

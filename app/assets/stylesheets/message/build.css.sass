@@ -3,6 +3,8 @@
 
 .MessageBuild
   width: 100%
+  position: relative
+  z-index: 2
 
   .form
     display: table
@@ -58,11 +60,12 @@
     margin-bottom: .1rem
     +transition( height .2s ease-in )
     overflow: hidden
+    .emoticons_list
+      height:  30vh
     i
       color:  $grey-dark
       cursor: pointer
 
   .emoticons_show
-    display: block
     height:  30vh
       

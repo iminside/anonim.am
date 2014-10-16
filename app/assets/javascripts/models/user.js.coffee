@@ -27,6 +27,26 @@ Nali.Model.extend User:
     how:
       default:   1
       inclusion: [ 1, 2, 3 ]
+      
+  beforeShow: 
+    UserInterface: ->
+      @contacts.order by: ( one, two ) ->
+        switch 
+          when one.counter > two.counter                               then -1
+          when one.counter < two.counter                               then  1
+          when one.contact.user.online and not two.contact.user.online then -1
+          when not one.contact.user.online and two.contact.user.online then  1
+          when one.contact.user.name  < two.contact.user.name          then -1
+          when one.contact.user.name  > two.contact.user.name          then  1
+          when one.contact.user.color < two.contact.user.color         then -1
+          when one.contact.user.color > two.contact.user.color         then  1
+          else 0
+            
+  onUpdateHow: ->
+    @deactivateSearch()
+    
+  onUpdateWho: ->
+    @deactivateSearch()
     
   changeColor: ( { color } ) ->
     @update( color: color ).save()
@@ -38,11 +58,14 @@ Nali.Model.extend User:
     if ( view = @view( 'color' ) ).visible then view.hide() else view.show()
    
   toggleSearch: ->
-    if @search then @update( search: 0 ).save() else @activateSearch()
-  
+    if @search then @deactivateSearch() else @activateSearch()
+    
   activateSearch: ->
     @update( search: @how ).save() unless @search
     @query 'users.search'
+    
+  deactivateSearch: ->
+    @update( search: 0 ).save() if @search
     
   toggleDialogs: ->
     if @_( '.contacts' ).hasClass 'show_contacts' then @hideDialogs() else @showDialogs()
