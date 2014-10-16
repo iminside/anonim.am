@@ -9,5 +9,4 @@ Nali.View.extend UserPerson:
     @element.find( '.scrollbar' ).scrollbar()
         
   onHide: ->
-    console.log @
     @_( 'a.face' ).removeClass 'button_hover'
