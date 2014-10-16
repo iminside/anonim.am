@@ -42,12 +42,14 @@ class User < ActiveRecord::Base
   end
   
   def access_level( client )
-    if client[ :user ] == self
-      :owner
-    else 
-      client[ :user ].contacts.each { |contact| return :contact if contact.contact.user == self }
-      :unknown
+    if user = client[ :user ] 
+      if client[ :user ] == self
+        return :owner
+      else 
+        client[ :user ].contacts.each { |contact| return :contact if contact.contact.user == self }
+      end
     end
+    :unknown
   end
 
 end
