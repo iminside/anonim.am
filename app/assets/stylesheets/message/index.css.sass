@@ -25,22 +25,24 @@
       top: .3rem
       margin: -.2rem
 
-  =stylize( $light, $dark )
+=stylize( $light, $dark )
+  .name
+    color: $dark
+  .text
     i
       color:  $dark
 
-  .red
-    +stylize( $red-light, $red-dark )
-  .orange
-    +stylize( $orange-light, $orange-dark )
-  .yellow
-    +stylize( $yellow-light, $yellow-dark )
-  .green
-    +stylize( $green-light, $green-dark )
-  .azure
-    +stylize( $azure-light, $azure-dark )
-  .blue
-    +stylize( $blue-light, $blue-dark )
-  .violet
-    +stylize( $violet-light, $violet-dark )
- 
+.MessageIndex.red
+  +stylize( $red-light, $red-dark )
+.MessageIndex.orange
+  +stylize( $orange-light, $orange-dark )
+.MessageIndex.yellow
+  +stylize( $yellow-light, $yellow-dark )
+.MessageIndex.green
+  +stylize( $green-light, $green-dark )
+.MessageIndex.azure
+  +stylize( $azure-light, $azure-dark )
+.MessageIndex.blue
+  +stylize( $blue-light, $blue-dark )
+.MessageIndex.violet
+  +stylize( $violet-light, $violet-dark )

@@ -5,9 +5,9 @@ class Message < ActiveRecord::Base
   belongs_to :dialog
   belongs_to :user
   
-  validates :text,      presence: true
-  validates :user_id,   presence: true
-  validates :dialog_id, presence: true
+  validates :text,      length: { in: 1..1000 }
+  validates :user_id,   numericality: { only_integer: true }
+  validates :dialog_id, numericality: { only_integer: true }
   
   after_save do
     self.dialog.contacts.each do |contact|

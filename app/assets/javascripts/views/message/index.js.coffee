@@ -6,8 +6,7 @@ Nali.View.extend MessageIndex:
       if @my.user is @Application.user then 'Я' else @getOf @my.user, 'name' 
       
     text: ->
-      color   = @getOf @my.user, 'color' 
-      text    = "<span class=\"text #{ color }\">"
+      text    = '<span class="text">'
       message = "#{ @my.text }".replace( /&/g, '&amp;' ).replace( /"/g, '&quot;' )
         .replace( /'/g, '&#039;' ).replace( /</g, '&lt;'   ).replace( />/g, '&gt;'   )
       for sym in message

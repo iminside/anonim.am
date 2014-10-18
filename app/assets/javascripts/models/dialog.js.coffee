@@ -3,7 +3,7 @@ Nali.Model.extend Dialog:
   hasMany: [ 'contacts', 'messages' ]
   
   beforeShow: 
-    DialogIndex: ->
+    index: ->
       @messages.order by: 'created'
       @message = @Message.build dialog_id: @id, user_id: @Application.user.id
   

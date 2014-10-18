@@ -9,7 +9,7 @@ Nali.Model.extend Message:
       format:   'number'
     text:
       presence: true
-      length:   in: [ 1..300 ]
+      length:   in: [ 1..1000 ]
     
     
   createMessage: ( params ) ->

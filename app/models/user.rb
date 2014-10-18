@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   
   has_many   :contacts
   
-  validates :name,   presence: true, length: { in: 3..30 }
-  validates :gender, presence: true, inclusion: { in: %w(man woman) }
-  validates :color,  presence: true, inclusion: { in: %w(red orange yellow green azure blue violet) }
+  validates :name,   length: { in: 3..30 }
+  validates :gender, inclusion: { in: %w(man woman) }
+  validates :color,  inclusion: { in: %w(red orange yellow green azure blue violet) }
   validates :token,  length: { is: 32 }, uniqueness: true
   validates :search, inclusion: { in: 0..3 }
   validates :who,    inclusion: { in: %w(man woman all) }

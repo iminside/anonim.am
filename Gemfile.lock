@@ -57,7 +57,7 @@ GEM
     mime-types (2.4.2)
     minitest (5.4.2)
     multi_json (1.10.1)
-    nali (0.2.1)
+    nali (0.2.2)
       coffee-script
       rake
       sass
@@ -79,7 +79,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    sass (3.4.5)
+    sass (3.4.6)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)

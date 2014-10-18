@@ -1,3 +1,3 @@
-Nali.View.extend ContactRemove: 
+Nali.View.extend ContactDelete: 
 
   insertTo: -> '.UserInterface'  

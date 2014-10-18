@@ -41,12 +41,9 @@ Nali.Model.extend Contact:
   deactivate: ->
     @update( active: false ).save()
     @
-  
-  removeDialog: ->
-    @show 'remove'
     
-  removeDialogAccept: ->
+  deleteAccept: ->
     @destroyInitiator         = true
     @contact.destroyInitiator = true
     @dialog.destroy()
-    @hide 'remove'
+    @hide 'delete'

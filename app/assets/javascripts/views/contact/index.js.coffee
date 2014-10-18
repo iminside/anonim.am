@@ -1,13 +1,13 @@
 Nali.View.extend ContactIndex: 
   
-  events: 'removeDialog on click at .last i:nth-child(2)'
+  events: 'deleteDialog on click at .last i:nth-child(2)'
   
   helpers:
       
     online: ->
       if @getOf @my.contact.user, 'online' then @getOf( @my.contact.user, 'color' ) + '_contact' else ''
         
-  removeDialog: ( event ) ->
-    @my.removeDialog()
+  deleteDialog: ( event ) ->
+    @my.delete()
     event.preventDefault()
     event.stopPropagation()

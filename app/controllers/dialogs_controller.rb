@@ -1,13 +1,13 @@
-class DialogsController 
+class DialogsController < ApplicationController 
   
   include Nali::Controller
   
+  before do check_auth end
+  
   def writes
-    if user = client[ :user ]
-      user.contacts.where( active: true ).each do |contact|
-        if contact.contact.active? and opp_client = contact.contact.user.client 
-          opp_client.notice :writes, contact.dialog
-        end
+    @user.contacts.where( active: true ).each do |contact|
+      if contact.contact.active? and opp_client = contact.contact.user.client 
+        opp_client.notice :writes, contact.dialog
       end
     end
   end

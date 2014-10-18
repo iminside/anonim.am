@@ -1,3 +1,3 @@
-Nali.View.extend UserRemove: 
+Nali.View.extend UserDelete: 
 
   insertTo: -> '.UserInterface'  

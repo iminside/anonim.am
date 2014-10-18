@@ -6,6 +6,9 @@ class Contact < ActiveRecord::Base
   belongs_to :user
   belongs_to :dialog
   
+  validates :active,  inclusion: { in: [ true, false ] }
+  validates :counter, numericality: { only_integer: true }
+  
   after_destroy do
     self.sync
     self.user.client and self.user.client[ :user ].contacts.reload

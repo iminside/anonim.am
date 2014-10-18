@@ -29,7 +29,7 @@ Nali.Model.extend User:
       inclusion: [ 1, 2, 3 ]
       
   beforeShow: 
-    UserInterface: ->
+    interface: ->
       @contacts.order by: ( one, two ) ->
         switch 
           when one.counter > two.counter                               then -1
@@ -80,30 +80,18 @@ Nali.Model.extend User:
     @_( '.toolbar a.dialogs' ).removeClass 'button_hover'
     @_( '.contacts' ).removeClass 'show_contacts'
     @_( document ).off 'click.dialogs'
-   
-  to_bookmarks: ->
-    @show 'bookmark'
     
-  to_email: ->
-    @show 'email'
-    
-  to_email_send: ( { email } ) ->
+  emailSend: ( { email } ) ->
     if /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test email
       @query 'users.to_email', email: email, => 
         @hide 'email'
         @Notice.info  message: 'Кнопка автологина отправлена на ' + email
     else @Notice.info message: 'Введите правильный e-mail'
-      
-  removeDialog: ->
-    @show 'remove'
     
-  removeDialogAccept: ->
-    @destroy => @logoutDialogAccept()
-      
-  logoutDialog: ->
-    @show 'logout'
+  deleteAccept: ->
+    @destroy => @logoutAccept()
     
-  logoutDialogAccept: ->
+  logoutAccept: ->
     @query 'users.logout'
     @Cookie.remove 'token'
     @Application.user = null

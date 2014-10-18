@@ -4,11 +4,11 @@ Nali.Controller.extend Users:
     default: 'index'
     
     before: 
-      'index, person, settings': ->
+      '! auth': ->
         @redirect 'home' unless @Application.user
           
     after:
-      'index, person, settings': ->
+      '! auth': ->
         @collection.add @Application.user
         
     index: ->
@@ -26,4 +26,4 @@ Nali.Controller.extend Users:
         =>
           @Cookie.remove 'token'
           @redirect 'home'
-      @preventDefault()
+      @stop()
