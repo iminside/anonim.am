@@ -1,0 +1,67 @@
+@import compass/css3/user-interface
+@import compass/css3/transition
+@import colors
+
+.MessageBuild
+  width: 100%
+  position: relative
+  z-index: 2
+
+  .form
+    display: table
+    width: 100%
+    padding: .4rem 0 .4rem 0
+    background: #d1d1d1
+
+    .emoticons, .send
+      display: table-cell
+      width: 3.5rem
+      text-align: center
+      vertical-align: bottom
+      cursor: pointer
+
+      button
+        font-size: 2.3rem
+        width: 3.5rem
+        height: 3rem
+        background: transparent
+        border:  0
+        padding: 0
+        margin:  0
+        cursor: pointer
+        &:hover, &:focus
+          background: transparent
+          outline: none
+
+    .message
+      display: table-cell
+      vertical-align: middle
+
+      textarea
+        font: 1rem GardensC Regular, Emoticons
+        height: 3rem
+        +transition( .1s )
+        +transition-delay( .1s )
+        width: 100%
+        box-sizing: border-box
+
+  .emoticons_list
+    display: block
+    height: 0
+    overflow: hidden
+    background: $white-light
+    font-size: 2rem
+    text-align: center
+    line-height: 1.7rem
+    border-bottom-left-radius:  5px
+    border-bottom-right-radius: 5px
+    +user-select( none )
+    +transition( height .2s ease-in )
+    .emoticons_list
+      height:  30vh
+    i
+      color:  $grey-dark
+      cursor: pointer
+
+  .emoticons_show
+    height:  30vh

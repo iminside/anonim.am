@@ -1,0 +1,57 @@
+User:
+  create:
+  read:
+    owner:   [ name, gender, color, image, search, online, who, how, sound, avatar, contacts, photos ]
+    contact: [ name, gender, color, image, online, avatar ]
+  update:
+    owner:   [ name, gender, color, image, search, who, how, sound ]
+  destroy:
+    owner:
+
+
+Contact:
+  create:
+  read:
+    owner:   [ contact, dialog, user_id, active, counter ]
+    contact: [ contact_id, dialog_id, user ]
+  update:
+    owner:   [ active, counter ]
+  destroy:
+
+
+Dialog:
+  create:
+  read:
+    contact:
+  update:
+  destroy:
+    contact:
+
+
+Message:
+  create:
+    contact: [ dialog_id, user_id, text ]
+  read:
+    contact: [ dialog_id, user, text, messagephotos ]
+  update:
+  destroy:
+
+
+Photo:
+  create:
+  read:
+    owner:   [ user_id, secret ]
+    contact: [ user_id, secret ]
+  update:
+  destroy:
+    owner:
+
+
+Messagephoto:
+  create:
+  read:
+    contact: [ message_id, photo ]
+  update:
+  destroy:
+
+

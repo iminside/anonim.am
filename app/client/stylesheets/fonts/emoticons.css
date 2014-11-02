@@ -1,0 +1,248 @@
+@font-face {
+	font-family: "Emoticons";
+	src: url("/fonts/emoticons.eot");
+	src:
+	url("/fonts/emoticons.eot#iefix") format("embedded-opentype"),
+	url("/fonts/emoticons.woff") format("woff"),
+	url("/fonts/emoticons.ttf") format("truetype"),
+	url("/fonts/emoticons.svg#emoticons") format("svg");
+	font-size: 24px;
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="emoticons-"]:before, [class*=" emoticons-"]:before,
+[class^="emoticons-"]:after, [class*=" emoticons-"]:after {
+font-family: Emoticons;
+font-style: normal;
+}
+.emoticons-smile1:before {
+	content: "\e000";
+}
+.emoticons-smile2:before {
+	content: "\e001";
+}
+.emoticons-smile3:before {
+	content: "\e002";
+}
+.emoticons-smile4:before {
+	content: "\e003";
+}
+.emoticons-smile5:before {
+	content: "\e004";
+}
+.emoticons-smile6:before {
+	content: "\e005";
+}
+.emoticons-smile7:before {
+	content: "\e006";
+}
+.emoticons-smile8:before {
+	content: "\e007";
+}
+.emoticons-smile9:before {
+	content: "\e008";
+}
+.emoticons-smile10:before {
+	content: "\e009";
+}
+.emoticons-smile11:before {
+	content: "\e00a";
+}
+.emoticons-smile12:before {
+	content: "\e00b";
+}
+.emoticons-smile13:before {
+	content: "\e00c";
+}
+.emoticons-smile14:before {
+	content: "\e00d";
+}
+.emoticons-smile15:before {
+	content: "\e00e";
+}
+.emoticons-smile16:before {
+	content: "\e00f";
+}
+.emoticons-smile17:before {
+	content: "\e010";
+}
+.emoticons-smile18:before {
+	content: "\e011";
+}
+.emoticons-smile19:before {
+	content: "\e012";
+}
+.emoticons-smile20:before {
+	content: "\e013";
+}
+.emoticons-smile21:before {
+	content: "\e014";
+}
+.emoticons-smile22:before {
+	content: "\e015";
+}
+.emoticons-smile23:before {
+	content: "\e016";
+}
+.emoticons-smile24:before {
+	content: "\e017";
+}
+.emoticons-smile25:before {
+	content: "\e018";
+}
+.emoticons-smile26:before {
+	content: "\e019";
+}
+.emoticons-smile27:before {
+	content: "\e01a";
+}
+.emoticons-smile28:before {
+	content: "\e01b";
+}
+.emoticons-smile29:before {
+	content: "\e01c";
+}
+.emoticons-smile30:before {
+	content: "\e01d";
+}
+.emoticons-smile31:before {
+	content: "\e01e";
+}
+.emoticons-smile32:before {
+	content: "\e01f";
+}
+.emoticons-smile33:before {
+	content: "\e020";
+}
+.emoticons-smile34:before {
+	content: "\e021";
+}
+.emoticons-smile35:before {
+	content: "\e022";
+}
+.emoticons-smile36:before {
+	content: "\e023";
+}
+.emoticons-smile37:before {
+	content: "\e024";
+}
+.emoticons-smile38:before {
+	content: "\e025";
+}
+.emoticons-smile39:before {
+	content: "\e026";
+}
+.emoticons-smile40:before {
+	content: "\e027";
+}
+.emoticons-smile41:before {
+	content: "\e028";
+}
+.emoticons-smile42:before {
+	content: "\e029";
+}
+.emoticons-smile43:before {
+	content: "\e02a";
+}
+.emoticons-smile44:before {
+	content: "\e02b";
+}
+.emoticons-smile45:before {
+	content: "\e02c";
+}
+.emoticons-smile46:before {
+	content: "\e02d";
+}
+.emoticons-smile47:before {
+	content: "\e02e";
+}
+.emoticons-smile48:before {
+	content: "\e02f";
+}
+.emoticons-smile49:before {
+	content: "\e030";
+}
+.emoticons-smile50:before {
+	content: "\e031";
+}
+.emoticons-smile51:before {
+	content: "\e032";
+}
+.emoticons-smile52:before {
+	content: "\e033";
+}
+.emoticons-smile53:before {
+	content: "\e034";
+}
+.emoticons-smile54:before {
+	content: "\e035";
+}
+.emoticons-smile55:before {
+	content: "\e036";
+}
+.emoticons-smile56:before {
+	content: "\e037";
+}
+.emoticons-smile57:before {
+	content: "\e038";
+}
+.emoticons-smile58:before {
+	content: "\e039";
+}
+.emoticons-smile59:before {
+	content: "\e03a";
+}
+.emoticons-smile60:before {
+	content: "\e03b";
+}
+.emoticons-smile61:before {
+	content: "\e03c";
+}
+.emoticons-smile62:before {
+	content: "\e03d";
+}
+.emoticons-smile63:before {
+	content: "\e03e";
+}
+.emoticons-smile64:before {
+	content: "\e03f";
+}
+.emoticons-smile65:before {
+	content: "\e040";
+}
+.emoticons-smile66:before {
+	content: "\e041";
+}
+.emoticons-smile67:before {
+	content: "\e042";
+}
+.emoticons-smile68:before {
+	content: "\e043";
+}
+.emoticons-smile69:before {
+	content: "\e044";
+}
+.emoticons-smile70:before {
+	content: "\e045";
+}
+.emoticons-smile71:before {
+	content: "\e046";
+}
+.emoticons-smile72:before {
+	content: "\e047";
+}
+.emoticons-smile73:before {
+	content: "\e048";
+}
+.emoticons-smile74:before {
+	content: "\e049";
+}
+.emoticons-smile75:before {
+	content: "\e04a";
+}
+.emoticons-smile76:before {
+	content: "\e04b";
+}
+.emoticons-smile77:before {
+	content: "\e04c";
+}

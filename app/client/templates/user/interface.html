@@ -1,0 +1,33 @@
+<div class="UserInterface { @color }">
+
+    <div class="toolbar">
+      <div class="tools">
+        <a class="button dialogs" href="@@toggleDialogs">
+          <i class="interface-chat"></i>
+        </a>
+        <span class="title">{ @Application.title }</span>
+        <a class="button face" href="/user">
+          { +userFace }
+        </a>
+        <a class="button photos" href="@@photosDialog">
+          <i class="interface-photos"></i>
+        </a>
+        <a class="button colors" href="@@changeColorDialog">
+          <i class="interface-colors"></i>
+        </a>
+        <a class="button settings" href="/user/search">
+          <i class="interface-settings"></i>
+        </a>
+        <a class="button { =search }" href="@@toggleSearch">
+          <i class="interface-search"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="contacts">
+      { index of @contacts }
+    </div>
+
+    { yield }
+
+</div>

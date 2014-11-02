@@ -1,0 +1,108 @@
+@import colors
+
+.ContactIndex
+  width: 100%
+  height: 2.5rem
+  a
+    width: 100%
+    height: 2.5rem
+    display: table
+    text-decoration: none
+    border-bottom: 1px solid #d5d5d5
+    &:hover
+      background: #d1d1d1
+
+    span
+      color: $grey-dark
+      display: table-cell
+      vertical-align: middle
+
+    .face
+      width: 2.2rem
+      font-size: 1.7rem
+      text-align: center
+
+      .avatar
+        background-position: center
+        width: 1.7rem
+        height: 1.7rem
+        display: inline-block
+        background-size: contain
+        border-radius: 50%
+
+    .name
+      padding-top: .2rem
+    .last
+      width: 2rem
+      i
+        display: none
+        width: 1.3rem
+        height: 1.3rem
+        box-sizing: border-box
+        text-align: center
+        position: relative
+    .counter
+      i
+        &:nth-child(1)
+          display: block
+          background: $grey-dark
+          color: $white-light
+          font-size: .7rem
+          padding-top: .35rem
+          border-radius: 50%
+
+  =stylize( $light, $dark )
+    span
+      color: $dark
+    .counter
+      i
+        &:nth-child(1)
+          background: $dark
+
+  .red_contact
+    +stylize( $red-light, $red-dark )
+  .orange_contact
+    +stylize( $orange-light, $orange-dark )
+  .yellow_contact
+    +stylize( $yellow-light, $yellow-dark )
+  .green_contact
+    +stylize( $green-light, $green-dark )
+  .azure_contact
+    +stylize( $azure-light, $azure-dark )
+  .blue_contact
+    +stylize( $blue-light, $blue-dark )
+  .violet_contact
+    +stylize( $violet-light, $violet-dark )
+
+
+.ContactIndex.active
+  a
+    background: $white-light
+    box-shadow: 2px 0px 0px -1px $white-light
+    position: relative
+    &:hover
+      background: $white-light
+    .last
+      i
+        &:nth-child(1)
+          display: none
+        &:nth-child(2)
+          display: block
+          border-radius: 50%
+          color: #d1d1d1
+          padding-top: .17rem
+          margin-left: .7rem
+          &:hover
+            background: $white-dark
+            color: $white-light
+
+    &:after
+      content: " "
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 1.31rem 0 1.32rem 0.7rem
+      right: -0.7rem
+      border-color: transparent transparent transparent $white-light
+      position: absolute
+      z-index: 3

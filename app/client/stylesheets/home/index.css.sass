@@ -1,0 +1,159 @@
+@import compass/css3/transition
+@import colors
+
+.HomeIndex
+
+  .logo
+    padding-top: 35vh
+    text-align: center
+    +transition( all .3s ease-in )
+
+    div
+      &:nth-child(1)
+        color:         $white-light
+        font:          bold 10vmin Times New Roman
+        margin-bottom: 1vmin
+
+      &:nth-child(2)
+        color:  $white-dark
+        font:   5vmin GardensC Regular
+
+  .logo_animation
+    padding-top: 20vh
+    +transition( all .3s ease-out )
+
+  .colors
+    padding-top:   1vmin
+    margin-bottom: 3vmin
+    text-align: center
+    font-size: 0
+
+    a
+      opacity: 0
+      display: inline-block
+      height:  9vmin
+      width:   9vmin
+      margin:  .7vmin
+      border-radius: 6vmin
+      +transition( all .5s ease-in-out )
+
+      &:hover
+        cursor: pointer
+        +transition( all .1s ease-in-out )
+
+    =pick_color( $light, $dark )
+      background:   $light
+      &:hover
+        background: $dark
+
+    .red
+      +pick_color( $red-light, $red-dark )
+    .orange
+      +pick_color( $orange-light, $orange-dark )
+    .yellow
+      +pick_color( $yellow-light, $yellow-dark )
+    .green
+      +pick_color( $green-light, $green-dark )
+    .azure
+      +pick_color( $azure-light, $azure-dark )
+    .blue
+      +pick_color( $blue-light, $blue-dark )
+    .violet
+      +pick_color( $violet-light, $violet-dark )
+
+  .show
+    a
+      opacity: 1
+      &:nth-child(1)
+        +transition-delay(.5s)
+      &:nth-child(2)
+        +transition-delay(.4s)
+      &:nth-child(3)
+        +transition-delay(.3s)
+      &:nth-child(4)
+        +transition-delay(.2s)
+      &:nth-child(5)
+        +transition-delay(.3s)
+      &:nth-child(6)
+        +transition-delay(.4s)
+      &:nth-child(7)
+        +transition-delay(.5s)
+
+  .shown
+    a
+      opacity: 1
+      +transition-delay(.0s)
+
+  .gender_buttons
+    opacity:       0
+    visibility:    hidden
+    text-align:    center
+    font-size:     0
+    +transition( opacity .3s ease-in-out )
+
+    div
+      opacity: inherit
+      color:  $white-dark
+      font:   5vmin GardensC Regular
+      margin-bottom: 1vmin
+
+    a
+      display:    inline-block
+      margin:     1vmin
+      +transition( all .3s ease-in-out )
+      span
+        height:      8vmin
+        display:     inline-block
+        text-align:  center
+        color:       #FFF
+        font-family: GardensC Regular
+        +transition( all .3s ease-in-out )
+
+        &:nth-child(1)
+          float:      left
+          width:      8vmin
+          font-size: 5.5vmin
+          padding-top: 1vmin
+          box-sizing: border-box
+
+        &:nth-child(2)
+          font-size: 3.5vmin
+          width:      25vmin
+          line-height: 8vmin
+
+  =sex_button_color( $light, $dark )
+    opacity: 1
+    visibility: visible
+    a
+      span
+        &:nth-child(1)
+          background: $dark
+        &:nth-child(2)
+          background: $light
+      &:hover
+        span
+          &:nth-child(1)
+            background: $light
+          &:nth-child(2)
+            background: $dark
+
+  .red
+    +sex_button_color( $red-light, $red-dark )
+
+  .orange
+    +sex_button_color( $orange-light, $orange-dark )
+
+  .yellow
+    +sex_button_color( $yellow-light, $yellow-dark )
+
+  .green
+    +sex_button_color( $green-light, $green-dark )
+
+  .azure
+    +sex_button_color( $azure-light, $azure-dark )
+
+  .blue
+    +sex_button_color( $blue-light, $blue-dark )
+
+  .violet
+    +sex_button_color( $violet-light, $violet-dark )

@@ -1,1 +1,0 @@
-Nali.Controller.extend Messages: {}

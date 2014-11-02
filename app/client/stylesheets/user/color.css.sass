@@ -1,0 +1,71 @@
+@import compass/css3/transition
+@import colors
+
+.UserColor
+  width: 55%
+  position: absolute
+  z-index: 5
+  right: 1rem
+  top: 3.3rem
+  background: $white-light
+  border-radius: .3rem
+  padding: 1rem
+  box-shadow: grey 0px 0px 7px
+  opacity: 0
+  font-size: 0
+  margin-top: 1rem
+  +transition( opacity 0.2s ease-in, margin-top 0.2s ease-out )
+
+  p
+    color: $grey-dark
+    text-align: left
+    font-size: 1rem
+    line-height: 1rem
+    b
+      font-weight: bold
+      color: $black-light
+      line-height: 1.3rem
+  a
+    width: 0
+    height: 0
+    border-radius: 10%
+    display: inline-block
+    margin: 1% 1% 0 0
+    padding: 6.64%
+
+  =stylize( $light, $dark )
+    background: $light
+    &:hover
+      background: $dark
+
+  .red
+    +stylize( $red-light, $red-dark )
+  .orange
+    +stylize( $orange-light, $orange-dark )
+  .yellow
+    +stylize( $yellow-light, $yellow-dark )
+  .green
+    +stylize( $green-light, $green-dark )
+  .azure
+    +stylize( $azure-light, $azure-dark )
+  .blue
+    +stylize( $blue-light, $blue-dark )
+  .violet
+    +stylize( $violet-light, $violet-dark )
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    right: 4.8rem
+    background: $white-light
+    height: 1rem
+    width: 1rem
+    top: -.3rem
+    box-shadow: $white-dark -3px -3px 3px
+    transform: rotate(45deg)
+    -webkit-transform: rotate(45deg)
+
+.show
+  opacity: 1
+  margin-top: 0
