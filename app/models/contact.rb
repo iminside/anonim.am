@@ -10,7 +10,6 @@ class Contact < ActiveRecord::Base
   validates :counter, numericality: { only_integer: true }
   
   after_destroy do
-    self.sync
     self.user.client and self.user.client[ :user ].contacts.reload
   end
   

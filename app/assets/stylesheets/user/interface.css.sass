@@ -18,6 +18,15 @@
       height: 2.5rem
       display: table
 
+      .avatar
+        background-position: center
+        width: 2rem
+        height: 2rem
+        display: block
+        background-size: contain
+        border-radius: 50%
+        margin: auto
+
       .title
         display: table-cell
         text-align: left
@@ -58,7 +67,7 @@
       margin-right: -1rem
       padding-right: 1rem
         
-  .yield
+  >.yield
     box-sizing: border-box
     padding-bottom: 2.5rem
     overflow: hidden
@@ -82,7 +91,7 @@
     &:hover
       background: $grey-dark
       
-  .input_radio
+  .radio_switch
     width: 100%
     table-layout: fixed
     font-size: 0
@@ -132,6 +141,9 @@
       +transition( visibility 0s, opacity .2s ease-out )
       
 =stylize( $light, $dark )
+  .progress
+    background: $dark
+
   .toolbar
     background: $light
     .tools
@@ -166,7 +178,22 @@
         .icon
           color: $dark
           
-    .input_radio
+    .UserSounds
+      .sound
+        .play
+          color: $dark
+          &:hover
+            color: $light
+        .checked
+          background-color: $dark
+
+    .UserSettings
+      #settingsBar
+        .indicator
+          .marker
+            background: $dark
+
+    .radio_switch
       label:hover
         background: $light
         

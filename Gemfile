@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 ruby   '1.9.3'
 
-gem 'nali'#, path: '/home/mrdenis/Github/nali'
+gem 'nali', path: '/home/mrdenis/Github/nali'
 gem 'compass'
 gem 'mail'
+gem 'ImageResize'
+gem 'fastimage'
 
 group :development, :test do
   gem 'debugger'

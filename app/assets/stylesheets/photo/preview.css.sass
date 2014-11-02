@@ -1,0 +1,42 @@
+@import compass/css3/transition
+
+.PhotoPreview
+  display: inline-block
+  padding: 1%
+  width: 20%
+  box-sizing: border-box
+  cursor: pointer
+
+  .preview
+    padding-top: 100%
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: .2rem
+    box-shadow: 0px 0px .2rem 0px rgba(0, 0, 0, 0.37)
+    position: relative
+    overflow: hidden
+
+    .avatarMask
+      display: none
+      border-radius: 50%
+      width: 100%
+      padding-top: 100%
+      border: 5rem rgba(0, 0, 0, 0.37) solid
+      left: -5rem
+      top: -5rem
+      position: absolute
+      +transition( border-color .1s )
+      &:hover
+        border: 5rem rgba(0, 0, 0, 0.60) solid
+
+.PhotoPreview.unselected
+  opacity: .25
+  +transition( opacity .1s )
+  &:hover
+    opacity: .65
+
+.PhotoPreview.forAvatar
+  .preview
+    .avatarMask
+      display: block

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718051317) do
+ActiveRecord::Schema.define(version: 20141023071135) do
 
   create_table "contacts", force: true do |t|
     t.integer  "contact_id"
@@ -23,12 +23,22 @@ ActiveRecord::Schema.define(version: 20140718051317) do
     t.datetime "updated_at"
   end
 
-  add_index "contacts", ["contact_id", "user_id"], name: "index_contacts_on_contact_id_and_user_id", unique: true
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "dialogs", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "messagephotos", force: true do |t|
+    t.integer  "message_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messagephotos", ["message_id"], name: "index_messagephotos_on_message_id"
+  add_index "messagephotos", ["photo_id"], name: "index_messagephotos_on_photo_id"
 
   create_table "messages", force: true do |t|
     t.integer  "dialog_id"
@@ -38,18 +48,34 @@ ActiveRecord::Schema.define(version: 20140718051317) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "token"
-    t.string   "name"
-    t.string   "gender"
-    t.string   "color"
-    t.integer  "image",                default: 0
-    t.integer  "search",     limit: 1, default: 1
-    t.boolean  "online",               default: false
-    t.string   "who",                  default: "all"
-    t.integer  "how",        limit: 1, default: 1
+  add_index "messages", ["dialog_id"], name: "index_messages_on_dialog_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "photos", force: true do |t|
+    t.integer  "user_id"
+    t.string   "secret",     limit: 32
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "photos", ["user_id"], name: "index_photos_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "token",      limit: 32
+    t.string   "name"
+    t.string   "gender"
+    t.string   "color"
+    t.integer  "image",                 default: 0
+    t.integer  "search",     limit: 1,  default: 1
+    t.boolean  "online",                default: false
+    t.string   "who",                   default: "all"
+    t.integer  "how",        limit: 1,  default: 1
+    t.integer  "sound",      limit: 2,  default: 1
+    t.string   "avatar",     limit: 32
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["token"], name: "index_users_on_token", unique: true
 
 end

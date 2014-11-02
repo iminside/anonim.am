@@ -1,3 +1,4 @@
+@import compass/css3/user-interface
 @import compass/css3/transition
 @import colors
 
@@ -47,19 +48,15 @@
   .emoticons_list
     display: block
     height: 0
+    overflow: hidden
     background: $white-light
     font-size: 2rem
     text-align: center
     line-height: 1.7rem
     border-bottom-left-radius:  5px
     border-bottom-right-radius: 5px
-    -moz-user-select: none
-    -khtml-user-select: none
-    -webkit-user-select: none
-    user-select: none
-    margin-bottom: .1rem
+    +user-select( none )
     +transition( height .2s ease-in )
-    overflow: hidden
     .emoticons_list
       height:  30vh
     i
@@ -68,4 +65,3 @@
 
   .emoticons_show
     height:  30vh
-      

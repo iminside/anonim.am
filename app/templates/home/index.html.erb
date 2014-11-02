@@ -4,17 +4,17 @@
 </div>
 <div class="colors">
   <% %w(red orange yellow green azure blue violet ).each do |color| %>
-    <a class="<%= color %>" href="@selectColor?color=<%= color %>"></a>
+  <a class="<%= color %>" href="@selectColor?color=<%= color %>"></a>
   <% end %>
 </div>
 <div class="gender_buttons">
   <div>Кто Вы? Парень или девушка?</div>
   <a href="@selectGender?gender=man">
-    <span><i class="faceicon-man0_left"></i></span>
+    <span><i class="faceicon-man0"></i></span>
     <span>я парень</span>
   </a>
   <a href="@selectGender?gender=woman">
-    <span><i class="faceicon-woman0_left"></i></span>
+    <span><i class="faceicon-woman0"></i></span>
     <span>я девушка</span>
   </a>
 </div>

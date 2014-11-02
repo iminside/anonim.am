@@ -1,10 +1,29 @@
-<% ( 1..12 ).each do |i| %>
-  <div class="faceicon">
-    <div class="icon">
-      <i class="faceicon-{ @gender }<%= i %>_left"></i>
-    </div>
-    <div class="button">
-      <a href="@@changeImage?image=<%= i %>" class="accept">выбрать</a>
-    </div>
+<p>Ваше имя</p>
+<input type="text" bind="name" />
+<p>Аватар</p>
+<div class="avatar_info { @avatar? }">
+  <div>
+    <small>Выберите себе образ из представленных ниже, либо создайте свой уникальный аватар</small>
+    <center>
+      <a href="@@changeAvatar" class="accept">создать аватар</a>
+    </center>
   </div>
+  <div>
+    <small>На данный момент в качестве вашего образа используется аватар</small>
+    <center>
+      <a href="@@changeAvatar" class="accept">изменить</a>
+      <a href="@@deleteAvatar" class="deny">удалить</a>
+    </center>
+  </div>
+</div>
+<p>Образ</p>
+<% ( 1..12 ).each do |i| %>
+<div class="faceicon">
+  <div class="icon">
+    <i class="faceicon-{ @gender }<%= i %>"></i>
+  </div>
+  <div class="button">
+    <a href="@@changeImage?image=<%= i %>" class="accept">выбрать</a>
+  </div>
+</div>
 <% end %>

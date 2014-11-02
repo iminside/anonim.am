@@ -1,9 +1,9 @@
 class Dialog < ActiveRecord::Base
   
   include Nali::Model
-  
-  has_many :contacts, dependent: :destroy
+
   has_many :messages, dependent: :destroy
+  has_many :contacts, dependent: :destroy
   
   def access_level( client )
     if user = client[ :user ]

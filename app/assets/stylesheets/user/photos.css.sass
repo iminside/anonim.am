@@ -1,0 +1,86 @@
+@import compass/css3/user-interface
+@import colors
+
+.UserPhotos
+  position: absolute
+  z-index: 9
+  top: 0
+  left: 0
+  background: rgba(44, 44, 44, 0.5)
+
+  .wrapper
+    width: 98vw
+    height: 98vh
+    display: table-cell
+    vertical-align: middle
+
+    .selectionMode
+      .PhotoBuildRelation
+        display: none
+      .selectionInfo
+        display: block
+      .tools
+        .notSelected
+          display: none
+        .forSelected
+          display: block
+
+    .avatarMode
+      .PhotoBuildRelation
+        display: none
+      .avatarInfo
+        display: block
+      .tools
+        .notSelected
+          display: none
+        .forAvatar
+          display: block
+
+    .photos
+      background: rgba(44, 44, 44, 0.95)
+      margin: auto
+      width: 80%
+      padding: 1rem
+      font-size: 0
+      border-radius: .3rem
+      box-shadow: 0px 0px 10px 1px rgba(44, 44, 44, 0.9)
+      display: table
+
+    .selectionInfo, .avatarInfo
+      display: none
+      width: 100%
+      text-align: center
+      height: 2.5rem
+      border: 1px $grey-dark dashed
+      border-radius: 0.3rem
+      color: $white-light
+      font-size: 1rem
+      +user-select( none )
+      div
+        display: table
+        width: 100%
+        height: 2.5rem
+        p
+          display: table-cell
+          vertical-align: middle
+
+    .PhotoBuildRelation
+      width: 100%
+
+    .PhotosPreviewRelation
+      height: 60vh
+      margin: 1% -1%
+      box-sizing: border-box
+      +user-select( none )
+
+    .tools
+      width: 100%
+      text-align: center
+
+      .notSelected
+
+      .forSelected
+        display: none
+
+      .forAvatar
+        display: none

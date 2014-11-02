@@ -1,0 +1,19 @@
+<% ( 0..25 ).each do |i| %>
+<div class="sound">
+  <% if i == 0 %>
+  <div class="off"></div>
+  <% else %>
+  <a class="play" href="@play?sound=<%= i %>">
+    <i class="interface-play"></i>
+  </a>
+  <% end %>
+  <div class="name">
+    { @Audio.list.<%= i %>.name }
+  </div>
+  <div class="switch">
+    <label>
+      <input type="radio" bind="sound" value="<%= i %>" />
+    </label>
+  </div>
+</div>
+<% end %>

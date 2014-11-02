@@ -25,11 +25,12 @@ Nali.View.extend MessageBuild:
 
   onShow: ->
     @textarea  = @element.find '.message textarea' 
-    @emoticons = @element.find( '.emoticons_list' ).scrollator()
+    @emoticons = @element.find( '.emoticons_list' )
     @form      = @element.find 'form' 
     @textarea.autosize()
   
   onHide: ->
+    @emoticons.getNiceScroll()?.remove()
     delete @textarea
     delete @emoticons
     delete @form
@@ -44,10 +45,12 @@ Nali.View.extend MessageBuild:
 
   showEmoticons: ->
     @emoticons.addClass 'emoticons_show'
+    setTimeout ( => @emoticons.niceScroll() ), 200
     @
   
   hideEmoticons: ->
     @emoticons.removeClass 'emoticons_show'
+    @emoticons.getNiceScroll().remove()
     @
     
   pasteEmoticon: ( event ) ->
@@ -56,13 +59,13 @@ Nali.View.extend MessageBuild:
     @textarea.insertAtCaret( text ).trigger 'autosize.resize'  
     
   sendByEnter: ( event ) ->
-    if event.keyCode is 13 then @form.trigger 'submit'
+    if event.which is 13 then @form.trigger 'submit'
                                                                                                     
   addNewLine: ( event ) ->
-    if event.keyCode is 13 and ( event.ctrlKey or event.metaKey ) 
+    if event.which is 13 and ( event.ctrlKey or event.metaKey )
       @textarea.insertAtCaret String.fromCharCode 10 
       
   writesMessage: ( event ) ->
-    if event.keyCode isnt 13 and ( newLastTime = new Date().getTime() ) - ( @lastWriteTime ?= 0 ) > 3000
+    if event.which isnt 13 and ( newLastTime = new Date().getTime() ) - ( @lastWriteTime ?= 0 ) > 3000
       @lastWriteTime = newLastTime
       @query 'dialogs.writes'

@@ -4,7 +4,7 @@
   height: 2rem
   display: table-row
 
-  span
+  .name, .text
     display: table-cell
     padding: .5rem
     border-bottom: 1px solid #e1e1e1
@@ -13,24 +13,30 @@
     text-align: right
     width: 1%
     color: $black-light
+    vertical-align: top
 
   .text
     font: 1rem GardensC Regular, Emoticons
     word-wrap: break-word
-      
-    i
-      font-size: 1.7rem
-      line-height: 1rem
-      position: relative
-      top: .3rem
-      margin: -.2rem
+    p
+      i
+        font-size: 1.7rem
+        line-height: 1rem
+        position: relative
+        top: .3rem
+        margin: -.2rem
+
+    .MessagephotosPreviewRelation
+      max-width: 250px
+      font-size: 0
 
 =stylize( $light, $dark )
   .name
     color: $dark
   .text
-    i
-      color:  $dark
+    p
+      i
+        color: $dark
 
 .MessageIndex.red
   +stylize( $red-light, $red-dark )

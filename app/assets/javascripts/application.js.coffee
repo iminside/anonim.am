@@ -1,8 +1,25 @@
 #= require jquery.min
 #= require jquery.autosize.min
-#= require fm.scrollator.jquery
+#= require jquery.nicescroll.min
+#= require jquery.Jcrop.min
 #= require nali
 #= require_tree .
 
-Nali.Application.run
+Nali.Application.expand(
+
+  onConnectionOpen: ->
+    if token = @Cookie.get 'token' then @auth token
+    else @redirect()
+
+  auth: ( token, url ) ->
+    @query 'users.auth', token: token,
+      ( id ) =>
+        @user = @Model.User.find id
+        @Cookie.set 'token', token, live: 5000
+        @redirect url
+      =>
+        @Cookie.remove 'token'
+        @redirect url
+
+).run
   domEngine: jQuery

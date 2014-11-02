@@ -1,0 +1,1 @@
+Nali.Controller.extend Photos: {}

@@ -24,3 +24,11 @@ jQuery.fn.insertAtCaret = ( myValue ) ->
       @focus()
     return
 
+#xhr = jQuery.ajaxSettings.xhr
+#jQuery.ajaxSetup xhr: ->
+#  xhr = xhr()
+#  if @progressLoad
+#    xhr.addEventListener? 'progress', @progressLoad, false
+#  if @progressUpload
+#    xhr.upload?.addEventListener? 'progress', @progressUpload, false
+#  xhr

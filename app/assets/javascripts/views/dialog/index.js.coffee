@@ -5,17 +5,17 @@ Nali.View.extend DialogIndex:
   
   onShow: ->
     @Application.setTitle 'Диалог'
-    @my.contact().activate()
     @messagesBox = @element.find '.MessagesIndexRelation'
-    @messagesBox.scrollator()
+    @messagesBox.niceScroll()
   
   onHide: ->
-    @my.contact()?.deactivate()
+    @messagesBox.getNiceScroll().remove()
     
   scrollDown: ->
+    @messagesBox[0].scrollTop = @messagesBox[0].scrollHeight
     clearTimeout @scrollTimer if @scrollTimer?
     @scrollTimer = setTimeout =>
-      @messagesBox.animate scrollTop: @messagesBox[0].scrollHeight, 300
+      @messagesBox[0].scrollTop = @messagesBox[0].scrollHeight
       delete @scrollTimer 
     , 5
     

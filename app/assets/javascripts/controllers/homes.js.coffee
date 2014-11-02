@@ -4,5 +4,4 @@ Nali.Controller.extend Homes:
     default: 'index'
     
     index: ->
-      if @Application.user? then @redirect 'user'
-      else if token = @Cookie.get 'token' then @redirect 'user/auth/' + token
+      @redirect 'user' if @Application.user?

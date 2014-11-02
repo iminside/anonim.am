@@ -1,8 +1,12 @@
-<a class="ContactIndex { =online } { @active? }" href="@@toDialog">
-  <span class="face"><i class="faceicon-{ @contact.user.gender }{ @contact.user.image }_left"></i></span>
-  <span class="name">{ @contact.user.name }</span>
-  <span class="last { @counter? }">
-    <i>{ @counter }</i>
-    <i>&times;</i>
-  </span>
-</a>
+<div class="ContactIndex">
+  <a class="{ =online }" href="@@toDialog">
+    <span class="face">
+      { +userFace }
+    </span>
+    <span class="name">{ @contact.user.name }</span>
+    <span class="last { @counter? }">
+      <i>{ @counter }</i>
+      <i>&times;</i>
+    </span>
+  </a>
+</div>

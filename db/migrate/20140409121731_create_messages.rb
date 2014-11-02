@@ -6,6 +6,9 @@ class CreateMessages < ActiveRecord::Migration
       t.string     :text
       
       t.timestamps
+
+      t.index :user_id
+      t.index :dialog_id
     end
   end
 end

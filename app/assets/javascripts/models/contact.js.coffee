@@ -1,14 +1,11 @@
 Nali.Model.extend Contact:
   
   attributes:
-    contact_id:   
-      default: 0
+    contact_id:
       format:  'number'
-    user_id:  
-      default: 0
+    user_id:
       format:  'number'
-    dialog_id: 
-      default: 0
+    dialog_id:
       format:  'number'
     active:
       default:  true
@@ -23,10 +20,10 @@ Nali.Model.extend Contact:
     if @user is @Application.user 
       @redirect 'user' if @active
     else unless @destroyInitiator
-      @Notice.info message: "#{ @user.name } больше не хочет общаться с Вами, диалог удален"
+      @Notice.info "#{ @user.name } больше не хочет общаться с Вами, диалог удален"
   
   fresh: ( params ) ->
-    @Notice.info message: 'Вам подобран новый собеседник'
+    @Notice.info 'Вам подобран новый собеседник'
     @toDialog()
     
   toDialog: ->

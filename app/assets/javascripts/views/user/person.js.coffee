@@ -1,12 +1,11 @@
 Nali.View.extend UserPerson:
   
-  layout: -> 
-    @my.view 'interface'
+  layout: -> @my.view 'settings'
         
   onShow: ->
     @Application.setTitle 'Образ'
-    @_( 'a.face' ).addClass 'button_hover'
-    @element.scrollator()
+    @_( '#settingsBar' ).addClass 'active_2'
+    @element.closest( '.yield' )[0].scrollTop = 0
         
   onHide: ->
-    @_( 'a.face' ).removeClass 'button_hover'
+    @_( '#settingsBar' ).removeClass 'active_2'

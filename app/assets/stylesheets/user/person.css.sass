@@ -3,7 +3,26 @@
   height:     100%
   box-sizing: border-box
   background: #e8e8e8
-  padding:    1rem
+
+  .avatar_info
+    div
+      border-bottom: 1px #e0e0e0 solid
+      padding-bottom: .2rem
+      p
+        text-align: left
+        padding-bottom: .2rem
+      &:nth-child(1)
+        .accept
+          width: 70%
+      &:nth-child(2)
+        display: none
+
+  .avatar
+    div
+      &:nth-child(1)
+        display: none
+      &:nth-child(2)
+        display: block
 
   .faceicon
     display: table

@@ -23,6 +23,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.interface-play:before {
+	content: "\e609";
+}
+.interface-close:before {
+	content: "\e603";
+}
+.interface-prev:before {
+	content: "\e608";
+}
+.interface-photos:before {
+	content: "\e601";
+}
 .interface-search:before {
 	content: "\e600";
 }

@@ -6,13 +6,16 @@
           <i class="interface-chat"></i>
         </a>
         <span class="title">{ @Application.title }</span>
-        <a class="button face" href="/user/person">
-          <i class="faceicon-{ @gender }{ @image }_left"></i>
+        <a class="button face" href="/user">
+          { +userFace }
+        </a>
+        <a class="button photos" href="@@photosDialog">
+          <i class="interface-photos"></i>
         </a>
         <a class="button colors" href="@@changeColorDialog">
           <i class="interface-colors"></i>
         </a>
-        <a class="button settings" href="/user/settings">
+        <a class="button settings" href="/user/search">
           <i class="interface-settings"></i>
         </a>
         <a class="button { =search }" href="@@toggleSearch">

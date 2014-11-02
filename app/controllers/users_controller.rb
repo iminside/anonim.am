@@ -7,8 +7,7 @@ class UsersController < ApplicationController
   
   def build
     user = User.new gender: params[ :gender ], color: params[ :color ] 
-    if user.valid?
-      user.save
+    if user.save
       trigger_success user.token
     else
       trigger_failure
@@ -32,6 +31,11 @@ class UsersController < ApplicationController
     @user.logout 
   end
   
+  def delete_avatar
+    @user.remove_avatar
+    @user.sync
+  end
+
   def to_email
     email = params[ :email ]
     Mail.deliver do

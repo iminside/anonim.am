@@ -1,3 +1,4 @@
+@import compass/css3/transition
 @import colors 
   
 .UserSettings
@@ -7,6 +8,65 @@
   box-sizing: border-box
   background: #e8e8e8
 
+  #settingsBar
+    .tabs
+      display: table
+      table-layout: fixed
+      width: 100%
+      a
+        display:    table-cell
+        width:      25%
+        text-align: center
+        height:     1.2rem
+        color: $grey-dark
+        &:hover
+          color: $black-light
+
+    .indicator
+      height: .3rem
+      .marker
+        display: block
+        height: .3rem
+        width:  25%
+        +transition( margin-left .2s .05s ease-out )
+
+  .active_1
+    .tabs
+      a:nth-child(1)
+        color: $black-light !important
+    .indicator
+      .marker
+        margin-left: 0
+  .active_2
+    .tabs
+      a:nth-child(2)
+        color: $black-light !important
+    .indicator
+      .marker
+        margin-left: 25%
+  .active_3
+    .tabs
+      a:nth-child(3)
+        color: $black-light !important
+    .indicator
+      .marker
+        margin-left: 50%
+  .active_4
+    .tabs
+      a:nth-child(4)
+        color: $black-light !important
+    .indicator
+      .marker
+        margin-left: 75%
+
+  >.yieldBox
+    padding: 1rem 0 1.5rem 0
+    box-sizing: border-box
+    overflow: hidden
+    height: 100%
+    >.yield
+      height: 100%
+
   input[type=text]
     width: 100%
     margin-bottom: .5rem
@@ -15,17 +75,11 @@
     line-height: 1.5rem
     font-weight: bold
 
-  .input_radio, center
-    margin-bottom: .5rem
-
   center
     margin-top: .2rem
 
-  .accept
+  .accept, .deny
     width: 40%
 
   small
     color: $grey-dark
-
-  a[href="@@delete"], a[href="@@logout"]
-    width: 70%

@@ -1,0 +1,73 @@
+@import compass/css3/user-interface
+@import compass/css3/transition
+@import colors
+
+.PhotoBuild
+  display: table
+  width: 100%
+  text-align: center
+  cursor: pointer
+  height: 2.5rem
+  border: 1px $grey-dark dashed
+  border-radius: 0.3rem
+  color: $white-light
+  font-size: 1rem
+  overflow: hidden
+  +user-select( none )
+  small
+    color: $white-dark
+  &:hover
+    color: white
+    border-color: white
+    small
+      color: $white-light
+
+  .dropBox
+    display: table-cell
+    vertical-align: middle
+    p
+      pointer-events: none
+      &:nth-child(2)
+        display: none
+
+
+  .dragenter
+    p
+      &:nth-child(1)
+        display: none
+      &:nth-child(2)
+        display: block
+
+  .prepareBar, .uploadingBar
+    display: none
+    vertical-align: middle
+    position: relative
+    .event
+      line-height: 2.5rem
+      position: absolute
+      height: 100%
+      width: 100%
+      left: 0
+      top: 0
+
+    .progress
+      height: 100%
+      width: 0%
+      opacity: .4
+      +transition(width .2s)
+
+  input
+    display: none
+
+
+.uploading
+  .dropBox
+    display: none
+  .uploadingBar
+    display: table-cell
+
+.preparing
+  .dropBox
+    display: none
+  .prepareBar
+    display: table-cell

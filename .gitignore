@@ -1,3 +1,5 @@
 *.gem
 *.sqlite3
+*.gif
+*.jpg
 tmp

@@ -5,25 +5,24 @@ Nali.Controller.extend Users:
     
     before: 
       '! auth': ->
-        @redirect 'home' unless @Application.user
+        @redirect 'home' unless @Application.user?
           
     after:
       '! auth': ->
         @collection.add @Application.user
         
-    index: ->
+    index:   ->
       
-    person: ->
+    person:  ->
       
-    settings: ->
+    sounds:  ->
+
+    search:  ->
+
+    account: ->
       
     'auth/:token': ->
-      @query 'users.auth', token: @params.token, 
-        ( id ) => 
-          @Application.user = @Model.User.find id
-          @Cookie.set 'token', @params.token
-          @redirect 'user'
-        =>
-          @Cookie.remove 'token'
-          @redirect 'home'
-      @stop()
+      if @params.token?
+        @Application.auth @params.token, 'user'
+        @stop()
+      else @redirect 'home'
