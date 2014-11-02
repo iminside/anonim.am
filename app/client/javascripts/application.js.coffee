@@ -2,7 +2,9 @@
 #= require jquery.autosize.min
 #= require jquery.nicescroll.min
 #= require jquery.Jcrop.min
+#= require jquery.functions
 #= require nali
+#= require audio
 #= require_tree .
 
 Nali.Application.expand(
