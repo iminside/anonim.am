@@ -1,18 +1,11 @@
 @import compass/css3/user-interface
+@import mixins
 @import colors
 
 .UserPhotos
-  position: absolute
-  z-index: 9
-  top: 0
-  left: 0
-  background: rgba(44, 44, 44, 0.5)
+  +popup
 
   .wrapper
-    width: 98vw
-    height: 98vh
-    display: table-cell
-    vertical-align: middle
 
     .selectionMode
       .PhotoBuildRelation
