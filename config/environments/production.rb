@@ -1,8 +1,8 @@
 Nali::Application.configure :production do |config|
   
-  ActiveRecord::Base.logger = false
+  ActiveRecord::Base.logger    = false
   
-  config.client_digest      = true
+  config.client_digest         = true
   
   config.client.js_compressor  = :uglify
 
