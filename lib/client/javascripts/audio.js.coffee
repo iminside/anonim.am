@@ -39,6 +39,9 @@ Nali.extend Audio:
         sound.player     = new Audio
         sound.player.src = '/sounds/' + sound.file + @ext()
         sound.player.load()
+      if sound.player.readyState
+        sound.player.pause()
+        sound.player.currentTime = 0
       sound.player.play()
 
   ext: ->
