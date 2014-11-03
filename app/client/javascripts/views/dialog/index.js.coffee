@@ -12,7 +12,6 @@ Nali.View.extend DialogIndex:
     @messagesBox.getNiceScroll().remove()
 
   scrollDown: ->
-    @messagesBox[0].scrollTop = @messagesBox[0].scrollHeight
     clearTimeout @scrollTimer if @scrollTimer?
     @scrollTimer = setTimeout =>
       @messagesBox[0].scrollTop = @messagesBox[0].scrollHeight
