@@ -1,6 +1,8 @@
 Nali.Model.extend Photo:
 
-  hasMany: 'messagephotos'
+  hasMany:   'messagephotos'
+
+  belongsTo: 'user'
 
   attributes:
     user_id:

@@ -1,9 +1,11 @@
 Nali.Model.extend Message:
 
   hasMany: [
-    photos: through: 'messagephoto'
     'messagephotos'
+    photos: through: 'messagephotos'
   ]
+
+  belongsTo: [ 'user', 'dialog' ]
 
   attributes:
     dialog_id:
