@@ -2,9 +2,9 @@ class Contact < ActiveRecord::Base
 
   include Nali::Model
 
-  belongs_to :contact
-  belongs_to :user
-  belongs_to :dialog
+  belongs_to :user, inverse_of: :contacts
+  belongs_to :contact, class_name: 'User'
+  belongs_to :dialog, inverse_of: :contacts
 
   validates :active,  inclusion: { in: [ true, false ] }
   validates :counter, numericality: { only_integer: true }
@@ -15,8 +15,8 @@ class Contact < ActiveRecord::Base
 
   def access_level( client )
     if user = client[ :user ]
-      return :owner   if self.user == user
-      return :contact if self.contact and self.contact.user == user
+      return :owner   if self.user_id == user.id
+      return :contact if self.contact_id and self.contact_id == user.id
     end
     :unknown
   end

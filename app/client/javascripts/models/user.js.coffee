@@ -42,14 +42,14 @@ Nali.Model.extend User:
     interface: ->
       @contacts.order by: ( one, two ) ->
         switch
-          when one.counter > two.counter                               then -1
-          when one.counter < two.counter                               then  1
-          when one.contact.user.online and not two.contact.user.online then -1
-          when not one.contact.user.online and two.contact.user.online then  1
-          when one.contact.user.name  < two.contact.user.name          then -1
-          when one.contact.user.name  > two.contact.user.name          then  1
-          when one.contact.user.color < two.contact.user.color         then -1
-          when one.contact.user.color > two.contact.user.color         then  1
+          when one.counter > two.counter                     then -1
+          when one.counter < two.counter                     then  1
+          when one.contact.online and not two.contact.online then -1
+          when not one.contact.online and two.contact.online then  1
+          when one.contact.name  < two.contact.name          then -1
+          when one.contact.name  > two.contact.name          then  1
+          when one.contact.color < two.contact.color         then -1
+          when one.contact.color > two.contact.color         then  1
           else 0
 
   onUpdateHow: ->

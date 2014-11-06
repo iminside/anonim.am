@@ -4,12 +4,12 @@ Nali.View.extend ContactIndex:
 
   helpers:
     online: ->
-      if @getOf @my.contact.user, 'online' then @getOf( @my.contact.user, 'color' ) + '_contact' else ''
+      if @getOf @my.contact, 'online' then @getOf( @my.contact, 'color' ) + '_contact' else ''
     userFace: ->
-      if ( @getOf @my.contact.user, 'avatar' )?
-        '<span class="avatar" style="background-image: url(' + @my.contact.user.avatarPath + ')"></span>'
+      if ( @getOf @my.contact, 'avatar' )?
+        '<span class="avatar" style="background-image: url(' + @my.contact.avatarPath + ')"></span>'
       else
-        '<i class="faceicon-' + ( @getOf @my.contact.user, 'gender' ) + ( @getOf @my.contact.user, 'image' ) + '"></i>'
+        '<i class="faceicon-' + ( @getOf @my.contact, 'gender' ) + ( @getOf @my.contact, 'image' ) + '"></i>'
 
   deleteDialog: ( event ) ->
     @my.delete()

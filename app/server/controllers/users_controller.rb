@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def search
     if @user.search > 0
       ( ignor = [] ) << @user.id
-      @user.contacts.each { |contact| ignor << contact.contact.user.id }
+      @user.contacts.each { |contact| ignor << contact.contact_id }
       clients.each do |client|
         anon = client[ :user ]
         if anon and anon.search > 0 and ignor.exclude?( anon.id ) and
@@ -70,10 +70,10 @@ class UsersController < ApplicationController
 
           dialog   = Dialog.create
           contacts = []
-          contacts << @user.contacts.create( dialog: dialog )
-          contacts << anon.contacts.create( dialog: dialog )
-          contacts[0].contact = contacts[1]
-          contacts[1].contact = contacts[0]
+          contacts << @user.contacts.new( dialog: dialog, contact: anon )
+          contacts << anon.contacts.new( dialog: dialog, contact: @user )
+#          contacts[0].contact = contacts[1]
+#          contacts[1].contact = contacts[0]
           contacts.each { |contact| contact.save }
           contacts.each do |contact|
             contact.user.client.notice :fresh, contact

@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   include Nali::Model
 
-  has_many  :contacts
-  has_many  :photos,  dependent: :destroy
+  has_many  :contacts, inverse_of: :user
+  has_many  :photos,   inverse_of: :user,  dependent: :destroy
 
   validates :name,   length: { in: 3..30 }
   validates :gender, inclusion: { in: %w(man woman) }
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
       if client[ :user ] == self
         return :owner
       else
-        client[ :user ].contacts.each { |contact| return :contact if contact.contact.user == self }
+        client[ :user ].contacts.each { |contact| return :contact if contact.contact_id == self.id }
       end
     end
     :unknown

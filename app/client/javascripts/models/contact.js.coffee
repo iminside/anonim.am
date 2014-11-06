@@ -1,6 +1,10 @@
 Nali.Model.extend Contact:
 
-  belongsTo: [ 'user', 'contact', 'dialog' ]
+  belongsTo: [
+    'user'
+    contact: model: 'user'
+    'dialog'
+  ]
 
   attributes:
     contact_id:

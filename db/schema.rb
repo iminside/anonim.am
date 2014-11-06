@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20141023071135) do
 
   create_table "contacts", force: true do |t|
+    t.integer  "user_id"
     t.integer  "contact_id"
     t.integer  "dialog_id"
-    t.integer  "user_id"
     t.boolean  "active",     default: false
     t.integer  "counter",    default: 0
     t.datetime "created_at"

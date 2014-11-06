@@ -2,8 +2,8 @@ class Photo < ActiveRecord::Base
 
   include Nali::Model
 
-  has_many   :messagephotos, dependent: :destroy
-  belongs_to :user
+  has_many   :messagephotos, inverse_of: :photo, dependent: :destroy
+  belongs_to :user,          inverse_of: :photos
 
   after_initialize do
     self.secret ||= generate_secret
@@ -30,10 +30,10 @@ class Photo < ActiveRecord::Base
 
   def access_level( client )
     if user = client[ :user ]
-      return :owner if self.user == user
+      return :owner if self.user_id == user.id
       opponents = []
       self.messagephotos.each do |messagephoto|
-        messagephoto.message.dialog.contacts.each { |contact| opponents << contact.user.id }
+        messagephoto.message.dialog.contacts.each { |contact| opponents << contact.contact_id }
       end
       return :contact if opponents.include?( user.id )
     end
