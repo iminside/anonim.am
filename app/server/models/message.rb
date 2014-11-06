@@ -2,8 +2,8 @@ class Message < ActiveRecord::Base
 
   include Nali::Model
 
-  belongs_to :dialog, inverse_of: :messages
   belongs_to :user
+  belongs_to :dialog,        inverse_of: :messages
   has_many   :messagephotos, inverse_of: :message, dependent: :destroy
 
   validates :text,      length: { in: 1..1000 }
@@ -24,11 +24,7 @@ class Message < ActiveRecord::Base
   end
 
   def access_level( client )
-    if user = client[ :user ]
-      opponents = []
-      self.dialog.contacts.each { |contact| opponents << contact.contact_id }
-      return :contact if opponents.include?( user.id )
-    end
+    return :contact if user = client[ :user ] and self.dialog.users.include?( user )
     :unknown
   end
 

@@ -4,11 +4,10 @@ class Dialog < ActiveRecord::Base
 
   has_many :messages, inverse_of: :dialog, dependent: :destroy
   has_many :contacts, inverse_of: :dialog, dependent: :destroy
+  has_many :users,    through: :contacts
 
   def access_level( client )
-    if user = client[ :user ]
-      self.contacts.each { |contact| return :contact if contact.dialog_id == self.id }
-    end
+    return :contact if user = client[ :user ] and self.users.include?( user )
     :unknown
   end
 

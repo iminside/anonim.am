@@ -2,12 +2,12 @@ class Contact < ActiveRecord::Base
 
   include Nali::Model
 
-  belongs_to :user, inverse_of: :contacts
+  belongs_to :user,    inverse_of: :contacts
   belongs_to :contact, class_name: 'User'
-  belongs_to :dialog, inverse_of: :contacts
+  belongs_to :dialog,  inverse_of: :contacts
 
-  validates :active,  inclusion: { in: [ true, false ] }
-  validates :counter, numericality: { only_integer: true }
+  validates :active,     inclusion: { in: [ true, false ] }
+  validates :counter,    numericality: { only_integer: true }
 
   after_destroy do
     self.user.client and self.user.client[ :user ].contacts.reload

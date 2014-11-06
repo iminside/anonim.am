@@ -67,14 +67,10 @@ class UsersController < ApplicationController
         if anon and anon.search > 0 and ignor.exclude?( anon.id ) and
           ( anon.who == 'all' or anon.who == @user.gender ) and
           ( @user.who == 'all' or @user.who == anon.gender )
-
           dialog   = Dialog.create
           contacts = []
-          contacts << @user.contacts.new( dialog: dialog, contact: anon )
-          contacts << anon.contacts.new( dialog: dialog, contact: @user )
-#          contacts[0].contact = contacts[1]
-#          contacts[1].contact = contacts[0]
-          contacts.each { |contact| contact.save }
+          contacts << @user.contacts.create( dialog: dialog, contact: anon )
+          contacts << anon.contacts.create( dialog: dialog, contact: @user )
           contacts.each do |contact|
             contact.user.client.notice :fresh, contact
             contact.user.update search: ( contact.user.search - 1 )
@@ -82,7 +78,6 @@ class UsersController < ApplicationController
             contact.sync
           end
           break
-
         end
       end
     end

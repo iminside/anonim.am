@@ -3,13 +3,14 @@ class User < ActiveRecord::Base
 
   include Nali::Model
 
-  has_many  :contacts, inverse_of: :user
-  has_many  :photos,   inverse_of: :user,  dependent: :destroy
+  has_many :contacts, inverse_of: :user
+  has_many :photos,   inverse_of: :user,  dependent: :destroy
+  has_many :dialogs,  through: :contacts
 
   validates :name,   length: { in: 3..30 }
   validates :gender, inclusion: { in: %w(man woman) }
   validates :color,  inclusion: { in: %w(red orange yellow green azure blue violet) }
-  validates :token,  length: { is: 32 }, uniqueness: true
+  validates :token,  length: { is: 32 }
   validates :search, inclusion: { in: 0..3 }
   validates :who,    inclusion: { in: %w(man woman all) }
   validates :how,    inclusion: { in: 1..3 }
@@ -68,11 +69,8 @@ class User < ActiveRecord::Base
 
   def access_level( client )
     if user = client[ :user ]
-      if client[ :user ] == self
-        return :owner
-      else
-        client[ :user ].contacts.each { |contact| return :contact if contact.contact_id == self.id }
-      end
+      return :owner if client[ :user ] == self
+      client[ :user ].contacts.each { |contact| return :contact if contact.contact_id == self.id }
     end
     :unknown
   end
