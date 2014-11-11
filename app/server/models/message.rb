@@ -11,9 +11,21 @@ class Message < ActiveRecord::Base
   validates :dialog_id, numericality: { only_integer: true }
 
   after_save do
+    unless @skipped_after_save then sync_opponent else @skipped_after_save = false end
+  end
+
+  def skip_after_save
+    @skipped_after_save = true
+    self
+  end
+
+  def sync_opponent
     self.dialog.contacts.each do |contact|
       if contact.user != self.user
-        if client = contact.user.client then client.notice :newmsg end
+        if client = contact.user.client
+          client.sync self
+          client.notice :newmsg
+        end
         if !contact.active?
           contact.counter += 1
           contact.save

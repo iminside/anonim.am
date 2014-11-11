@@ -8,7 +8,7 @@ Nali.View.extend PhotoPreview:
       @element.toggleClass 'unselected'
       @my.user.toggleSelectPhoto @my
     else if @avatarMode
-      @my.user.view( 'photos' ).selectAvatarOff()
+      @my.user.view( 'photos' ).avatarModeOff()
       @my.avatar()
     else
       @my.user.showSlides @my.user.photos, @my

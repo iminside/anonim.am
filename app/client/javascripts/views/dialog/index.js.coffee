@@ -6,17 +6,16 @@ Nali.View.extend DialogIndex:
   onShow: ->
     @Application.setTitle 'Диалог'
     @messagesBox = @element.find '.MessagesIndexRelation'
-    @messagesBox.niceScroll()
+    @messagesBox.niceScroll mousescrollstep: 80
+    @messagesBox.on 'scroll', ( event ) => @my.loadHistory() if event.currentTarget.scrollTop is 0
 
   onHide: ->
     @messagesBox.getNiceScroll().remove()
+    @messagesBox.off()
 
-  scrollDown: ->
-    clearTimeout @scrollTimer if @scrollTimer?
-    @scrollTimer = setTimeout =>
-      @messagesBox[0].scrollTop = @messagesBox[0].scrollHeight
-      delete @scrollTimer
-    , 5
+  scrollTo: ( message ) ->
+    @hideWrites()
+    @messagesBox[0].scrollTop += message.view( 'index' ).element.height()
 
   showWrites: ->
     clearTimeout @writesTimer if @writesTimer?

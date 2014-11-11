@@ -9,7 +9,7 @@ Nali.Controller.extend Users:
 
     after:
       '! auth': ->
-        @collection.add @Application.user
+        @collection.freeze().add @Application.user
 
     index:   ->
 

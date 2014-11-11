@@ -22,28 +22,36 @@ Nali.View.extend UserPhotos:
 
   onHide: ->
     @_( 'a.photos' ).removeClass 'button_hover'
-    @selectPhotosOff()
+    @cancelIsClose = false
+    @selectModeOff()
+    @avatarModeOff()
     @photosBox.getNiceScroll().remove()
 
   notHide: ( event ) ->
     event.stopPropagation()
 
-  selectPhotosOn: ->
+  selectModeOn: ->
     if @my.photos.length
       @element.find( '.photos' ).addClass 'selectionMode'
-      @my.selectPhotosOn()
+      @my.resetSelectedPhotos().photos.selectModeOn()
     else @Notice.info 'Для начала загрузите фотографии'
+    @
 
-  selectPhotosOff: ->
+  selectModeOff: ->
     @element.find( '.photos' ).removeClass 'selectionMode'
-    @my.selectPhotosOff()
+    @my.photos.selectModeOff()
+    @
 
-  selectAvatarOn: ->
+  avatarModeOn: ->
     if @my.photos.length
       @element.find( '.photos' ).addClass 'avatarMode'
-      @my.selectAvatarOn()
+      @my.photos.avatarModeOn()
     else @Notice.info 'Для начала загрузите фотографии'
+    @
 
-  selectAvatarOff: ->
-    @element.find( '.photos' ).removeClass 'avatarMode'
-    @my.selectAvatarOff()
+  avatarModeOff: ->
+    if @cancelIsClose then @hide()
+    else
+      @element.find( '.photos' ).removeClass 'avatarMode'
+      @my.photos.avatarModeOff()
+    @

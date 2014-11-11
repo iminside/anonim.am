@@ -4,6 +4,7 @@ Nali.Model.extend Dialog:
 
   beforeShow:
     index: ->
+      @loadHistory() unless @messages.length
       @messages.order by: 'created'
       @message = @Message.new dialog_id: @id, user_id: @Application.user.id
       @Application.activeDialog = @
@@ -24,3 +25,6 @@ Nali.Model.extend Dialog:
   sendPhotos: ( photos ) ->
     photosId = ( photo.id for photo in photos )
     @query 'dialogs.send_photos', dialog_id: @id, photos_id: photosId
+
+  loadHistory: ->
+    @Message.select history: dialog_id: @id, offset: @messages.length

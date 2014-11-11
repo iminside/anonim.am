@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
     Image.resize( large_path, photo.path( :medium ), medium_size, medium_size )
     Image.resize( large_path, photo.path( :small ),  small_size,  small_size )
     photo.save
-    photo.sync
+    photo.sync client
     trigger_success
   end
 

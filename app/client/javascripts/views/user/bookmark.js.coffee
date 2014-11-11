@@ -17,11 +17,11 @@ Nali.View.extend UserBookmark:
 
   onShow: ->
     @Application.setTitle 'iSite.im'
-    @Router.setUrl 'user/auth/' + @Cookie.get 'token'
+    @Router.changeUrl 'user/auth/' + @Cookie.get 'token'
 
   onHide: ->
     @Application.setTitle 'Настройки'
-    @Router.setUrl 'user/settings'
+    @Router.changeUrl 'user/settings'
 
   notHide: ( event ) ->
     event.stopPropagation()

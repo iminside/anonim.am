@@ -20,7 +20,7 @@ Nali.View.extend MessageIndex:
   onShow: ->
     @resizingPhotos()
     @subscribeTo @my.messagephotos, 'update.length', @resizingPhotos
-    @my.dialog.view( 'index' ).hideWrites().scrollDown()
+    @my.dialog.view( 'index' ).scrollTo @my
 
   resizingPhotos: ->
     if count = @my.messagephotos.length

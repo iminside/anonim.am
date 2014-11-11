@@ -75,7 +75,6 @@ class UsersController < ApplicationController
             contact.user.client.notice :fresh, contact
             contact.user.update search: ( contact.user.search - 1 )
             contact.user.sync
-            contact.sync
           end
           break
         end

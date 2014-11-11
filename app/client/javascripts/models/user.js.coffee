@@ -113,13 +113,6 @@ Nali.Model.extend User:
   showSlides: ( slides, start ) ->
     @view( 'slider' ).setSlides( slides, start ).show()
 
-  selectPhotosOn: ->
-    @resetSelectedPhotos()
-    @photos.selectModeOn()
-
-  selectPhotosOff: ->
-    @photos.selectModeOff()
-
   toggleSelectPhoto: ( photo ) ->
     if photo in @selectedPhotos
       @selectedPhotos.splice @selectedPhotos.indexOf( photo ), 1
@@ -152,14 +145,8 @@ Nali.Model.extend User:
     @resetSelectedPhotos()
     @hide 'deletePhotos'
 
-  selectAvatarOn: ->
-    @photos.avatarModeOn()
-
-  selectAvatarOff: ->
-    @photos.avatarModeOff()
-
   changeAvatar: ->
-    @show( 'photos' ).selectAvatarOn()
+    @show( 'photos' ).avatarModeOn().cancelIsClose = true
 
   deleteAvatar: ->
     @query 'users.delete_avatar'

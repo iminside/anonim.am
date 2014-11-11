@@ -16,13 +16,16 @@ class DialogsController < ApplicationController
 
   def send_photos
     if dialog = Dialog.find_by_id( params[ :dialog_id ] ) and @user.dialogs.include?( dialog )
-      ( message = dialog.messages.new( user: @user ) ).save validate: false
+      ( message = dialog.messages.new( user: @user ) ).skip_after_save.save validate: false
       params[ :photos_id ].each do |id|
         if photo = Photo.find_by_id( id ) and photo.user_id == @user.id
           message.messagephotos.create photo: photo
         end
       end
-      if message.messagephotos.count > 0 then message.sync else message.destroy end
+      if message.messagephotos.count > 0
+        message.sync_opponent
+        client.sync message
+      else message.destroy end
     end
   end
 
