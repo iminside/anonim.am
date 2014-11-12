@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   end
 
   def remove_avatar_image
-    Cloudinary::Api.delete_resources [ self.avatar.split( '/' )[1] ]
+    if self.avatar
+      Cloudinary::Api.delete_resources [ self.avatar.split( '/' )[1] ]
+    end
   end
 
   def generate_token
