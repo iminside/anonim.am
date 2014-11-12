@@ -11,9 +11,9 @@ Nali.Model.extend Photo:
       length:  is: 32
 
   cloning: ->
-    @getter 'small',  => '/images/photos/small/'  + @secret + '.jpg'
-    @getter 'medium', => '/images/photos/medium/' + @secret + '.jpg'
-    @getter 'large',  => '/images/photos/large/'  + @secret + '.jpg'
+    @getter 'small',  => @url 150
+    @getter 'medium', => @url 300
+    @getter 'large',  => @url 800
 
   uploadPhoto: ( image, progressCallback ) ->
     @query 'photos.upload_photo', image: image, progressCallback
@@ -22,6 +22,9 @@ Nali.Model.extend Photo:
   uploadAvatar: ( image, success ) ->
     @query 'photos.upload_avatar', image: image, success
     @
+
+  url: ( width ) ->
+    'http://res.cloudinary.com/isite-im/image/upload/c_limit,w_' + width + '/' + @secret + '.jpg'
 
   _selectModeOn: ->
     @view( 'preview' ).selectModeOn()

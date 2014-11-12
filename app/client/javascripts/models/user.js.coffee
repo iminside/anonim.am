@@ -33,7 +33,7 @@ Nali.Model.extend User:
     avatar:      null
 
   cloning: ->
-    @getter 'avatarPath',  => '/images/avatars/'  + @avatar + '.jpg'
+    @getter 'avatarPath',  => 'http://res.cloudinary.com/isite-im/image/upload/' + @avatar + '.jpg'
 
   beforeShow:
     photos: ->
