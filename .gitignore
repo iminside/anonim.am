@@ -3,3 +3,4 @@
 *.gif
 *.jpg
 tmp
+/config/initializers/cloudinary.rb
