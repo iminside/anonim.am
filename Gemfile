@@ -4,8 +4,7 @@ ruby   '1.9.3'
 gem 'nali'#, path: '/home/mrdenis/Github/nali'
 gem 'compass'
 gem 'mail'
-gem 'ImageResize'
-gem 'fastimage'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'debugger'

@@ -26,17 +26,21 @@ class User < ActiveRecord::Base
 
   before_destroy do
     self.contacts.each { |contact| contact.dialog.destroy }
-    remove_avatar
+    remove_avatar_image
   end
 
-  def avatar_path
-    Nali::Application.settings.root + '/public/images/avatars/' + self.avatar + '.jpg'
+  def replace_avatar( avatar )
+    remove_avatar_image
+    update avatar: avatar
   end
 
-  def remove_avatar( generate_new = false )
-    File.delete avatar_path if self.avatar? and File.exists? avatar_path
-    if generate_new then generate_avatar_name else self.avatar = nil end
-    save
+  def remove_avatar
+    remove_avatar_image
+    update avatar: nil
+  end
+
+  def remove_avatar_image
+    Cloudinary::Api.delete_resources [ self.avatar.split( '/' )[1] ]
   end
 
   def generate_token
@@ -44,12 +48,6 @@ class User < ActiveRecord::Base
       token = SecureRandom.hex 16
     end while User.exists?( token: token )
     token
-  end
-
-  def generate_avatar_name
-    begin
-      self.avatar = SecureRandom.hex 16
-    end while File.exists?( avatar_path )
   end
 
   def client
