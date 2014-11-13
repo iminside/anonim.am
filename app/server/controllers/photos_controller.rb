@@ -6,13 +6,13 @@ class PhotosController < ApplicationController
   before_only :upload_photo, :upload_avatar do upload_image end
 
   def upload_photo
-    photo = @user.photos.create secret: "v#{ @uploaded[ 'version' ] }/#{ @uploaded[ 'public_id' ] }"
+    photo = @user.photos.create secret: image_secret
     photo.sync client
     trigger_success
   end
 
   def upload_avatar
-    @user.replace_avatar "v#{ @uploaded[ 'version' ] }/#{ @uploaded[ 'public_id' ] }"
+    @user.replace_avatar image_secret
     @user.sync
     trigger_success
   end
@@ -21,6 +21,10 @@ class PhotosController < ApplicationController
 
     def upload_image
       stop unless @uploaded = Cloudinary::Uploader.upload( params[ :image ] )
+    end
+
+    def image_secret
+      "v#{ @uploaded[ 'version' ] }/#{ @uploaded[ 'public_id' ] }"
     end
 
 end
