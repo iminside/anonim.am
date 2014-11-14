@@ -4,13 +4,11 @@ Nali.View.extend PhotoAvatar:
 
   onShow:  ->
     photoBox  = @element.find '.photo'
-    boxWidth  = photoBox.width()
-    boxHeight = photoBox.height()
-    @photo = @_( "<img src=\"#{ @my.large }\" crossorigin=\"anonymous\" />" ).appendTo( photoBox ).Jcrop
+    w = photoBox.width()
+    h = photoBox.height()
+    @photo = @_( "<img src=\"#{ @my.url( w, h ) }\" crossorigin=\"anonymous\" />" ).appendTo( photoBox ).Jcrop
       aspectRatio: 1
       minSize:     [ 64, 64 ]
-      boxWidth:    boxWidth
-      boxHeight:   boxHeight
       onSelect:    ( coord ) => @onSelect coord
 
   onHide: ->

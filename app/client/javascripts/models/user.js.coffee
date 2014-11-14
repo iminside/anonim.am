@@ -39,6 +39,7 @@ Nali.Model.extend User:
     photos: ->
       @photo = @Photo.new user_id: @id
       @photos.order by: 'created', desc: true
+      @selectedPhotos ?= @photos.where selected: true
     interface: ->
       @contacts.order by: ( one, two ) ->
         switch
@@ -65,10 +66,7 @@ Nali.Model.extend User:
     @update( image: image ).save()
 
   changeColorDialog: ->
-    if ( view = @view( 'color' ) ).visible then view.hide() else view.show()
-
-  photosDialog: ->
-    @show 'photos'
+    if ( view = @viewColor() ).visible then view.hide() else view.show()
 
   toggleSearch: ->
     if @search then @deactivateSearch() else @activateSearch()
@@ -97,32 +95,21 @@ Nali.Model.extend User:
   emailSend: ( { email } ) ->
     if /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test email
       @query 'users.to_email', email: email, =>
-        @hide 'email'
+        @hideEmail()
         @Notice.info 'Кнопка автологина отправлена на ' + email
     else @Notice.info 'Введите правильный e-mail'
 
-  deleteAccept: ->
+  delete: ->
     @destroy => @logoutAccept()
 
-  logoutAccept: ->
+  logout: ->
     @query 'users.logout'
     @Cookie.remove 'token'
     @Application.user = null
     @redirect 'home'
 
   showSlides: ( slides, start ) ->
-    @view( 'slider' ).setSlides( slides, start ).show()
-
-  toggleSelectPhoto: ( photo ) ->
-    if photo in @selectedPhotos
-      @selectedPhotos.splice @selectedPhotos.indexOf( photo ), 1
-    else @selectedPhotos.push photo
-    @trigger 'update.selectedPhotos'
-
-  resetSelectedPhotos: ->
-    @selectedPhotos = []
-    @trigger 'update.selectedPhotos'
-    @
+    @viewSlider().setSlides( slides, start ).show()
 
   sendSelectedPhotos: ->
     unless dialog = @Application.activeDialog
@@ -131,22 +118,22 @@ Nali.Model.extend User:
       return @Notice.info 'Выберите фотографии для отправки'
     if @selectedPhotos.length > 10
       return @Notice.info 'Можно отправлять не более 10-ти фотографий сразу'
-    dialog.sendPhotos @selectedPhotos
-    @hide 'photos'
+    dialog.sendPhotos @selectedPhotos.pluck 'id'
+    @hidePhotos()
 
   deleteSelectedPhotos: ->
     if @selectedPhotos?.length
-      @show 'deletePhotos'
+      @showDeletePhotos()
     else @Notice.info 'Выберите фото для удаления'
 
-  deletePhotosAccept: ->
+  deletePhotos: ->
     if @selectedPhotos?.length
       photo.destroy() for photo in @selectedPhotos
-    @resetSelectedPhotos()
-    @hide 'deletePhotos'
+    @viewPhotos().selectModeOff()
+    @hideDeletePhotos()
 
   changeAvatar: ->
-    @show( 'photos' ).avatarModeOn().cancelIsClose = true
+    @showPhotos().avatarModeOn().cancelIsClose = true
 
   deleteAvatar: ->
     @query 'users.delete_avatar'

@@ -12,7 +12,7 @@ Nali.View.extend ContactIndex:
         '<i class="faceicon-' + ( @getOf @my.contact, 'gender' ) + ( @getOf @my.contact, 'image' ) + '"></i>'
 
   deleteDialog: ( event ) ->
-    @my.delete()
+    @my.showDelete()
     event.preventDefault()
     event.stopPropagation()
 

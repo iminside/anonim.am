@@ -10,11 +10,6 @@ Nali.Model.extend Photo:
     secret:
       length:  is: 32
 
-  cloning: ->
-    @getter 'small',  => @url 150
-    @getter 'medium', => @url 300
-    @getter 'large',  => @url 800
-
   uploadPhoto: ( image, progressCallback ) ->
     @query 'photos.upload_photo', image: image, progressCallback
     @
@@ -23,18 +18,29 @@ Nali.Model.extend Photo:
     @query 'photos.upload_avatar', image: image, success
     @
 
-  url: ( width ) ->
-    'http://res.cloudinary.com/isite-im/image/upload/c_limit,w_' + width + '/' + @secret + '.jpg'
+  url: ( width, height, limit = true ) ->
+    if limit
+      m = 'limit'
+      w = Math.floor width
+      h = Math.floor height
+    else
+      m = 'fill'
+      w = Math.ceil width
+      h = Math.ceil height
+    'http://res.cloudinary.com/isite-im/image/upload/c_' + m + ',w_' + w + ',h_' + h + '/' + @secret + '.jpg'
 
   _selectModeOn: ->
-    @view( 'preview' ).selectModeOn()
+    @viewPreview().selectModeOn()
 
   _selectModeOff: ->
-    @view( 'preview' ).selectModeOff()
+    @update selected: false
+    @viewPreview().selectModeOff()
 
   _avatarModeOn: ->
-    @view( 'preview' ).avatarModeOn()
+    @viewPreview().avatarModeOn()
 
   _avatarModeOff: ->
-    @view( 'preview' ).avatarModeOff()
+    @viewPreview().avatarModeOff()
 
+  toggleSelected: ->
+    @update selected: if @selected then false else true

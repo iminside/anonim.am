@@ -2,5 +2,6 @@
 *.sqlite3
 *.gif
 *.jpg
+*.gz
 tmp
 /config/initializers/cloudinary.rb

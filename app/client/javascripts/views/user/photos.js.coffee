@@ -8,10 +8,8 @@ Nali.View.extend UserPhotos:
   ]
 
   helpers:
-
     selectedCount: ->
-      @redrawOn @my, 'update.selectedPhotos'
-      if count = @my.selectedPhotos?.length
+      if count = @getOf @my.selectedPhotos, 'length'
         'Отмечено ' + count + ' фото'
       else 'Нажмите на фото, чтобы отметить его'
 
@@ -33,7 +31,7 @@ Nali.View.extend UserPhotos:
   selectModeOn: ->
     if @my.photos.length
       @element.find( '.photos' ).addClass 'selectionMode'
-      @my.resetSelectedPhotos().photos.selectModeOn()
+      @my.photos.selectModeOn()
     else @Notice.info 'Для начала загрузите фотографии'
     @
 
