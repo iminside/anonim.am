@@ -19,5 +19,5 @@ Nali.View.extend UserInterface:
 
   changeFavicon: ->
     @_( '#favicon' ).replaceWith(
-      '<link id="favicon" rel="shortcut icon" href="/client/images/favicons/' + @my.color + '.ico" type="image/x-icon">'
+      '<link id="favicon" rel="shortcut icon" href="/images/favicons/' + @my.color + '.ico" type="image/x-icon">'
     )
