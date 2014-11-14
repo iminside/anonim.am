@@ -4,4 +4,3 @@
 *.jpg
 *.gz
 tmp
-/config/initializers/cloudinary.rb
