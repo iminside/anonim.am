@@ -37,7 +37,7 @@ Nali.extend Audio:
     if sound.file? and @supported
       unless sound.player?
         sound.player     = new Audio
-        sound.player.src = '/sounds/' + sound.file + @ext()
+        sound.player.src = '/client/sounds/' + sound.file + @ext()
         sound.player.load()
       if sound.player.readyState
         sound.player.pause()
