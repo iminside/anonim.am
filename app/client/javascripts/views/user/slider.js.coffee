@@ -26,7 +26,7 @@ Nali.View.extend UserSlider:
 
   showSlide: ->
     @slide.html( '' ).append(
-      @_ '<img src="' + @current.large + '" style="max-width:' + @slideW + 'px;max-height:' + @slideH + 'px; alt="" />'
+      @_ '<img src="' + @current.url( @slideW, @slideH ) + '" alt="" />'
     )
 
   next: ( event ) ->
@@ -48,5 +48,5 @@ Nali.View.extend UserSlider:
 
   preload: ( slide ) ->
     image     = new Image
-    image.src = slide.large
+    image.src = slide.url @slideW, @slideH
     @

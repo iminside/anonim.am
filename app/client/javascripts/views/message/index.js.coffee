@@ -20,7 +20,7 @@ Nali.View.extend MessageIndex:
   onShow: ->
     @resizingPhotos()
     @subscribeTo @my.messagephotos, 'update.length', @resizingPhotos
-    @my.dialog.view( 'index' ).scrollTo @my
+    @my.dialog.viewIndex().scrollTo @my
 
   resizingPhotos: ->
     if count = @my.messagephotos.length
@@ -36,7 +36,4 @@ Nali.View.extend MessageIndex:
       matrix.push startWidth for i in [ 0...first ]
       matrix.push lastWidth  for i in [ 0...last ]
 
-      for photo, index in @my.messagephotos
-        element = photo.view( 'preview' ).element[0]
-        element.style.width = matrix[ index ]
-        element.children[0].style.paddingTop = height
+      messagephoto.viewPreview().resize matrix[ index ], height for messagephoto, index in @my.messagephotos
