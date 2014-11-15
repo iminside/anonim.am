@@ -43,6 +43,7 @@ Nali.extend Audio:
         sound.player.pause()
         sound.player.currentTime = 0
       sound.player.play()
+    else @Notice.error 'Извините, но ваш браузер не поддерживает воспроизведение звука'
 
   ext: ->
     switch ( new Audio ).canPlayType( 'audio/mpeg' )
