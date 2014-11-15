@@ -59,24 +59,18 @@ Nali.Model.extend User:
   onUpdateWho: ->
     @deactivateSearch()
 
-  changeColor: ( { color } ) ->
-    @update( color: color ).save()
-
-  changeImage: ( { image } ) ->
-    @update( image: image ).save()
-
-  changeColorDialog: ->
+  showColor: ->
     if ( view = @viewColor() ).visible then view.hide() else view.show()
 
   toggleSearch: ->
     if @search then @deactivateSearch() else @activateSearch()
 
   activateSearch: ->
-    @update( search: @how ).save() unless @search
+    @upgrade search: @how unless @search
     @query 'users.search'
 
   deactivateSearch: ->
-    @update( search: 0 ).save() if @search
+    @upgrade search: 0 if @search
 
   toggleDialogs: ->
     if @_( '.contacts' ).hasClass 'show_contacts' then @hideDialogs() else @showDialogs()

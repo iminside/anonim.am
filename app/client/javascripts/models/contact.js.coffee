@@ -37,12 +37,12 @@ Nali.Model.extend Contact:
     @
 
   activate: ->
-    @update( active: true, counter: 0 ).save()
+    @upgrade active: true, counter: 0
     @user.hideDialogs()
     @
 
   deactivate: ->
-    @update( active: false ).save()
+    @upgrade active: false
     @
 
   delete: ->

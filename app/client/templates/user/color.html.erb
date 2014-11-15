@@ -3,5 +3,5 @@
   Цветовая гамма чата будет обновлена в соответствии с Вашим выбором.
 </p>
 <% %w(red orange yellow green azure blue violet ).each do |color| %>
-<a class="<%= color %>" href="@@changeColor?color=<%= color %>"></a>
+<a class="<%= color %>" href="@@upgrade/color:<%= color %>"></a>
 <% end %>

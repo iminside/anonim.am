@@ -9,14 +9,3 @@ Nali.View.extend HomeIndex:
         text.text 'Какой цвет Вам нравится?'
         text.animate opacity: 1, 300
     , 1000
-
-  selectColor: ( { @color } ) ->
-    @element.find( '.gender_buttons' )
-      .removeClass( 'red orange yellow green azure blue violet' )
-      .addClass( @color )
-      .end()
-      .find( '.logo' )
-      .addClass 'logo_animation'
-
-  selectGender: ( { gender } ) ->
-    @model.newUser gender, @color

@@ -15,7 +15,3 @@ Nali.View.extend UserSounds:
   activateRadio: ->
     @element.find( '.checked' ) .removeClass 'checked'
     @element.find( 'input:radio:checked' ).parent().addClass 'checked'
-
-  play: ( { sound } ) ->
-    if @Audio.supported then @Audio.play sound
-    else @Notice.error 'Извините, но ваш браузер не поддерживает воспроизведение звука'

@@ -18,10 +18,6 @@
         color:  $white-dark
         font:   5vmin GardensC Regular
 
-  .logo_animation
-    padding-top: 20vh
-    +transition( all .3s ease-out )
-
   .colors
     padding-top:   1vmin
     margin-bottom: 3vmin
@@ -121,7 +117,12 @@
           width:      25vmin
           line-height: 8vmin
 
-  =sex_button_color( $light, $dark )
+=sex_button_color( $light, $dark )
+  .logo
+    padding-top: 20vh
+    +transition( all .3s ease-out )
+
+  .gender_buttons
     opacity: 1
     visibility: visible
     a
@@ -137,23 +138,23 @@
           &:nth-child(2)
             background: $dark
 
-  .red
-    +sex_button_color( $red-light, $red-dark )
+.red
+  +sex_button_color( $red-light, $red-dark )
 
-  .orange
-    +sex_button_color( $orange-light, $orange-dark )
+.orange
+  +sex_button_color( $orange-light, $orange-dark )
 
-  .yellow
-    +sex_button_color( $yellow-light, $yellow-dark )
+.yellow
+  +sex_button_color( $yellow-light, $yellow-dark )
 
-  .green
-    +sex_button_color( $green-light, $green-dark )
+.green
+  +sex_button_color( $green-light, $green-dark )
 
-  .azure
-    +sex_button_color( $azure-light, $azure-dark )
+.azure
+  +sex_button_color( $azure-light, $azure-dark )
 
-  .blue
-    +sex_button_color( $blue-light, $blue-dark )
+.blue
+  +sex_button_color( $blue-light, $blue-dark )
 
-  .violet
-    +sex_button_color( $violet-light, $violet-dark )
+.violet
+  +sex_button_color( $violet-light, $violet-dark )
