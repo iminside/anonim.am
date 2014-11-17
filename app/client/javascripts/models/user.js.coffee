@@ -94,7 +94,7 @@ Nali.Model.extend User:
     else @Notice.info 'Введите правильный e-mail'
 
   delete: ->
-    @destroy => @logoutAccept()
+    @destroy => @logout()
 
   logout: ->
     @query 'users.logout'
