@@ -5,7 +5,7 @@ Nali.View.extend DialogIndex:
 
   onShow: ->
     @Application.setTitle 'Диалог'
-    @messagesBox = @element.find '.MessagesIndexRelation'
+    @messagesBox = @element.find '.messages'
     @messagesBox.niceScroll mousescrollstep: 80
     @messagesBox.on 'scroll', ( event ) => @my.loadHistory() if event.currentTarget.scrollTop is 0
 

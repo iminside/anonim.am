@@ -7,7 +7,7 @@
         </a>
         <span class="title">{ @Application.title }</span>
         <a class="button face" href="/user">
-          { +userFace }
+          { face of @ }
         </a>
         <a class="button photos" href="@@showPhotos">
           <i class="interface-photos"></i>
@@ -25,7 +25,9 @@
     </div>
 
     <div class="contacts">
-      { index of @contacts }
+      <div class="contactsWrapper">
+        { index of @contacts }
+      </div>
     </div>
 
     { yield }

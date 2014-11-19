@@ -15,7 +15,7 @@ Nali.View.extend UserPhotos:
 
   onShow: ->
     @_( 'a.photos' ).addClass 'button_hover'
-    @photosBox ?= @element.find '.PhotosPreviewRelation'
+    @photosBox ?= @element.find '.previews'
     @photosBox.niceScroll cursorborder: '1px #333 solid'
 
   onHide: ->
