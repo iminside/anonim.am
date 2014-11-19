@@ -1,3 +1,4 @@
 *.gem
 *.sqlite3
 tmp
+/config/initializers/app_env_vars.rb
