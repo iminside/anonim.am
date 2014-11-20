@@ -8,7 +8,7 @@
   box-sizing: border-box
   background: #e8e8e8
 
-  #settingsBar
+  .settingsBar
     .tabs
       display: table
       table-layout: fixed
@@ -22,13 +22,14 @@
         &:hover
           color: $black-light
 
-    .indicator
+    .marker
+      display: block
       height: .3rem
-      .marker
-        display: block
-        height: .3rem
-        width:  25%
-        +transition( margin-left .2s .05s ease-out )
+      width:  25%
+      +transition( margin-left .2s .05s ease-out )
+
+  .active
+    color: $black-light !important
 
   .active_1
     .tabs

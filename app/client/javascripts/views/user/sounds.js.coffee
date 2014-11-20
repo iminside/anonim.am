@@ -1,16 +1,12 @@
 Nali.View.extend UserSounds:
 
-  layout: -> @my.view 'settings'
+  layout: -> @my.viewSettings()
 
   onShow: ->
     @Application.setTitle 'Звуки'
     @activateRadio()
     @subscribeTo @my, 'update.sound', @activateRadio
-    @element.closest( '.yield' )[0].scrollTop = 0
-    @_( '#settingsBar' ).addClass 'active_3'
-
-  onHide: ->
-    @_( '#settingsBar' ).removeClass 'active_3'
+    @layout().activeTab '.sounds'
 
   activateRadio: ->
     @element.find( '.checked' ) .removeClass 'checked'

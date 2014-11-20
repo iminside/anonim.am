@@ -1,11 +1,7 @@
 Nali.View.extend UserPerson:
 
-  layout: -> @my.view 'settings'
+  layout: -> @my.viewSettings()
 
   onShow: ->
     @Application.setTitle 'Образ'
-    @_( '#settingsBar' ).addClass 'active_2'
-    @element.closest( '.yield' )[0].scrollTop = 0
-
-  onHide: ->
-    @_( '#settingsBar' ).removeClass 'active_2'
+    @layout().activeTab '.person'
