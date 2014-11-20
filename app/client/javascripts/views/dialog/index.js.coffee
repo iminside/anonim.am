@@ -1,7 +1,7 @@
 Nali.View.extend DialogIndex:
 
   layout: ->
-    @Application.user.view 'interface'
+    @Application.user.viewInterface()
 
   onShow: ->
     @Application.setTitle 'Диалог'

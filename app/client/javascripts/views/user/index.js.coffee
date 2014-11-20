@@ -1,7 +1,6 @@
 Nali.View.extend UserIndex:
 
-  layout: ->
-    @my.view 'interface'
+  layout: -> @my.viewInterface()
 
   helpers:
     stylize: ->
@@ -10,7 +9,7 @@ Nali.View.extend UserIndex:
         'show_select'
       else
         @Application.setTitle 'Поиск'
-        'show_search_' + if @my.search then 'on' else 'off'
+        'show_search_' + if @getMy 'search' then 'on' else 'off'
 
   onShow: ->
     @my.activateSearch() if @my.contacts.length is 0
