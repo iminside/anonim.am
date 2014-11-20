@@ -2,7 +2,7 @@ Nali.View.extend UserFace:
 
   helpers:
     face: ->
-      if @my.avatar?
+      if @getMy( 'avatar' )?
         '<span class="avatar" style="background-image: url(' + @my.avatarPath + ')"></span>'
       else
-        '<i class="faceicon-' + @my.gender + @my.image + '"></i>'
+        '<i class="faceicon-' + @getMy( 'gender' ) + @getMy( 'image' ) + '"></i>'
