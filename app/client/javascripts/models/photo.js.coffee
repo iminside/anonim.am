@@ -24,7 +24,7 @@ Nali.Model.extend Photo:
       w = Math.floor width
       h = Math.floor height
     else
-      m = 'fill'
+      m = 'fill,g_face'
       w = Math.ceil width
       h = Math.ceil height
     'http://res.cloudinary.com/isite-im/image/upload/c_' + m + ',w_' + w + ',h_' + h + '/' + @secret + '.jpg'
