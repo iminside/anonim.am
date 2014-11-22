@@ -33,7 +33,7 @@ Nali.Model.extend User:
     avatar:      null
 
   cloning: ->
-    @getter 'avatarPath',  => 'http://res.cloudinary.com/isite-im/image/upload/' + @avatar + '.jpg'
+    @getter 'avatarPath',  -> 'http://res.cloudinary.com/isite-im/image/upload/' + @avatar + '.jpg'
 
   beforeShow:
     photos: ->
@@ -59,8 +59,8 @@ Nali.Model.extend User:
   onUpdateWho: ->
     @deactivateSearch()
 
-  showColor: ->
-    if ( view = @viewColor() ).visible then view.hide() else view.show()
+  toggleColor: ->
+    if @viewColor().visible then @hideColor() else @showColor()
 
   toggleSearch: ->
     if @search then @deactivateSearch() else @activateSearch()
@@ -116,8 +116,7 @@ Nali.Model.extend User:
     @hidePhotos()
 
   deleteSelectedPhotos: ->
-    if @selectedPhotos?.length
-      @showDeletePhotos()
+    if @selectedPhotos?.length then @showDeletePhotos()
     else @Notice.info 'Выберите фото для удаления'
 
   deletePhotos: ->
