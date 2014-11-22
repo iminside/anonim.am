@@ -20,8 +20,6 @@ Nali.Model.extend Contact:
       default: 0
       format:  'number'
 
-  activeHistory: []
-
   onDestroy: ->
     if @user is @Application.user
       @redirect 'user' if @active
