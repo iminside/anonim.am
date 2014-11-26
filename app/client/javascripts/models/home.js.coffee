@@ -5,7 +5,7 @@ Nali.Model.extend Home:
 
   onUpdateGender: ->
     if @color? and @gender?
-      @query 'users.build', gender: @gender, color: @color,
+      @query 'users.create', gender: @gender, color: @color,
         ( token ) =>
           @redirect 'user/auth/' + token
         =>

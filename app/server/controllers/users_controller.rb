@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   include Nali::Controller
 
-  before_except :build, :auth do check_auth end
+  before_except :create, :auth do check_auth end
 
-  def build
+  def create
     user = User.new gender: params[ :gender ], color: params[ :color ]
     if user.save
       trigger_success user.token
