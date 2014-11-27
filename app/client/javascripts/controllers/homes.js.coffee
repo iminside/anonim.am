@@ -5,3 +5,4 @@ Nali.Controller.extend Homes:
 
     index: ->
       @redirect 'user' if @Application.user?
+      @collection.freeze().add @Model.Home.new()
