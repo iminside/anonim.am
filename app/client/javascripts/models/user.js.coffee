@@ -5,7 +5,7 @@ Nali.Model.extend User:
   attributes:
     name:
       length:    in: [ 3..30 ]
-      warning:  'Длина имени должна быть от 3 до 30 символов'
+      notice:    warning:  'Длина имени должна быть от 3 до 30 символов'
     color:
       presence:  true
       inclusion: [ 'red', 'orange', 'yellow', 'green', 'azure', 'blue', 'violet' ]
