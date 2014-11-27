@@ -72,7 +72,7 @@ class UsersController < ApplicationController
           contacts << @user.contacts.create( dialog: dialog, contact: anon )
           contacts << anon.contacts.create( dialog: dialog, contact: @user )
           contacts.each do |contact|
-            contact.user.client.notice :fresh, contact
+            contact.user.client.call_method :fresh, contact
             contact.user.update search: ( contact.user.search - 1 )
             contact.user.sync
           end

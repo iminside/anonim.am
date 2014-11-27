@@ -8,7 +8,7 @@ class DialogsController < ApplicationController
     @user.contacts.where( active: true ).each do |contact|
       contact.dialog.contacts.each do |contact|
         if contact.user_id != @user.id and contact.active? and opp_client = contact.user.client
-          opp_client.notice :writes, contact.dialog
+          opp_client.call_method :writes, contact.dialog
         end
       end
     end
