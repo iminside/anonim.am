@@ -1,18 +1,16 @@
 <div class="UserIndex { =stylize }">
-  <div class="">
-    <a class="name" href="user/person">{ @name }</a>
-    <a class="deny" href="@@showLogout">выйти</a>
-  </div>
-
   <div class="select">
     <i class="interface-chat"></i>
-    <p>Выберите собеседника для общения или включите поиск и мы найдем Вам нового</p>
+    <p>{ @name }, у Вас { @contacts.length } собеседник{ =ending }.
+      Хотите нового? Включите поиск и мы найдем Вам его!
+    </p>
   </div>
   <div class="search">
     <i class="interface-search"></i>
-    <p>Секундочку, мы подбираем Вам собеседника</p>
+    <p>{ @name }, у Вас нет собеседников.</p>
+    <p>Секундочку, мы подбираем Вам нового.</p>
     <p>
-      Включите поиск и мы найдем Вам собеседника<br /><br />
+      Включите поиск и мы найдем Вам нового.<br /><br />
       <a class="accept" href="@@activateSearch">включить</a>
     </p>
   </div>

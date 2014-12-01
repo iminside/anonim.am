@@ -11,5 +11,12 @@ Nali.View.extend UserIndex:
         @Application.setTitle 'Поиск'
         'show_search_' + if @getMy 'search' then 'on' else 'off'
 
+    ending: ->
+      count = @my.contacts.length + ''
+      end = parseInt count[ count.length - 1 ]
+      if end in [ 2..4 ] then 'а'
+      else if end > 4 then 'ов'
+      else ''
+
   onShow: ->
     @my.activateSearch() if @my.contacts.length is 0
