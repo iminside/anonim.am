@@ -30,11 +30,13 @@ Dialog:
 
 Message:
   create:
-    contact: [ dialog_id, user_id, text ]
+    autor:   [ dialog_id, user_id, text ]
   read:
+    autor:   [ dialog_id, user, text, messagephotos ]
     contact: [ dialog_id, user, text, messagephotos ]
   update:
   destroy:
+    autor:
 
 
 Photo:

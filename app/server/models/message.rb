@@ -36,6 +36,7 @@ class Message < ActiveRecord::Base
   end
 
   def access_level( client )
+    return :autor   if user = client[ :user ] and self.user_id == user.id
     return :contact if user = client[ :user ] and self.dialog.users.include?( user )
     :unknown
   end

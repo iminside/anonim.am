@@ -17,6 +17,9 @@ Nali.Model.extend Message:
       length:   in: [ 1..1000 ]
 
   createMessage: ( { text } ) ->
-    params      = @copy @attributes
-    params.text = text.trim().replace( /[\r|\n]+/g, '\n' ).replace /\ +/g, ' '
-    @Message.create params
+    if text is 'ой!'
+      @dialog.messages.last().destroy()
+    else
+      params      = @copy @attributes
+      params.text = text.trim().replace( /[\r|\n]+/g, '\n' ).replace /\ +/g, ' '
+      @Message.create params
