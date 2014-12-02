@@ -25,3 +25,4 @@ Nali.Application.expand(
 
 ).run
   domEngine: jQuery
+  title:     'Сервис анонимного общения'
