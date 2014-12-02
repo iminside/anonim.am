@@ -39,19 +39,6 @@ class User < ActiveRecord::Base
     update avatar: nil
   end
 
-  def remove_avatar_image
-    if self.avatar
-      Cloudinary::Api.delete_resources [ self.avatar.split( '/' )[1] ]
-    end
-  end
-
-  def generate_token
-    begin
-      token = SecureRandom.hex 16
-    end while User.exists?( token: token )
-    token
-  end
-
   def client
     clients.each { |client| return client if client[ :user ] and client[ :user ].id == self.id }
     nil
@@ -74,5 +61,20 @@ class User < ActiveRecord::Base
     end
     :unknown
   end
+
+  private
+
+    def remove_avatar_image
+      if self.avatar
+        Cloudinary::Api.delete_resources [ self.avatar.split( '/' )[1] ]
+      end
+    end
+
+    def generate_token
+      begin
+        token = SecureRandom.hex 16
+      end while User.exists?( token: token )
+      token
+    end
 
 end
