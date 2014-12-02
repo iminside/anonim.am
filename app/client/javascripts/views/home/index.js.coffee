@@ -1,7 +1,6 @@
 Nali.View.extend HomeIndex:
 
   onShow: ->
-    @Application.setTitle 'Сервис анонимного общения'
     colors = @element.find( '.colors' ).addClass( 'show' )
     setTimeout =>
       colors.addClass( 'shown' ).removeClass 'show'
