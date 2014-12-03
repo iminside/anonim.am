@@ -5,11 +5,11 @@ Nali.View.extend UserSettings:
   onShow: ->
     @Application.setTitle 'Настройки'
     @_( 'a.settings' ).addClass 'button_hover'
-    @element.find( '.yield' ).niceScroll railoffset: left: 14
+    @yield.niceScroll railoffset: left: 14
 
   onHide: ->
     @_( 'a.settings' ).removeClass 'button_hover'
-    @element.find( '.yield' ).getNiceScroll().remove()
+    @yield.getNiceScroll().remove()
 
   activeTab: ( selector ) ->
     @tabs      ?= @element.find '.settingsBar > .tabs'
@@ -17,4 +17,4 @@ Nali.View.extend UserSettings:
     @marker    ?= @element.find( '.settingsBar > .marker' ).width 100 / @tabsCount + '%'
     index       = @tabs.find( '.active' ).removeClass( 'active' ).end().find( selector ).addClass( 'active' ).index()
     @marker.css marginLeft: index / @tabsCount * 100 + '%'
-    ( @yield ?= @element.find( '.yield' )[0] ).scrollTop = 0
+    @yield[0].scrollTop = 0
