@@ -14,10 +14,7 @@ class Contact < ActiveRecord::Base
   end
 
   def access_level( client )
-    if user = client[ :user ]
-      return :owner   if self.user_id == user.id
-      return :contact if self.contact_id and self.contact_id == user.id
-    end
+    return :owner if user = client[ :user ] and self.user_id == user.id
     :unknown
   end
 

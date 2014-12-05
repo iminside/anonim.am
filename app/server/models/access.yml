@@ -13,7 +13,6 @@ Contact:
   create:
   read:
     owner:   [ contact, dialog, user_id, active, counter ]
-    contact: [ contact_id, dialog_id, user ]
   update:
     owner:   [ active, counter ]
   destroy:
