@@ -24,9 +24,9 @@ Nali.View.extend MessageBuild:
       emoticons
 
   onShow: ->
-    @textarea  = @element.find '.message textarea'
-    @emoticons = @element.find( '.emoticons_list' )
     @form      = @element.find 'form'
+    @textarea  = @form.find '.message textarea'
+    @emoticons = @element.find '.emoticons_list'
     @textarea.autosize()
 
   onHide: ->
@@ -38,7 +38,7 @@ Nali.View.extend MessageBuild:
   formSubmit: ( event ) ->
     @lastWriteTime = 0
     @hideEmoticons() if @emoticons.hasClass 'emoticons_show'
-    setTimeout ( => @textarea.val('').trigger( 'autosize.resize' ) ), 100
+    @textarea.trigger 'autosize.resize'
 
   toggleEmoticons: ( event ) ->
     if @emoticons.hasClass 'emoticons_show' then @hideEmoticons() else @showEmoticons()
@@ -56,10 +56,13 @@ Nali.View.extend MessageBuild:
   pasteEmoticon: ( event ) ->
     code = '&#x' + @_( event.target ).data( 'code' ) + ';'
     text = @_( '<textarea>' ).html( code ).text()
-    @textarea.insertAtCaret( text ).trigger 'autosize.resize'
+    @textarea.insertAtCaret( text ).trigger( 'change' ).trigger 'autosize.resize'
 
   sendByEnter: ( event ) ->
-    if event.which is 13 then @form.trigger 'submit'
+    if event.which is 13
+      @textarea.trigger 'change'
+      @form.trigger 'submit'
+      event.preventDefault()
 
   addNewLine: ( event ) ->
     if event.which is 13 and ( event.ctrlKey or event.metaKey )
