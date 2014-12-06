@@ -1,8 +1,9 @@
 User:
   create:
   read:
-    owner:   [ name, gender, color, image, search, online, who, how, sound, avatar, contacts, photos ]
     contact: [ name, gender, color, image, online, avatar ]
+    owner:   [ +contact, search, who, how, sound, contacts, photos ]
+
   update:
     owner:   [ name, gender, color, image, search, who, how, sound ]
   destroy:
@@ -31,11 +32,10 @@ Message:
   create:
     autor:   [ dialog_id, user_id, text ]
   read:
-    autor:   [ dialog_id, user, text, messagephotos ]
     contact: [ dialog_id, user, text, messagephotos ]
+    autor:   [ +contact ]
   update:
   destroy:
-    autor:
 
 
 Photo:
