@@ -5,6 +5,7 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :dialog,        inverse_of: :messages
   has_many   :messagephotos, inverse_of: :message, dependent: :destroy
+  has_many   :dialog_users,  through: :dialog, source: :users
 
   validates :text,      length: { in: 1..1000 }
   validates :user_id,   numericality: { only_integer: true }
@@ -37,8 +38,8 @@ class Message < ActiveRecord::Base
 
   def access_level( client )
     if user = client[ :user ]
-      return :autor   if self.user_id == user.id
-      return :contact if self.dialog.users.include?( user )
+      return :autor   if self.dialog_users.include?( user ) and self.user_id == user.id
+      return :contact if self.dialog_users.include?( user )
     end
     :unknown
   end
