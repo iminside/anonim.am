@@ -1,4 +1,4 @@
-Nali.extend Audio:
+Nali.extend AudioNotice:
 
   initialize: ->
     @supported = if typeof Audio is 'function' then true else false

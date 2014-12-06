@@ -3,12 +3,12 @@
   <% if i == 0 %>
   <div class="off"></div>
   <% else %>
-  <a class="play" href="@Audio.play/<%= i %>">
+  <a class="play" href="@AudioNotice.play/<%= i %>">
     <i class="interface-play"></i>
   </a>
   <% end %>
   <div class="name">
-    { @Audio.list.<%= i %>.name }
+    { @AudioNotice.list.<%= i %>.name }
   </div>
   <div class="switch">
     <label>

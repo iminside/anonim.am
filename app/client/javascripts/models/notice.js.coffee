@@ -1,4 +1,4 @@
 Nali.Model.Notice.expand
 
   newmsg: ->
-    @Audio.play @Application.user.sound
+    @AudioNotice.play @Application.user.sound
