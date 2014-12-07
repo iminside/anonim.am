@@ -3,7 +3,6 @@ User:
   read:
     contact: [ name, gender, color, image, online, avatar ]
     owner:   [ +contact, search, who, how, sound, contacts, photos ]
-
   update:
     owner:   [ name, gender, color, image, search, who, how, sound ]
   destroy:
