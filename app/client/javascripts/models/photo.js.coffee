@@ -19,14 +19,8 @@ Nali.Model.extend Photo:
     @
 
   url: ( width, height, limit = true ) ->
-    if limit
-      m = 'limit'
-      w = Math.floor width
-      h = Math.floor height
-    else
-      m = 'fill,g_face'
-      w = Math.ceil width
-      h = Math.ceil height
+    [ m, w, h ] = if limit then [ 'limit',        Math.floor( width ), Math.floor( height ) ]
+    else                        [ 'fill,g_faces', Math.ceil( width ),  Math.ceil( height )  ]
     'http://res.cloudinary.com/isite-im/image/upload/c_' + m + ',w_' + w + ',h_' + h + '/' + @secret + '.jpg'
 
   _selectModeOn: ->
