@@ -4,7 +4,7 @@
 #= require jquery.Jcrop.min
 #= require jquery.functions
 #= require nali
-#= require audio
+#= require audio_notice
 #= require_tree .
 
 Nali.Application.expand(

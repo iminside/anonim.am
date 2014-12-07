@@ -34,7 +34,9 @@ Nali.extend AudioNotice:
 
   play: ( index ) ->
     sound = @list[ +index ]
-    if sound.file? and @supported
+    unless @supported
+      @Notice.error 'Извините, но ваш браузер не поддерживает воспроизведение звука'
+    else if sound.file?
       unless sound.player?
         sound.player     = new Audio
         sound.player.src = '/sounds/' + sound.file + @ext()
@@ -43,7 +45,6 @@ Nali.extend AudioNotice:
         sound.player.pause()
         sound.player.currentTime = 0
       sound.player.play()
-    else @Notice.error 'Извините, но ваш браузер не поддерживает воспроизведение звука'
 
   ext: ->
     switch ( new Audio ).canPlayType( 'audio/mpeg' )
