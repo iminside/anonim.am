@@ -6,13 +6,13 @@ Nali.View.extend MessageIndex:
       if @my.user is @Application.user then 'Я' else @getOf @my.user, 'name'
 
     text: ->
-      text    = '<p>'
+      text = '<p>'
       if @my.text?
         message = "#{ @my.text }".replace( /&/g, '&amp;' ).replace( /"/g, '&quot;' )
           .replace( /'/g, '&#039;' ).replace( /</g, '&lt;'   ).replace( />/g, '&gt;'   )
         for sym in message
           code = sym.charCodeAt(0)
-          if code in [ 57344..57420 ] then text += '<i>' + sym + '</i> '
+          if code in [ 58881..58978 ] then text += '<i>' + sym + '</i> '
           else if code is 10          then text += '<br />'
           else                             text += sym
       text + '</p>'
@@ -20,7 +20,7 @@ Nali.View.extend MessageIndex:
   onShow: ->
     @resizingPhotos()
     @subscribeTo @my.messagephotos, 'update.length', @resizingPhotos
-    @my.dialog.viewIndex().scrollTo @my
+    @my.dialog.viewIndex().scrollTo @
 
   resizingPhotos: ->
     if count = @my.messagephotos.length
@@ -31,7 +31,7 @@ Nali.View.extend MessageIndex:
       last       = count - first
       startWidth = 100 / start + '%'
       lastWidth  = 100 / last  + '%'
-      height     = 80 / ( ( lines - 1 ) / start  + 1 / last ) + '%'
+      height     = 60 / ( ( lines - 1 ) / start  + 1 / last ) + '%'
 
       matrix.push startWidth for i in [ 0...first ]
       matrix.push lastWidth  for i in [ 0...last ]

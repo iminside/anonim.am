@@ -14,5 +14,7 @@
   </div>
 </form>
 <div class="emoticons_list">
-  { +emoticons }
+  <% ( 1..98 ).each do |i| %>
+  <i class="emoticon-<%= i %>"></i>
+  <% end %>
 </div>
