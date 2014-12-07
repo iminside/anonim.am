@@ -2,8 +2,6 @@ Nali.View.extend UserSearch:
 
   layout: -> @my.viewSettings()
 
-  events:  []
-
   helpers:
     one: ->
       if @getMy( 'who' ) is 'woman' then 'одну' else 'одного'
