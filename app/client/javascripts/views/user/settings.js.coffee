@@ -3,7 +3,6 @@ Nali.View.extend UserSettings:
   layout: -> @my.viewInterface()
 
   onShow: ->
-    @Application.setTitle 'Настройки'
     @_( 'a.settings' ).addClass 'button_hover'
     @yield.niceScroll railoffset: left: 14
 
