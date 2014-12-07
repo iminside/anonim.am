@@ -19,4 +19,8 @@ Nali.View.extend UserIndex:
       else ''
 
   onShow: ->
+    @_( 'a.face' ).addClass 'button_hover'
     @my.activateSearch() if @my.contacts.length is 0
+
+  onHide: ->
+    @_( 'a.face' ).removeClass 'button_hover'
