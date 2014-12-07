@@ -15,15 +15,13 @@ Nali.View.extend DialogIndex:
 
   scrollTo: ( message ) ->
     @hideWrites()
-    @messagesBox[0].scrollTop += message.viewIndex().element.height()
+    @messagesBox[0].scrollTop += message.element.height()
 
   showWrites: ->
     clearTimeout @writesTimer if @writesTimer?
     @writesBox ?= @element.find '.writes'
     @writesBox.addClass 'show_writes'
-    @writesTimer = setTimeout =>
-      @hideWrites()
-    , 3500
+    @writesTimer = setTimeout ( => @hideWrites() ), 3500
     @
 
   hideWrites: ->
