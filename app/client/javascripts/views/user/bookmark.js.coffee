@@ -20,8 +20,8 @@ Nali.View.extend UserBookmark:
     @Router.changeUrl 'user/auth/' + @Cookie.get 'token'
 
   onHide: ->
-    @Application.setTitle 'Настройки'
-    @Router.changeUrl 'user/settings'
+    @Application.setTitle 'Аккаунт'
+    @Router.changeUrl 'user/account'
 
   notHide: ( event ) ->
     event.stopPropagation()
