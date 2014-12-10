@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
   end
 
   after_save do
-    client and client[ :user ].reload
+    if my_client = client
+      my_client[ :user ].reload
+      my_client.call_method( :activateSearch, self ) if self.search > 0 and self.who_changed?
+    end
   end
 
   before_destroy do

@@ -53,12 +53,6 @@ Nali.Model.extend User:
           when one.contact.color > two.contact.color         then  1
           else 0
 
-  onUpdateHow: ->
-    @deactivateSearch()
-
-  onUpdateWho: ->
-    @deactivateSearch()
-
   toggleColor: ->
     if @viewColor().visible then @hideColor() else @showColor()
 
@@ -91,7 +85,7 @@ Nali.Model.extend User:
       @query 'users.to_email', email: email, =>
         @hideEmail()
         @Notice.info 'Кнопка автологина отправлена на ' + email
-    else @Notice.info 'Введите правильный e-mail'
+    else @Notice.warning 'Введите правильный e-mail'
 
   delete: ->
     @destroy => @logout()
