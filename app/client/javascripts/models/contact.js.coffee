@@ -21,7 +21,7 @@ Nali.Model.extend Contact:
       format:  'number'
 
   onDestroy: ->
-    @Notice.info "#{ @user.name } больше не хочет общаться с Вами, диалог удален" unless @destroyInitiator
+    @Notice.info "#{ @contact.name } больше не хочет общаться с Вами, диалог удален" unless @destroyInitiator
     @redirect 'user' if @active
 
   fresh: ( params ) ->
