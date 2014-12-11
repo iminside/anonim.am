@@ -27,10 +27,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    @user.my_clients do |client|
-      client.call_method :logout, @user
-      client.reset
-    end
+    @user.my_clients_logout { |client| client.reset }
     @user.offline
   end
 
