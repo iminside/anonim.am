@@ -29,8 +29,9 @@ class User < ActiveRecord::Base
   end
 
   before_destroy do
-    self.contacts.each { |contact| contact.dialog.destroy }
+    my_clients_logout
     remove_avatar_image
+    self.contacts.each { |contact| contact.dialog.destroy }
   end
 
   def replace_avatar( avatar )
@@ -52,6 +53,13 @@ class User < ActiveRecord::Base
       end
     end
     list
+  end
+
+  def my_clients_logout
+    my_clients do |client|
+      client.call_method :logout, self
+      yield( client ) if block_given?
+    end
   end
 
   def offline
