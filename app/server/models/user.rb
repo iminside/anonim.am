@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
   end
 
   after_save do
-    if my_client = client
-      my_client[ :user ].reload
-      my_client.call_method( :activateSearch, self ) if self.search > 0 and self.who_changed?
+    my_clients do |client|
+      client[ :user ].reload
+      client.call_method( :activateSearch, self ) if self.search > 0 and self.who_changed?
     end
   end
 
@@ -43,15 +43,19 @@ class User < ActiveRecord::Base
     update avatar: nil
   end
 
-  def client
-    clients.each { |client| return client if client[ :user ] and client[ :user ].id == self.id }
-    nil
+  def my_clients
+    list = []
+    clients.each do |client|
+      if client[ :user ] and client[ :user ] == self
+        list << client
+        yield( client ) if block_given?
+      end
+    end
+    list
   end
 
-  def logout
-    count = 0
-    clients.each { |client| count += 1 if client[ :user ] and client[ :user ].id == self.id }
-    if count == 0
+  def offline
+    if my_clients.length == 0
       self.contacts.where( active: true ).each { |contact| contact.update( active: false ) }
       self.update online: false
       self.sync
