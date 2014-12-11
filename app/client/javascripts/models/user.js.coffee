@@ -87,9 +87,6 @@ Nali.Model.extend User:
         @Notice.info 'Кнопка автологина отправлена на ' + email
     else @Notice.warning 'Введите правильный e-mail'
 
-  delete: ->
-    @destroy => @logout()
-
   logout: ->
     @Cookie.remove 'token'
     @Application.user = null
