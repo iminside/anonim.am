@@ -10,7 +10,7 @@ class Contact < ActiveRecord::Base
   validates :counter,    numericality: { only_integer: true }
 
   after_destroy do
-    self.user.client and self.user.client[ :user ].contacts.reload
+    self.user.my_clients { |client| client[ :user ].contacts.reload }
   end
 
   def access_level( client )

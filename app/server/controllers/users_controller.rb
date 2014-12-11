@@ -27,8 +27,11 @@ class UsersController < ApplicationController
   end
 
   def logout
-    client.reset
-    @user.logout
+    @user.my_clients do |client|
+      client.call_method :logout, @user
+      client.reset
+    end
+    @user.offline
   end
 
   def delete_avatar
@@ -67,7 +70,7 @@ class UsersController < ApplicationController
           contacts << @user.contacts.create( dialog: dialog, contact: anon )
           contacts << anon.contacts.create( dialog: dialog, contact: @user )
           contacts.each do |contact|
-            contact.user.client.call_method :fresh, contact
+            contact.user.my_clients{ |client| client.call_method :fresh, contact }
             contact.user.update search: ( contact.user.search - 1 )
             contact.user.sync
           end

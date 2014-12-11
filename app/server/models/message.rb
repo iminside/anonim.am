@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
   def sync_opponent
     self.dialog.contacts.each do |contact|
       if contact.user != self.user
-        if client = contact.user.client
+        contact.user.my_clients do |client|
           client.sync self
           client.notice :newmsg
         end
