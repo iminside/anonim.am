@@ -91,7 +91,6 @@ Nali.Model.extend User:
     @destroy => @logout()
 
   logout: ->
-    @query 'users.logout'
     @Cookie.remove 'token'
     @Application.user = null
     @redirect 'home'
