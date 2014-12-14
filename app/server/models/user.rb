@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
   end
 
   before_destroy do
-    my_clients_logout
     remove_avatar_image
+    my_clients { |client| client.call_method( :logout, self )[].delete( :user ) }
     self.contacts.each { |contact| contact.dialog.destroy }
   end
 
@@ -45,21 +45,9 @@ class User < ActiveRecord::Base
   end
 
   def my_clients
-    list = []
-    clients.each do |client|
-      if client[ :user ] and client[ :user ] == self
-        list << client
-        yield( client ) if block_given?
-      end
-    end
-    list
-  end
-
-  def my_clients_logout
-    my_clients do |client|
-      client.call_method :logout, self
-      yield( client ) if block_given?
-    end
+    clients
+      .select { |client| client[ :user ] and client[ :user ] == self }
+      .each { |client| yield( client ) if block_given? }
   end
 
   def offline
