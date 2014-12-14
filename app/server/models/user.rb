@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   before_destroy do
     remove_avatar_image
-    my_clients { |client| client.call_method( :logout, self )[].delete( :user ) }
+    my_clients { |client| client.call_method( :logout, self ).reset }
     self.contacts.each { |contact| contact.dialog.destroy }
   end
 

@@ -28,10 +28,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    client.all_tabs do |tab|
-      tab.call_method :logout, @user
-      tab.reset
-    end
+    client.all_tabs { |tab| tab.call_method( :logout, @user ).reset }
     @user.offline
   end
 
