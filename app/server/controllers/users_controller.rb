@@ -15,11 +15,12 @@ class UsersController < ApplicationController
   end
 
   def auth
-    if @user = User.find_by_token( params[ :token ] )
+    if !client[ :user ] and @user = User.find_by_token( params[ :token ] )
       @user.update online: true
       client[ :user ] = @user
       @user.sync client
       trigger_success @user.id
+      client.other_tabs { |tab| tab.app_run( :auth, @user.token ) unless tab[ :user ] }
       search
     else
       trigger_failure
@@ -27,7 +28,10 @@ class UsersController < ApplicationController
   end
 
   def logout
-    @user.my_clients_logout { |client| client.reset }
+    client.all_tabs do |tab|
+      tab.call_method :logout, @user
+      tab.reset
+    end
     @user.offline
   end
 
