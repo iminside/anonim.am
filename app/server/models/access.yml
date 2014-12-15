@@ -29,10 +29,8 @@ Dialog:
 
 Message:
   create:
-    autor:   [ dialog_id, user_id, text ]
   read:
-    contact: [ dialog_id, user, text, messagephotos ]
-    autor:   [ +contact ]
+    contact: [ dialog_id, user_id, text, messagephotos ]
   update:
   destroy:
 
@@ -41,7 +39,7 @@ Photo:
   create:
   read:
     owner:   [ user_id, secret ]
-    contact: [ user_id, secret ]
+    contact: [ +owner ]
   update:
   destroy:
     owner:
