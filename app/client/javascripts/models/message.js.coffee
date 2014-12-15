@@ -16,9 +16,7 @@ Nali.Model.extend Message:
       presence: true
       length:   in: [ 1..1000 ]
 
-  createMessage: ->
-    @Message.create @copy @attributes
-    @update text: null, false
-
-  beforeSave: ->
+  createMessage: ( { photosId } ) ->
     @text = @text.toString().trim().replace( /[\r|\n]+/g, '\n' ).replace /\ +/g, ' ' if @text
+    @query 'messages.create', dialog_id: @dialog_id, text: @text, photos_id: ( photosId or [] )
+    @update text: null, false

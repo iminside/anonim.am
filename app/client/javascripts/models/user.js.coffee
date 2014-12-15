@@ -102,7 +102,7 @@ Nali.Model.extend User:
       return @Notice.info 'Выберите фотографии для отправки'
     if @selectedPhotos.length > 10
       return @Notice.info 'Можно отправлять не более 10-ти фотографий сразу'
-    dialog.sendPhotos @selectedPhotos.pluck 'id'
+    dialog.message.createMessage photosId: @selectedPhotos.pluck 'id'
     @hidePhotos()
 
   deleteSelectedPhotos: ->
