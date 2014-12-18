@@ -53,9 +53,6 @@ Nali.Model.extend User:
           when one.contact.color > two.contact.color         then  1
           else 0
 
-  toggleColor: ->
-    if @viewColor().visible then @hideColor() else @showColor()
-
   toggleSearch: ->
     if @search then @deactivateSearch() else @activateSearch()
 

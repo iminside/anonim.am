@@ -10,7 +10,7 @@ Nali.View.extend UserColor:
     @element.addClass 'show'
     @_( 'a.colors' ).addClass 'button_hover'
     @_( document ).on 'click.colors', ( event ) =>
-      @hide() unless @_( event.target ).closest( 'a.colors, div.UserColor' ).length
+      @hide() unless @_( event.target ).closest( 'div.UserColor' ).length
 
   onHide: ->
     @element.removeClass 'show'
