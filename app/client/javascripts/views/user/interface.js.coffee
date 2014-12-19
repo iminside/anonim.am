@@ -11,8 +11,9 @@ Nali.View.extend UserInterface:
 
   onHide: ->
     @element.find( '.contactsWrapper' ).getNiceScroll().remove()
+    @changeFavicon 'black'
 
-  changeFavicon: ->
+  changeFavicon: ( color = @my.color ) ->
     @_( '#favicon' ).replaceWith(
-      '<link id="favicon" rel="shortcut icon" href="/images/favicons/' + @my.color + '.ico" type="image/x-icon">'
+      '<link id="favicon" rel="shortcut icon" href="/images/favicons/' + color + '.ico" type="image/x-icon">'
     )
