@@ -27,9 +27,11 @@ Nali.Model.extend User:
     how:
       default:   1
       inclusion: [ 1..3 ]
+      format:    'number'
     sound:
       default:   0
       inclusion: [ 0..25 ]
+      format:    'number'
     avatar:      null
 
   cloning: ->
