@@ -1,9 +1,5 @@
 Nali.View.extend UserInterface:
 
-  helpers:
-    search: ->
-      if @getMy 'search' then 'button_active' else ''
-
   onShow: ->
     @element.find( '.contactsWrapper' ).niceScroll railalign: 'left'
     @subscribeTo @my, 'update.color', @changeFavicon
