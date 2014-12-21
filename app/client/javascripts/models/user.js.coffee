@@ -18,6 +18,7 @@ Nali.Model.extend User:
     search:
       default:   0
       inclusion: [ 0..3 ]
+      format:    'number'
     online:
       default:   false
       format:    'boolean'
