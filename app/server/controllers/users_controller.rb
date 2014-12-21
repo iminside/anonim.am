@@ -56,25 +56,27 @@ class UsersController < ApplicationController
 
   def search
     if @user.search > 0
-      ( ignor = [] ) << @user.id
-      @user.contacts.each { |contact| ignor << contact.contact_id }
-      clients.each do |client|
-        anon = client[ :user ]
-        if anon and anon.search > 0 and ignor.exclude?( anon.id ) and
-          ( anon.who == 'all' or anon.who == @user.gender ) and
-          ( @user.who == 'all' or @user.who == anon.gender )
-          dialog   = Dialog.create
-          contacts = []
-          contacts << @user.contacts.create( dialog: dialog, contact: anon )
-          contacts << anon.contacts.create( dialog: dialog, contact: @user )
-          contacts.each do |contact|
-            contact.user.my_clients{ |client| client.call_method :fresh, contact }
-            contact.user.update search: ( contact.user.search - 1 )
-            contact.user.sync
-          end
-          break
+
+      found = clients.map{ |client| client[ :user ] }.compact.select do |anonim|
+        anonim != @user                                       and
+        anonim.search > 0                                     and
+        @user.contacts_users.exclude?( anonim )               and
+        ( anonim.who == 'all' or anonim.who == @user.gender ) and
+        ( @user.who == 'all' or @user.who == anonim.gender )
+      end
+
+      found.first( @user.search ).each do |anonim|
+        dialog   = Dialog.create
+        contacts = []
+        contacts << @user.contacts.create( dialog: dialog, contact: anonim )
+        contacts << anonim.contacts.create( dialog: dialog, contact: @user )
+        contacts.each do |contact|
+          contact.user.my_clients{ |client| client.call_method :fresh, contact }
+          contact.user.update search: ( contact.user.search - 1 )
+          contact.user.sync
         end
       end
+
     end
   end
 
