@@ -3,11 +3,11 @@ Nali.View.extend UserSettings:
   layout: -> @my.viewInterface()
 
   onShow: ->
-    @_( 'a.settings' ).addClass 'button_hover'
+    @_( 'a.settings' ).addClass 'button_active'
     @yield.niceScroll railoffset: left: 14
 
   onHide: ->
-    @_( 'a.settings' ).removeClass 'button_hover'
+    @_( 'a.settings' ).removeClass 'button_active'
     @yield.getNiceScroll().remove()
 
   activeTab: ( selector ) ->

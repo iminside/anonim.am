@@ -14,12 +14,12 @@ Nali.View.extend UserPhotos:
       else 'Нажмите на фото, чтобы отметить его'
 
   onShow: ->
-    @_( 'a.photos' ).addClass 'button_hover'
+    @_( 'a.photos' ).addClass 'button_active'
     @photosBox ?= @element.find '.previews'
     @photosBox.niceScroll cursorborder: '1px #333 solid'
 
   onHide: ->
-    @_( 'a.photos' ).removeClass 'button_hover'
+    @_( 'a.photos' ).removeClass 'button_active'
     @cancelIsClose = false
     @selectModeOff()
     @avatarModeOff()

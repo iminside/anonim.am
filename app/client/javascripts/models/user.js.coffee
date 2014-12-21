@@ -69,13 +69,13 @@ Nali.Model.extend User:
     if @_( '.contacts' ).hasClass 'show_contacts' then @hideDialogs() else @showDialogs()
 
   showDialogs: ->
-    @_( '.toolbar a.dialogs' ).addClass 'button_hover'
+    @_( '.toolbar a.dialogs' ).addClass 'button_active'
     @_( '.contacts' ).addClass 'show_contacts'
     @_( document ).on 'click.dialogs', ( event ) =>
       @hideDialogs() unless @_( event.target ).closest( 'a.dialogs, div.contacts' ).length
 
   hideDialogs: ->
-    @_( '.toolbar a.dialogs' ).removeClass 'button_hover'
+    @_( '.toolbar a.dialogs' ).removeClass 'button_active'
     @_( '.contacts' ).removeClass 'show_contacts'
     @_( document ).off 'click.dialogs'
 

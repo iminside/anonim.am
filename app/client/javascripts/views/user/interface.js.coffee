@@ -2,7 +2,7 @@ Nali.View.extend UserInterface:
 
   helpers:
     search: ->
-      if @getMy 'search' then 'button_hover' else ''
+      if @getMy 'search' then 'button_active' else ''
 
   onShow: ->
     @element.find( '.contactsWrapper' ).niceScroll railalign: 'left'
