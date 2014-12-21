@@ -38,7 +38,20 @@
         &:hover
           color: white
 
-      .button_active
+        .counter
+          display: none
+
+      .search
+        position: relative
+
+        .counter
+          display: initial
+          position: absolute
+          top: .5rem
+          left: .85rem
+          font: .9rem Arial, sans-serif
+
+      .search, .button_active
         color: white
         text-shadow: 0 0 3px white
 
@@ -162,7 +175,7 @@
       .button:hover
         background: $dark
 
-      .button_active
+      .search, .button_active
         background:  $dark
 
   .accept
