@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     self.name  ||= self.gender == 'man' ? 'Аноним' : 'Анонимка'
   end
 
-  after_save do
+  after_update do
     my_clients do |client|
       client[ :user ].reload
       client.call_method( :activateSearch, self ) if self.search > 0 and self.who_changed?
