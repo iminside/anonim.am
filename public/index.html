@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link id="favicon" rel="shortcut icon" href="images/favicons/black.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/client/application-f2e670ed49c013085713b1618e66eec6.css">
+    <link rel="stylesheet" href="/client/application-9cdf8ec24e5042bc160f9636e8b1b24e.css">
 
     <script type="text/template" id="user_search">
       <p>Кого искать</p>
@@ -874,16 +874,14 @@
       </div>
     </script>
     <script type="text/template" id="contact_index">
-      <div class="ContactIndex">
-        <a class="{ =online }" href="@@toDialog">
-          <span class="face">{ face of @contact }</span>
-          <span class="name">{ @contact.name }</span>
-          <span class="last { @counter? }">
-            <i>{ @counter }</i>
-            <i>&times;</i>
-          </span>
-        </a>
-      </div>
+      <a class="{ =online }" href="/dialog/{ @dialog_id }">
+        <span class="face">{ face of @contact }</span>
+        <span class="name">{ @contact.name }</span>
+        <span class="last { @counter? }">
+          <i>{ @counter }</i>
+          <i>&times;</i>
+        </span>
+      </a>
     </script>
     <script type="text/template" id="notice_error">
       { @message }
@@ -933,7 +931,7 @@
         <img src="/images/dialog/pencil.gif" alt="" />
       </div>
     </script>
-    <script src="/client/application-07dfbd245d8b9aa9d0169b7c924af1a7.js"></script>
+    <script src="/client/application-da73fdc686523fb6564d86680d3f1351.js"></script>
   </head>
   <body>
   </body>
