@@ -22,8 +22,5 @@ Nali.Model.extend Dialog:
   writes: ->
     @viewIndex().showWrites()
 
-  sendPhotos: ( photosId ) ->
-    @query 'dialogs.send_photos', dialog_id: @id, photos_id: photosId
-
   loadHistory: ->
     @Message.select history: dialog_id: @id, offset: @messages.length
