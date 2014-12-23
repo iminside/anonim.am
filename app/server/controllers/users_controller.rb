@@ -66,11 +66,11 @@ class UsersController < ApplicationController
       end
 
       found.first( @user.search ).each do |anonim|
-        dialog   = Dialog.create
-        contacts = []
-        contacts << @user.contacts.create( dialog: dialog, contact: anonim )
-        contacts << anonim.contacts.create( dialog: dialog, contact: @user )
-        contacts.each do |contact|
+        dialog = Dialog.create
+        [
+          @user.contacts.create( dialog: dialog, contact: anonim ),
+          anonim.contacts.create( dialog: dialog, contact: @user )
+        ].each do |contact|
           contact.user.my_clients{ |client| client.call_method :fresh, contact }
           contact.user.update search: ( contact.user.search - 1 )
           contact.user.sync
