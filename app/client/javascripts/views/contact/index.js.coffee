@@ -4,7 +4,7 @@ Nali.View.extend ContactIndex:
 
   helpers:
     online: ->
-      if @getOf @my.contact, 'online' then @getOf( @my.contact, 'color' ) + '_contact' else ''
+      if @getOf @my.contact, 'online' then @getOf @my.contact, 'color' else ''
 
   deleteDialog: ( event ) ->
     @my.showDelete()
