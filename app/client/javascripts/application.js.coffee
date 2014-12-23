@@ -20,7 +20,7 @@ Nali.Application.expand(
         @Cookie.set 'token', token, live: 5000
         @redirect url
       =>
-        @redirect 'home'
+        @redirect url
 
 ).run
   domEngine: jQuery

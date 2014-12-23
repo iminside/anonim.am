@@ -22,7 +22,7 @@ Nali.Controller.extend Users:
     account: ->
 
     'auth/:token': ->
-      if @params.token?
+      if not @Application.user? and @params.token?
         @Application.auth @params.token, 'user'
         @stop()
       else @redirect 'home'
