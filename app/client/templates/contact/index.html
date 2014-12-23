@@ -1,10 +1,8 @@
-<div class="ContactIndex">
-  <a class="{ =online }" href="@@toDialog">
-    <span class="face">{ face of @contact }</span>
-    <span class="name">{ @contact.name }</span>
-    <span class="last { @counter? }">
-      <i>{ @counter }</i>
-      <i>&times;</i>
-    </span>
-  </a>
-</div>
+<a class="{ =online }" href="/dialog/{ @dialog_id }">
+  <span class="face">{ face of @contact }</span>
+  <span class="name">{ @contact.name }</span>
+  <span class="last { @counter? }">
+    <i>{ @counter }</i>
+    <i>&times;</i>
+  </span>
+</a>

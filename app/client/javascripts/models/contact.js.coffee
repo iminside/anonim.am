@@ -26,11 +26,7 @@ Nali.Model.extend Contact:
 
   fresh: ( params ) ->
     @Notice.info 'Вам подобран новый собеседник'
-    @toDialog()
-
-  toDialog: ->
     @redirect 'dialog/' + @dialog_id
-    @
 
   activate: ->
     @upgrade active: true, counter: 0
