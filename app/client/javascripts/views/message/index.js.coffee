@@ -9,7 +9,7 @@ Nali.View.extend MessageIndex:
       text = '<p>'
       if @my.text?
         message = "#{ @my.text }".replace( /&/g, '&amp;' ).replace( /"/g, '&quot;' )
-          .replace( /'/g, '&#039;' ).replace( /</g, '&lt;'   ).replace( />/g, '&gt;'   )
+          .replace( /'/g, '&#039;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' )
         for sym in message
           code = sym.charCodeAt(0)
           if code in [ 58881..58978 ] then text += '<i>' + sym + '</i> '

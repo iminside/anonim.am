@@ -1,12 +1,12 @@
 Nali.View.extend UserInterface:
 
   onShow: ->
-    @element.find( '.contactsWrapper' ).niceScroll railalign: 'left'
+    ( @contactsBox ?= @element.find '.contactsWrapper' ).niceScroll railalign: 'left'
     @subscribeTo @my, 'update.color', @changeFavicon
     @changeFavicon()
 
   onHide: ->
-    @element.find( '.contactsWrapper' ).getNiceScroll().remove()
+    @contactsBox.getNiceScroll().remove()
     @changeFavicon 'black'
 
   changeFavicon: ( color = @my.color ) ->
