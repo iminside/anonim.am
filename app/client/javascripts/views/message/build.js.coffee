@@ -9,34 +9,35 @@ Nali.View.extend MessageBuild:
   ]
 
   onShow: ->
-    @form      = @element.find 'form'
-    @textarea  = @form.find '.message textarea'
-    @emoticons = @element.find '.emoticons_list'
+    @form      ?= @element.find 'form'
+    @textarea  ?= @form.find '.message textarea'
+    @emoticons ?= @element.find '.emoticons_list'
     @textarea.autosize()
 
   onHide: ->
-    @emoticons.getNiceScroll()?.remove()
-    delete @textarea
-    delete @emoticons
-    delete @form
+    @hideEmoticons()
 
   formSubmit: ( event ) ->
     @lastWriteTime = 0
-    @hideEmoticons() if @emoticons.hasClass 'emoticons_show'
+    @hideEmoticons()
     @textarea.trigger 'autosize.resize'
 
   toggleEmoticons: ( event ) ->
-    if @emoticons.hasClass 'emoticons_show' then @hideEmoticons() else @showEmoticons()
+    @hideEmoticons() or @showEmoticons()
 
   showEmoticons: ->
-    @emoticons.addClass 'emoticons_show'
-    setTimeout ( => @emoticons.niceScroll() ), 200
-    @
+    unless @emoticons.hasClass 'emoticons_show'
+      @emoticons.addClass 'emoticons_show'
+      setTimeout ( => @emoticons.niceScroll() ), 200
+      true
+    else false
 
   hideEmoticons: ->
-    @emoticons.removeClass 'emoticons_show'
-    @emoticons.getNiceScroll().remove()
-    @
+    if @emoticons.hasClass 'emoticons_show'
+      @emoticons.removeClass 'emoticons_show'
+      @emoticons.getNiceScroll().remove()
+      true
+    else false
 
   pasteEmoticon: ( event ) ->
     emoticon = String.fromCharCode 58880 + parseInt event.target.className.replace 'emoticon-', ''
