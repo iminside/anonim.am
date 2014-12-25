@@ -1,9 +1,3 @@
-jQuery.fn.focusToEnd = ->
-  @each ->
-    value = $( @ ).val()
-    $( @ ).focus().val('').val value
-
-
 jQuery.fn.insertAtCaret = ( myValue ) ->
   @each (i) ->
     if document.selection
