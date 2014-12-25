@@ -6,7 +6,7 @@ Nali.Model.extend Dialog:
     index: ->
       @loadHistory() unless @messages.length
       @messages.order by: 'created'
-      @message = @Message.new dialog_id: @id, user_id: @Application.user.id
+      @message ?= @Message.new dialog_id: @id, user_id: @Application.user.id
       @Application.activeDialog = @
       @contact().activate().viewIndex().activeModeOn()
 
