@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
 
   def upload_photo
     photo = @user.photos.create secret: image_secret
-    photo.sync client
+    @user.my_clients { |client| client.sync photo }
     trigger_success
   end
 
