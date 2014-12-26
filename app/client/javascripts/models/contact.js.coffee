@@ -30,11 +30,13 @@ Nali.Model.extend Contact:
 
   activate: ->
     @upgrade active: true, counter: 0
+    @viewIndex().activeModeOn()
     @user.hideDialogs()
     @
 
   deactivate: ->
     @upgrade active: false
+    @viewIndex().activeModeOff()
     @
 
   delete: ->

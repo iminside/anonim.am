@@ -8,12 +8,12 @@ Nali.Model.extend Dialog:
       @messages.order by: 'created'
       @message ?= @Message.new dialog_id: @id, user_id: @Application.user.id
       @Application.activeDialog = @
-      @contact().activate().viewIndex().activeModeOn()
+      @contact().activate()
 
   afterHide:
     index: ->
       @Application.activeDialog = null
-      @contact()?.deactivate().viewIndex().activeModeOff()
+      @contact()?.deactivate()
 
   contact: ->
     return contact for contact in @contacts when contact.user is @Application.user
