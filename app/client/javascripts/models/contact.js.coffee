@@ -40,7 +40,6 @@ Nali.Model.extend Contact:
     @
 
   delete: ->
-    @destroyInitiator         = true
-    @contact.destroyInitiator = true
+    @destroyInitiator = true
     @dialog.destroy()
     @hideDelete()
