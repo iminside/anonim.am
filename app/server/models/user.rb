@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :contacts,       inverse_of: :user
   has_many :contacts_users, through: :contacts, source: :contact
   has_many :photos,         inverse_of: :user,  dependent: :destroy
-  has_many :dialogs,        through: :contacts
+  has_many :dialogs,        through: :contacts, dependent: :destroy
 
   validates :name,   length: { in: 3..30 }
   validates :gender, inclusion: { in: %w(man woman) }
@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
   before_destroy do
     remove_avatar_image
     my_clients { |client| client.call_method( :logout, self ).reset }
-    self.dialogs.each { |dialog| dialog.destroy }
   end
 
   def replace_avatar( avatar )
