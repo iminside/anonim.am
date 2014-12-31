@@ -17,7 +17,6 @@ Nali.View.extend UserIndex:
 
   onShow: ->
     @_( 'a.face' ).addClass 'button_active'
-    @my.activateSearch() if @my.contacts.length is 0
 
   onHide: ->
     @_( 'a.face' ).removeClass 'button_active'
