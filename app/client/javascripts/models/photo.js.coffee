@@ -10,8 +10,8 @@ Nali.Model.extend Photo:
     secret:
       length:  is: 32
 
-  uploadPhoto: ( image, progressCallback ) ->
-    @query 'photos.upload_photo', image: image, progressCallback
+  uploadPhoto: ( image, success ) ->
+    @query 'photos.upload_photo', image: image, success
     @
 
   uploadAvatar: ( image, success ) ->
