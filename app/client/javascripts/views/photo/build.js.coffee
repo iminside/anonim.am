@@ -81,7 +81,7 @@ Nali.View.extend PhotoBuild:
   uploadStart: ->
     @uploadedCount = 0
     @element.addClass 'uploading'
-    @my.uploadPhoto( image, => @uploadProgress() ) for image in @prepared
+    @query( 'photos.upload_photo', image: image, => @uploadProgress() ) for image in @prepared
     @
 
   uploadProgress: ->

@@ -10,14 +10,6 @@ Nali.Model.extend Photo:
     secret:
       length:  is: 32
 
-  uploadPhoto: ( image, success ) ->
-    @query 'photos.upload_photo', image: image, success
-    @
-
-  uploadAvatar: ( image, success ) ->
-    @query 'photos.upload_avatar', image: image, success
-    @
-
   url: ( width, height, limit = true ) ->
     [ m, w, h ] = if limit then [ 'limit',        Math.floor( width ), Math.floor( height ) ]
     else                        [ 'fill,g_faces', Math.ceil( width ),  Math.ceil( height )  ]

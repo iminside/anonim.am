@@ -25,6 +25,6 @@ Nali.View.extend PhotoAvatar:
     canvas.height     = 64
     context           = canvas.getContext '2d'
     context.drawImage @photo[0], @coord.x, @coord.y, @coord.w, @coord.h, 0, 0, 64, 64
-    @my.uploadAvatar canvas.toDataURL( 'image/jpeg' ), =>
+    @query 'photos.upload_avatar', image: canvas.toDataURL( 'image/jpeg' ), =>
       @hide()
       @Notice.info 'Аватар сохранен'
