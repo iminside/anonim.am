@@ -12,11 +12,8 @@ Nali.View.extend UserIndex:
         'show_search_' + if @getMy 'search' then 'on' else 'off'
 
     ending: ->
-      count = @my.contacts.length + ''
-      end = parseInt count[ count.length - 1 ]
-      if end in [ 2..4 ] then 'а'
-      else if end > 4 then 'ов'
-      else ''
+      c = @my.contacts.length
+      [ 'ов', '', 'а', 'а', 'а' ][ if ( c % 100 > 4 and c % 100 < 20) then 0 else if c % 10 < 5 then c % 10 else 0 ]
 
   onShow: ->
     @_( 'a.face' ).addClass 'button_active'
