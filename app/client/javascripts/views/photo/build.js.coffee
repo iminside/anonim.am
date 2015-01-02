@@ -10,8 +10,7 @@ Nali.View.extend PhotoBuild:
   ]
 
   onShow: ->
-    @prepareIndicator   = @element.find '.prepareBar .progress'
-    @uploadingIndicator = @element.find '.uploadingBar .progress'
+    @progressIndicator  = @element.find '.progressBar .progress'
     @dropBox            = @element.find '.dropBox'
     @selectField        = @element.find 'input[type=file]'
 
@@ -68,12 +67,12 @@ Nali.View.extend PhotoBuild:
   prepareProgress: ( dataUrl ) ->
     @prepared.push dataUrl
     width = ( @prepared.length ) / @prepareCount * 100 + '%'
-    @prepareIndicator[0].style.width = width
+    @progressIndicator[0].style.width = width
     @prepareEnd() if @prepared.length is @prepareCount
     @
 
   prepareEnd: ->
-    @prepareIndicator[0].style.width = '0%'
+    @progressIndicator[0].style.width = '0%'
     @element.removeClass 'preparing'
     @uploadStart()
     @
@@ -87,13 +86,13 @@ Nali.View.extend PhotoBuild:
   uploadProgress: ->
     @uploadedCount += 1
     width = ( @uploadedCount ) / @prepared.length * 100 + '%'
-    @uploadingIndicator[0].style.width = width
+    @progressIndicator[0].style.width = width
     @uploadEnd() if @prepared.length is @uploadedCount
 
   uploadEnd: ->
     @prepared = []
     @uploadedCount = 0
-    @uploadingIndicator[0].style.width = '0%'
+    @progressIndicator[0].style.width = '0%'
     @element.removeClass 'uploading'
 
   getNewSize: ( width, height ) ->

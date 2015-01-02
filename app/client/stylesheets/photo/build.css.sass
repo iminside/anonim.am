@@ -38,18 +38,18 @@
       &:nth-child(2)
         display: block
 
-  .prepareBar, .uploadingBar
+  .progressBar
     display: none
     vertical-align: middle
     position: relative
     .event
+      display: none
       line-height: 2.5rem
       position: absolute
       height: 100%
       width: 100%
       left: 0
       top: 0
-
     .progress
       height: 100%
       width: 0%
@@ -60,14 +60,18 @@
     display: none
 
 
-.uploading
+.PhotoBuild.uploading, .PhotoBuild.preparing
   .dropBox
     display: none
-  .uploadingBar
+  .progressBar
     display: table-cell
 
-.preparing
-  .dropBox
-    display: none
-  .prepareBar
-    display: table-cell
+.PhotoBuild.uploading
+  .progressBar
+    .event:nth-child(3)
+      display: initial
+
+.PhotoBuild.preparing
+  .progressBar
+    .event:nth-child(2)
+      display: initial
