@@ -64,8 +64,7 @@ Nali.View.extend PhotoBuild:
       reader.readAsDataURL image
     @
 
-  prepareProgress: ( dataUrl ) ->
-    @prepared.push dataUrl
+  prepareProgress: ->
     width = ( @prepared.length ) / @prepareCount * 100 + '%'
     @progressIndicator[0].style.width = width
     @prepareEnd() if @prepared.length is @prepareCount
@@ -112,5 +111,6 @@ Nali.View.extend PhotoBuild:
       canvas.height     = height
       context           = canvas.getContext '2d'
       context.drawImage img, 0, 0, width, height
-      @prepareProgress canvas.toDataURL 'image/jpeg'
+      @prepared.push canvas.toDataURL 'image/jpeg'
+      @prepareProgress()
     image.src = dataUrl
