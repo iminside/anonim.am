@@ -1,15 +1,15 @@
 Nali.View.extend PhotoPreview:
 
-  events: 'openOrMode on click'
+  events: 'onClick on click'
 
   onShow: ->
     @preview ?= @element.find '.preview'
     @preview.css backgroundImage: 'url(' + @my.url( @element.width(), @element.height(), false ) + ')'
 
-  openOrMode: ( event ) ->
+  onClick: ( event ) ->
     event.stopPropagation()
     if @selectMode
-      @element.toggleClass 'unselected'
+      @element.toggleClass 'select_mode'
       @my.toggleSelected()
     else if @avatarMode
       @my.user.viewPhotos().avatarModeOff()
@@ -20,19 +20,19 @@ Nali.View.extend PhotoPreview:
   selectModeOn: ->
     if @visible
       @selectMode = true
-      @element.addClass 'unselected'
+      @element.addClass 'select_mode'
 
   selectModeOff: ->
     if @visible
       @selectMode = false
-      @element.removeClass 'unselected'
+      @element.removeClass 'select_mode'
 
   avatarModeOn: ->
     if @visible
       @avatarMode = true
-      @element.addClass 'forAvatar'
+      @element.addClass 'avatar_mode'
 
   avatarModeOff: ->
     if @visible
       @avatarMode = false
-      @element.removeClass 'forAvatar'
+      @element.removeClass 'avatar_mode'

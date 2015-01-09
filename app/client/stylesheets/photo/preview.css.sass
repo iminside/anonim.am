@@ -17,8 +17,17 @@
     position: relative
     overflow: hidden
 
-    .avatarMask
-      display: none
+.PhotoPreview.select_mode
+  opacity: .25
+  +transition( opacity .1s )
+  &:hover
+    opacity: .65
+
+.PhotoPreview.avatar_mode
+  .preview
+    &:before
+      content: ''
+      display: block
       border-radius: 50%
       width: 100%
       padding-top: 100%
@@ -27,16 +36,6 @@
       top: -5rem
       position: absolute
       +transition( border-color .1s )
-      &:hover
+    &:hover
+      &:before
         border: 5rem rgba(0, 0, 0, 0.60) solid
-
-.PhotoPreview.unselected
-  opacity: .25
-  +transition( opacity .1s )
-  &:hover
-    opacity: .65
-
-.PhotoPreview.forAvatar
-  .preview
-    .avatarMask
-      display: block
