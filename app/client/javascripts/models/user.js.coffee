@@ -35,9 +35,6 @@ Nali.Model.extend User:
       format:    'number'
     avatar:      null
 
-  cloning: ->
-    @getter 'avatarPath',  -> 'http://res.cloudinary.com/isite-im/image/upload/' + @avatar + '.jpg'
-
   beforeShow:
     photos: ->
       @photo = @Photo.new user_id: @id
