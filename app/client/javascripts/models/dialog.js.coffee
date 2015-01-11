@@ -1,6 +1,6 @@
 Nali.Model.extend Dialog:
 
-  hasMany: [ 'contacts', 'messages' ]
+  hasMany: 'messages'
 
   beforeShow:
     index: ->
@@ -16,7 +16,7 @@ Nali.Model.extend Dialog:
       @contact()?.deactivate()
 
   contact: ->
-    return contact for contact in @contacts when contact.user is @Application.user
+    return contact for contact in @Application.user.contacts when contact.dialog_id is @id
     null
 
   writes: ->
