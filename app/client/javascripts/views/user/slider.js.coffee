@@ -25,9 +25,7 @@ Nali.View.extend UserSlider:
     @
 
   showSlide: ->
-    @slide.html( '' ).append(
-      @_ '<img src="' + @current.url( @slideW, @slideH ) + '" alt="" />'
-    )
+    @slide.html '<img src="' + @current.url( @slideW, @slideH ) + '" alt="" />'
 
   next: ( event ) ->
     event.stopPropagation()
