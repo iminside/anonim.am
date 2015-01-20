@@ -43,8 +43,8 @@ class UsersController < ApplicationController
       email_body = ERB.new( File.read( 'app/server/templates/email.html.erb' ) ).result binding
       Mail.deliver do
         to      email
-        from    'Сервис анонимного общения <robot@isite.im>'
-        subject 'Кнопка автологина ( iSite.im )'
+        from    'Сервис анонимного общения <robot@anonim.am>'
+        subject 'Кнопка автологина ( anonim.am )'
         html_part do
           content_type 'text/html; charset=UTF-8'
           body email_body

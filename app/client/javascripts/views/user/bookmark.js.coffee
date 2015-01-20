@@ -16,7 +16,7 @@ Nali.View.extend UserBookmark:
         else                        'Ctrl + D'
 
   onShow: ->
-    @Application.setTitle 'iSite.im'
+    @Application.setTitle 'anonim.am'
     @Router.changeUrl 'user/auth/' + @Cookie.get 'token'
 
   onHide: ->
