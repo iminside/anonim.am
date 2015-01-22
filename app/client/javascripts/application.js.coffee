@@ -22,6 +22,9 @@ Nali.Application.expand(
       =>
         @redirect url
 
+  setOnline: ( @online ) ->
+    @trigger 'update.online'
+
 ).run
   domEngine: jQuery
   title:     'Сервис анонимного общения'
