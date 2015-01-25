@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.belongs_to :dialog
       t.belongs_to :user
-      t.string     :text
+      t.text       :text
       
       t.timestamps
 
