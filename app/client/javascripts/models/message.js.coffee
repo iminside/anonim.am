@@ -14,6 +14,7 @@ Nali.Model.extend Message:
       format:   'number'
     text:
       length:   in: [ 1..1000 ]
+      notice:   info: 'Длина сообщения должна быть не более 1000 символов'
 
   createMessage: ( { photosId } ) ->
     @text = @text.toString().trim().replace( /[\r|\n]+/g, '\n' ).replace /\ +/g, ' ' if @text
