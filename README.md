@@ -10,6 +10,10 @@
 
 `bundle install`
 
+запустите миграции базы данных
+
+`bundle exec rake db:migrate`
+
 и запустите веб-сервер командой
 
 `bundle exec thin start`
