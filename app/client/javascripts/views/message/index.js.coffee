@@ -6,23 +6,27 @@ Nali.View.extend MessageIndex:
       if @my.user is @Application.user then 'Я' else @getOf @my.user, 'name'
 
     text: ->
-      text = '<p>'
-      if @my.text?
-        message = "#{ @my.text }".replace( /&/g, '&amp;' ).replace( /"/g, '&quot;' )
-          .replace( /'/g, '&#039;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' )
-        for sym in message
-          code = sym.charCodeAt(0)
-          if code in [ 58881..58978 ] then text += '<i>' + sym + '</i> '
-          else if code is 10          then text += '<br />'
-          else                             text += sym
-      text + '</p>'
+      @_text ?= @_prepareText()
 
   onShow: ->
-    @resizingPhotos()
-    @subscribeTo @my.messagephotos, 'update.length', @resizingPhotos
+    @_resizingPhotos()
+    @subscribeTo @my.messagephotos, 'update.length', @_resizingPhotos
     @my.dialog.viewIndex().scrollTo @
 
-  resizingPhotos: ->
+  _prepareText: ->
+    text = @my.text
+    for entity, regexp of { '&amp;': /&/g, '&quot;': /"/g, '&#039;': /'/g, '&lt;': /</g, '&gt;': />/g }
+      text = text.replace regexp, entity
+    text = text.replace /((https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, '<a href="$1" target="_blank">$1</a>'
+    html = '<p>'
+    for sym in text
+      code = sym.charCodeAt(0)
+      if code in [ 58881..58978 ] then html += '<i>' + sym + '</i> '
+      else if code is 10          then html += '<br />'
+      else                             html += sym
+    html + '</p>'
+
+  _resizingPhotos: ->
     if count = @my.messagephotos.length
       matrix     = []
       lines      = Math.round Math.sqrt count
