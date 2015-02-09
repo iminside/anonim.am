@@ -14,7 +14,7 @@ Nali.View.extend MessageIndex:
     @my.dialog.viewIndex().scrollTo @
 
   _prepareText: ->
-    text = @my.text
+    text = @my.text or ''
     for entity, regexp of { '&amp;': /&/g, '&quot;': /"/g, '&#039;': /'/g, '&lt;': /</g, '&gt;': />/g }
       text = text.replace regexp, entity
     text = text.replace /((https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, '<a href="$1" target="_blank">$1</a>'
