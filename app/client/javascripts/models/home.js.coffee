@@ -1,4 +1,14 @@
 Nali.Model.extend Home:
+  attributes:
+    color:
+      default: null
+      presence: true
+      inclusion: ['red', 'orange', 'yellow', 'green', 'azure', 'blue', 'violet']
+
+    gender:
+      default: null
+      presence: true
+      inclusion: ['man', 'woman']
 
   onUpdateGender: ->
     if @color? and @gender?
